@@ -10,6 +10,6 @@ int main()
 		game.mainmenu();
 
 	}
-	cout<<"hi"<<endl;
+	cout<<"h.sdkughvuiqerhgoiuaerhgi;uawrfi"<<endl;
 
 }
