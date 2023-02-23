@@ -1,4 +1,5 @@
 #include"character.h"
+#include"game.h"
 character::character()
 {
 	name = { "" };
