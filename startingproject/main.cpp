@@ -8,6 +8,6 @@ int main()
 	while (game.getplaying()==true)
 	{
 		game.mainmenu();
-		cout << "hello cunt" << endl;
+		cout << "hell daniel o cunt" << endl;
 	}
 }
