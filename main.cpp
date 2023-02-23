@@ -8,5 +8,8 @@ int main()
 	while (game.getplaying()==true)
 	{
 		game.mainmenu();
+
 	}
+	cout<<"hi"<<endl;
+
 }
