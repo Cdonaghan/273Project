@@ -10,6 +10,6 @@ int main()
 		game.mainmenu();
 
 	}
-	cout<<"hi"<<endl;
+	cout<<"hi danireilgqur3foqw4fo	4fel yo"<<endl; // test for github
 
 }
