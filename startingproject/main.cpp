@@ -9,5 +9,7 @@ int main()
 	{
 		game.mainmenu();
 		cout << "hell daniel o cunt" << endl;
+
+		//santi is a pleb
 	}
 }
