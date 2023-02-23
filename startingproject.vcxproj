@@ -127,11 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\startingproject\startingproject\character.cpp" />
+    <ClCompile Include="..\startingproject\startingproject\game.cpp" />
+    <ClCompile Include="..\startingproject\startingproject\main.cpp" />
     <ClCompile Include="character.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\startingproject\startingproject\character.h" />
+    <ClInclude Include="..\startingproject\startingproject\game.h" />
     <ClInclude Include="character.h" />
     <ClInclude Include="game.h" />
   </ItemGroup>

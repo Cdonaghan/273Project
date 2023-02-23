@@ -10,6 +10,5 @@ int main()
 		game.mainmenu();
 
 	}
-	cout<<"had.slvjbkvbVBUbvi"<<endl;
 
 }
