@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
 	Game game;
+	game.initgame();
 	while (game.getplaying()==true)
 	{
 		game.mainmenu();
