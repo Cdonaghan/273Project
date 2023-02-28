@@ -9,7 +9,7 @@ int main()
 	while (game.getplaying()==true)
 	{
 		game.mainmenu();
-		cout << "hell daniel o cunt" << endl;
+		cout << "hello and welcome" << endl;
 
 		//santi is a pleb
 	}

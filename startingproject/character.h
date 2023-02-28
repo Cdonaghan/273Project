@@ -9,13 +9,13 @@ public:
 	virtual ~character();
 	string getname() const;
 	void setname(string x);
-	int level();
-	double gethealth();
-	void sethealth();
-	void tostring();
-	double maxhealth() const;
-	int inchealth(int health, int x);
-	int dechealth(int health, int x);
+	//int level();
+//	double gethealth();
+	//void sethealth();
+	//void tostring();
+	//double maxhealth() const;
+	//int inchealth(int health, int x);
+	//int dechealth(int health, int x);
 private:
 	string name;
 	int level;

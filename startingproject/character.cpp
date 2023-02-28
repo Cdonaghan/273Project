@@ -21,7 +21,10 @@ void character::setname(string x)
 {
 	x = name;
 }
-int character::level()
+/*int character::level()
 {
 	return level;
-}
+}*/
+
+
+
