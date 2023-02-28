@@ -63,11 +63,17 @@ bool Game::getplaying() const
 {
 	return playing;
 }
-/*void Game::playerdies() const
+bool Game::playerdies(character x) 
 {
-	if(this->health<=0)
+	if (x.gethealth() <= 0)
 	{
-		playing = false;
-so in main put function in a loop to see if the cunt dies or not
+		cout << "dead";
+		playing = false;	
+		return true
+	}
+	else
+	{
+		return false;
+	}
+	return false;
 }
-*/
