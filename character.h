@@ -1,27 +1,52 @@
 #pragma once
+#include"game.h"
+#include"enemy.h"
 #include<string>
 #include<iostream>
+#include<math.h>
+#include<random>
 using namespace std;
 class character
 {
+	//do we need getters and setter if we initilize health ect.
 public:
 	character();
-	virtual ~character();
-	string getname() const;
+	~character();
+	void tostring();//user can access player information
+
+	string getname();
 	void setname(string x);
-	int level();
+
+	int getlevel();
+	void setlevel(int x);
+	double getexp();
+	void setexp(double x);
+	void incexp(int x);
+	void levelup();
+
 	double gethealth();
-	void sethealth();
-	void tostring();
-	double maxhealth() const;
-	int inchealth(int health, int x);
-	int dechealth(int health, int x);
-private:
+	void sethealth(double x);
+	void healingpot();
+	double maxihealth();
+
+	//battle methods
+	void attackenemy(enemy &x,double b);
+	//void attack(int x);
+	void parry();
+	//different enemies inherit but alter inside chance decreases
+	void explosion();
+	void attackspelll();
+protected:
 	string name;
 	int level;
-	int exp;
+	double exp;
+	double expnext;
 	double health;
 	double maxhealth;
-	int xpos;
-	int ypos;
+	double sworddamage;
+	double explosionspell;
+	double attackspell;
+	double healingpotion;
+	double deflect;
 };
+

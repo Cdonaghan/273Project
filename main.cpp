@@ -5,6 +5,7 @@
 using namespace std;
 int main()
 {
+	enemy bad;
 	Game game;
 	character user;
 
