@@ -7,6 +7,7 @@ character::character()
 	this->name = { "" };
 	this->level = 1;
 	this->exp = 1;
+
 	//algorithm to level up and so that exp increases per level up
 	this->expnext = pow(level, 3) + 1;
 	this->health = 200;
@@ -67,6 +68,7 @@ void character::tostring()
 	cout << "Experience points: " << this->exp << endl;
 	cout << "Experience points needed for next level up: " << this->expnext << endl;
 	cout << "Health: " << this->health << endl;
+	cout << "Sword damage: " << this->sworddamage << endl;
 }
 
 void character::levelup()
@@ -77,8 +79,8 @@ void character::levelup()
 	{
 		this->exp -= this->expnext;
 		level++;
-		expnext = pow(level, 3) +1;//for level 1 to show how levelling works to the audience
-
+		expnext = pow(level, 3) +1;
+		//for level 1 to show how levelling works to the audience
 	}
 }
 
@@ -97,17 +99,13 @@ double character:: maxihealth()
 {
 	return maxhealth;
 }
-void character::attackenemy(enemy &x,double b)
+void character::decreasehealth(double x)
 {
-	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= deflect)// update even or odd
-	{
+	this->health -= x;
+}
+void character::attackenemy(enemy x,double b)
+{
 		x.health -= b;
-	}
-	else
-	{
-		cout << "Enemy blocked your attack" << endl;
-	}
 }
 //***BRIEF***
 //attack functions
@@ -130,8 +128,10 @@ void character::attackenemy(enemy &x,double b)
 */
 
 //function to parry,, enemies attack
+
 void character::parry()
 {
+	enemy s;
 	character c;
 	int chance = rand() % (100 - 1 + 1) + 1;
 	if (chance <= this->deflect)//update even odd idea for big boss
@@ -141,6 +141,8 @@ void character::parry()
 	else
 	{
 
+		attackcharacter(c, case);
+		c.gethealth = -s.attackcharacter;
 		//recognise what enemy attack it is,, taken from health
 		//attackcharacter(character &c,'input function to parry')
 		//attack(sworddamage,, wait till created enemy class)

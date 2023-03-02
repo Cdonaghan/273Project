@@ -28,11 +28,12 @@ public:
 	void sethealth(double x);
 	void healingpot();
 	double maxihealth();
+	void decreasehealth(double x);
 
 	//battle methods
 	void attackenemy(enemy &x,double b);
 	//void attack(int x);
-	void parry();
+	void parry(enemy x);
 	//different enemies inherit but alter inside chance decreases
 	void explosion();
 	void attackspelll();
