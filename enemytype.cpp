@@ -49,6 +49,7 @@ void troll::clubattack()
 	attackcharacter(s, this->club_attack);
 }
 
+//------------------------------------------------------------------
 
 mutant::mutant()
 {
@@ -74,6 +75,7 @@ void mutant::acid()
 	attackcharacter(s, this->acidattack);
 }
 
+//-------------------------------------------------------------------------
 
 dragon::dragon()
 {
