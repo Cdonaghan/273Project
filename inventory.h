@@ -1,7 +1,7 @@
 
 
 #pragma once
-/* include "character.h"
+#include "character.h"
 class inventory : public character
 {
 
@@ -18,7 +18,7 @@ class inventory : public character
 
 
 
- /* public:
+  public:
 //constructor
 inventory();
 //destructor
@@ -62,5 +62,5 @@ private:
 
 
 
-}; */
+}; 
 
