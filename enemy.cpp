@@ -1,14 +1,11 @@
 #include "enemy.h"
+#include"character.h"
 enemy::enemy() 
 {
 	this->name = { "" };
-	this->deflect = {};
-	this->bow_attack = 20;
-	this->dagger_attack = 5;
-	this->sword_attack = 10;
-	this->health = {};
-	this->maxhealth={};
-
+	this->deflect = { 0 };
+	this->health = { 0 };
+	this->maxhealth = { 0 };
 }
 enemy::~enemy()
 {
@@ -21,12 +18,16 @@ void enemy::setname(string x)
 }
 void enemy::attackcharacter(character &x, double b)
 {
-		x.health -= b;
+
+	//this->character::decreasehealth(b);
+	x.decreasehealth(b);
+	
 }
 void enemy::tostring()
 {
 	cout << "enemy name: " << this->name << endl;
 	cout << "enemy health: " << this->health << endl;
+	cout << "enemy level: " << this->level << endl;
 }
 //different per enemy therfore needs to be altered,, health too
 //probs no need to add function as it will be inherited

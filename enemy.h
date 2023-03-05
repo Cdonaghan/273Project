@@ -11,31 +11,12 @@ public:
 	void tostring();
 	double getdeflect();
 	void setdeflect(double x);
+	//void setenemyhealth(double x);
+
+
 	//enemy and boss attacks
-	void attackcharacter(character& x, double b);
-
-	//seperate classes with set vales
-	//void bowattack();
-	//void daggerattack();
-	//void swordattack();
-
-	//dragon attacks
-	//double fireattack();
-	//double tailattack();
-	//add more or less
-	//add more enemy spells apart from inherited ones
-private:
-	//string enemyname;
-	//double enemyhealth;
-	double bow_attack;
-	double dagger_attack;
-	double sword_attack;
-	//double fire_attack;
-	//double tail_attack;
-
-
-
-
-
-
+	void attackcharacter(character &x, double b);
+protected:
+	double enemyhealth;
+	
 };
