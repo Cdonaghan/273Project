@@ -18,7 +18,7 @@ void Game::mainmenu()
 	string name;
 	character s;
 	cout << "273 project: text based rpg game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
-	cout << "\t\t\t\t\t\tNIGGERS IN PARIS" << endl;
+	cout << "\t\t\t\t\t\tRise of the warrior" << endl;
 	cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
 	cout << "\t\t\t\t\t\t0: Exit" << endl;
 	cout << "\t\t\t\t\t\t1: Start Game" << endl;
