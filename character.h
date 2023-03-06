@@ -33,10 +33,22 @@ public:
 	//battle methods
 	void attackenemy(enemy &x,double b);
 	//void attack(int x);
-	void parry(enemy x);
+	void parry(enemy &x, character c);
 	//different enemies inherit but alter inside chance decreases
 	void explosion();
 	void attackspelll();
+//weapons
+
+void getWeapon();
+void setWeapon(string x);
+
+//potions
+
+void getPotion();
+void setPotion(string x);
+
+
+
 protected:
 	string name;
 	int level;
@@ -49,5 +61,23 @@ protected:
 	double attackspell;
 	double healingpotion;
 	double deflect;
-};
+	string sword = {"Sword"};
+	string bow = {"Bow"};
+	string wand = {"Wand"}; 
+	string potion = {"Potion"}; 
+	string Weapon;
+	
+	};
+
+/*
+BRIEF
+will need to implement functions to set weapon user wants to equip
+so ive built getters and setters and made string types to hold the name 
+user command to set weapon could be based on "equip sword" and setter will be called 
+this also helps for the inventory when creating a copy constructor.
+*/
+
+
+
+
 

@@ -103,7 +103,7 @@ void character::decreasehealth(double x)
 {
 	this->health -= x;
 }
-void character::attackenemy(enemy x,double b)
+void character::attackenemy(enemy &x,double b)
 {
 		x.health -= b;
 }
@@ -129,10 +129,10 @@ void character::attackenemy(enemy x,double b)
 
 //function to parry,, enemies attack
 
-void character::parry()
+void character::parry(enemy &s, character c )
 {
-	enemy s;
-	character c;
+	
+
 	int chance = rand() % (100 - 1 + 1) + 1;
 	if (chance <= this->deflect)//update even odd idea for big boss
 	{

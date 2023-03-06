@@ -2,6 +2,11 @@
 
 #pragma once
 #include "character.h"
+#include "chest.h"
+#include <vector>
+using namespace std;
+
+
 class inventory : public character
 {
 
@@ -37,9 +42,9 @@ void addPotion();
 void setPotion();
 
 //getter and setter for random scrolls
-void addscroll();
-void setScroll();
-
+//void addscroll();
+//void setScroll();
+//probably dont need to store scrolls 
 
 
 //notes for equip function
@@ -49,12 +54,21 @@ void setScroll();
 //get character stats and display whenever the command is called for inventory
 
 
+//vector to store weapons
+vector < shared_ptr<character>> setWeapon;
+
+//vector to store potions 
+vector < shared_ptr<character>> setPotion;
+
+
+
+
 
 private:
 
 //space for items
 //weapons section
-//scrolls (storyline pieces)
+
 //potions
  
  int  slotSpace; //subject to change
@@ -63,4 +77,6 @@ private:
 
 
 }; 
+
+
 

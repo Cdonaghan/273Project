@@ -1,5 +1,5 @@
 #include "inventory.h"
-
+/*
 //constructor
 inventory::inventory(){}
 
@@ -7,11 +7,11 @@ inventory::inventory(){}
 inventory::~inventory(){}
 
 
-/*BRIEF:
+BRIEF:
 getter and setter functions
 subject to change 
 will discuss further aboput usefulness and if more efficient functions 
-can be called for beter use   */
+can be called for beter use
 
 //getter and setter for weapon
 void inventory::addWeapon(){}
@@ -28,3 +28,4 @@ void inventory::addscroll(){}
 
 void inventory::setWeapon(){}
 
+*/
