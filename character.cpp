@@ -7,7 +7,6 @@ character::character()
 	this->name = { "" };
 	this->level = 1;
 	this->exp = 1;
-
 	//algorithm to level up and so that exp increases per level up
 	this->expnext = pow(level, 3) + 1;
 	this->health = 200;
@@ -23,7 +22,6 @@ character::~character()
 {
 
 }
-
 //getter and setter for name
 string character::getname()
 {
@@ -33,7 +31,6 @@ void character::setname(string x)
 {
 	name=x;
 }
-
 //getter and setter for exp
 double character::getexp()
 {
@@ -43,13 +40,11 @@ void character::setexp(double x)
 {
 	x=exp;
 }
-
 //function to increase exp
 void character::incexp(int x)
 {
 	exp += x;
 }
-
 //getter and setter for level
 int character::getlevel()
 {
@@ -59,7 +54,6 @@ void character::setlevel(int x)
 {
 	level=x;
 }
-
 //function to display stats. will be called when command is given
 void character::tostring()
 {
@@ -69,8 +63,10 @@ void character::tostring()
 	cout << "Experience points needed for next level up: " << this->expnext << endl;
 	cout << "Health: " << this->health << endl;
 	cout << "Sword damage: " << this->sworddamage << endl;
+	cout << "Explosion spell: " << this->explosionspell << endl;
+	cout << "Attack spell: " << this->attackspell << endl;
+	cout << "Healing potion heals character" << this->healingpotion << " per potion" << endl;
 }
-
 void character::levelup()
 //if loop to see throughout game if exp>expnext
 //for next level up once level inc

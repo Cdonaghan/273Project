@@ -10,7 +10,7 @@ public:
 	void bowattack();
 	void daggerattack();
 	void swordattack();
-private:
+protected:
 	double bow_attack;
 	double dagger_attack;
 	double sword_attack; //only big goblins use sword
