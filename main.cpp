@@ -1,13 +1,19 @@
-#include"game.h"
+
 #include<iostream>
 #include<string>
+#include"game.h"
 using namespace std;
 int main()
 {
+	enemy bad;
 	Game game;
-	while (game.getplaying()==true)
+	character user;
+
+	while (((game.getplaying()==true)  && (game.playerdies(user)==false)))
 	{
 		game.mainmenu();
-		cout << "hello cunt" << endl;
+		//start going through story
+
 	}
+
 }

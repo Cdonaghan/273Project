@@ -12,6 +12,7 @@ public:
 	virtual ~Game();
 	void mainmenu();
 	bool getplaying() const;
+	bool playerdies (character x);
 
 private:
 	int choice;
