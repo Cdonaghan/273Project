@@ -8,7 +8,7 @@ public:
 	enemy();
 	~enemy();
 	void setname(string x);
-	void tostring();
+	void enemytostring();
 	double getdeflect();
 	void setdeflect(double x);
 	//void setenemyhealth(double x);

@@ -18,12 +18,9 @@ void enemy::setname(string x)
 }
 void enemy::attackcharacter(character &x, double b)
 {
-
-	//this->character::decreasehealth(b);
-	x.decreasehealth(b);
-	
+	x.decreasehealth(b);	
 }
-void enemy::tostring()
+void enemy::enemytostring()
 {
 	cout << "enemy name: " << this->name << endl;
 	cout << "enemy health: " << this->health << endl;
@@ -40,23 +37,4 @@ void enemy::setdeflect(double x)
 {
 	deflect = x;
 }
-/*double enemy::gethealth()
-{
-	return health;
-}
-void enemy::sethealth(double x)
-{
-	x = health;
-}
 
-//max health param
-double enemy::maxihealth()
-{
-	return maxhealth;
-}
-*/
-/*void enemy::bowattack()
-{
-	this->health -= bow_attack;
-
-}*/

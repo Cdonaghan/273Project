@@ -107,28 +107,6 @@ void character::attackenemy(enemy &x,double b)
 {
 		x.health -= b;
 }
-//***BRIEF***
-//attack functions
-//universal form of attack 
-//enemy::character attack(double x) kinda what we would use to call that through in enemy case
-/*void character::attack(int x)
-{
-	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= deflect)// update even or odd
-	{
-		this->health -= x;
-	}
-	else
-	{
-		cout << "Enemy blocked your attack" << endl;
-	}
-
-
-}
-*/
-
-//function to parry,, enemies attack
-
 void character::parry(enemy &s, character c )
 {
 	
@@ -140,8 +118,6 @@ void character::parry(enemy &s, character c )
 	}
 	else
 	{
-
-		attackcharacter(c, case);
 		c.gethealth = -s.attackcharacter;
 		//recognise what enemy attack it is,, taken from health
 		//attackcharacter(character &c,'input function to parry')
@@ -179,3 +155,20 @@ void character::attackspelll()
 		}
 	}
 }
+void character::getWeapon()
+{
+	return this->Weapon;
+}
+void character::setWeapon(string x)
+{
+	x = weapon;
+}
+void character::getPotion()
+{
+	return this->potion;
+}
+void character::setPotion(string x)
+{
+	x = potion;
+}
+
