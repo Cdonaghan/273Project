@@ -1,7 +1,7 @@
 #include"character.h"
 #include"game.h"
 #include "enemy.h"
-
+#include "enemytype.h"
 character::character()
 {
 	this->name = { "" };
@@ -107,9 +107,11 @@ void character::attackenemy(enemy &x,double b)
 {
 		x.health -= b;
 }
-void character::parry(enemy &s, character c )
+void character::goblinparry(goblin &s, character c,int x)
 {
-	
+	//access specific class enemy with its attacks 
+	//parry for each enemy, talked about constructor but having 
+	//seperate enemy classes is more organised and specfic
 
 	int chance = rand() % (100 - 1 + 1) + 1;
 	if (chance <= this->deflect)//update even odd idea for big boss
@@ -118,13 +120,97 @@ void character::parry(enemy &s, character c )
 	}
 	else
 	{
-		c.gethealth = -s.attackcharacter;
-		//recognise what enemy attack it is,, taken from health
-		//attackcharacter(character &c,'input function to parry')
-		//attack(sworddamage,, wait till created enemy class)
+		switch (x)
+		{
+		case 1:
+			s.bowattack;
+			break;
+		case 2:
+			s.daggerattack
+				break;
+		case 3:
+			s.swordattack;
+			break;
+		}
 	}
+
+				//c.gethealth = -s.attackcharacter;
+		//recognise what enemy attack it is,, taken from health
 }
 
+
+void character::trollparry(troll &s, character c, int x)
+{
+	//access specific class enemy with its attacks 
+	//parry for each enemy, talked about constructor but having 
+	//seperate enemy classes is more organised and specfic
+
+	int chance = rand() % (100 - 1 + 1) + 1;
+	if (chance <= this->deflect)//update even odd idea for big boss
+	{
+		cout << "deflected" << endl;
+	}
+	else
+	{
+		switch (x)
+		{
+		case 1:
+			s.clubattack;
+			break;
+		}
+
+	}
+}
+void character:: mutantparry(mutant& s, character c, int x)
+{
+	//access specific class enemy with its attacks 
+	//parry for each enemy, talked about constructor but having 
+	//seperate enemy classes is more organised and specfic
+
+	int chance = rand() % (100 - 1 + 1) + 1;
+	if (chance <= this->deflect)//update even odd idea for big boss
+	{
+		cout << "deflected" << endl;
+	}
+	else
+	{
+		switch (x)
+		{
+		case 1:
+			s.smash;
+			break;
+		case 2:
+			s.acid;
+			break;
+		}
+
+	}
+}
+void character::dragonparry(dragon& s, character c, int x)
+{
+	//access specific class enemy with its attacks 
+	//parry for each enemy, talked about constructor but having 
+	//seperate enemy classes is more organised and specfic
+
+	int chance = rand() % (100 - 1 + 1) + 1;
+	if (chance <= this->deflect)//update even odd idea for big boss
+	{
+		cout << "deflected" << endl;
+	}
+	else
+	{
+		switch (x)
+		{
+		case 1:
+			s.fireattack;
+			break;
+		case 2:
+			s.tailattack;
+			break;
+		}
+
+	}
+}
 void character::healingpot()
 {
 	health += healingpotion;
