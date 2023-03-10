@@ -103,14 +103,14 @@ void character::attackenemy(enemy &x,double b)
 {
 		x.health -= b;
 }
-void character::goblinparry(goblin &s, character c,int x)
-{
+void character::goblinparry(goblin &s, character c,int x) //for x rand functio
+{ // rand function, while loop while health<50,, change attack
 	//access specific class enemy with its attacks 
 	//parry for each enemy, talked about constructor but having 
 	//seperate enemy classes is more organised and specfic
 
 	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= this->deflect)//update even odd idea for big boss
+	if (chance <= this->deflect)//update even odd idea for big boss,, phase attack
 	{
 		cout << "deflected"<<endl;
 	}
@@ -122,7 +122,7 @@ void character::goblinparry(goblin &s, character c,int x)
 			s.bowattack;
 			break;
 		case 2:
-			s.daggerattack
+			s.daggerattack;
 				break;
 		case 3:
 			s.swordattack;
