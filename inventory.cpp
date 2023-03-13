@@ -1,19 +1,19 @@
 #include "inventory.h"
 
-//constructor
-inventory::inventory(){}
-
-//destructor
-inventory::~inventory(){}
-
-
-//called at start of game
-
-void inventory::initialise() 
-{
-    //creates references object that can be stored in array
-    this->itemArray = new character*; 
-
-    //sets number of items at start ofd game to 0
-    this->noOfItems = 0;
-}
+vector<character> items;
+    void addItem(character character) {
+        items.push_back(character);
+    }
+    void removeItem(int index) {
+        items.erase(items.begin() + index);
+    }
+    void display() {
+        if (items.empty()) {
+            cout << "Your inventory is empty.\n";
+        } else {
+            cout << "Your inventory:\n";
+            for (int i = 0; i < items.size(); i++) {
+                cout << i + 1 << ". " << items[i].name << " (" << items[i].value << ")\n";
+            }
+        }
+    }
