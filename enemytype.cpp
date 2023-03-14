@@ -3,7 +3,7 @@ goblin::goblin()
 {
 	this->name = { "" };
 	this->level = 1;
-	this->health = 100;
+	this->health = 200;
 	this->bow_attack = 15;
 	this->dagger_attack = 10;
 	this->sword_attack = 25;

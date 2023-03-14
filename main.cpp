@@ -13,7 +13,8 @@ int main()
 	{
 		game.mainmenu();
 		//start going through story
-
+		
+		
 	}
 
 }
