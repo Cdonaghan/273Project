@@ -119,13 +119,13 @@ void character::goblinparry(goblin &s, character c)
 		switch (x)
 		{
 		case 1:
-			s.bowattack;
+			s.bowattack();
 			break;
 		case 2:
-			s.daggerattack;
+			s.daggerattack(); 
 				break;
 		case 3:
-			s.swordattack;
+			s.swordattack();
 			break;
 		}
 	}
@@ -151,10 +151,10 @@ void character::trollparry(troll &s, character c)
 		switch (x)
 		{
 		case 1:
-			s.clubattack;
+		 s.clubattack();
 			break;
 		default:
-			s.clubattack;
+			s.clubattack();
 			break;
 		}
 
@@ -176,10 +176,10 @@ void character:: mutantparry(mutant& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.smash;
+			s.smash();
 			break;
 		case 2:
-			s.acid;
+			s.acid();
 			break;
 		}
 
@@ -201,10 +201,10 @@ void character::dragonparry(dragon& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.fireattack;
+			s.fireattack();
 			break;
 		case 2:
-			s.tailattack;
+			s.tailattack();
 			break;
 		}
 
@@ -242,15 +242,15 @@ void character::attackspelll()
 }
 void character::getWeapon()
 {
-	return this->Weapon;
+	cout << this->Weapon << endl;
 }
 void character::setWeapon(string x)
 {
-	x = weapon;
+	x = this->Weapon;
 }
 void character::getPotion()
 {
-	return this->potion;
+	cout <<  this->potion << endl;
 }
 void character::setPotion(string x)
 {

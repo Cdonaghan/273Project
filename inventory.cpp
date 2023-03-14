@@ -1,31 +1,24 @@
-#include "inventory.h"
-/*
-//constructor
-inventory::inventory(){}
+/*#include "inventory.h"
 
-//destructor
-inventory::~inventory(){}
+vector<character> items;
+    void Inventory:: addItem(character character) {
+        items.push_back(character);
+    }
+    void Inventory::removeItem(int index) {
+        items.erase(items.begin() + index);
+    }
+    void Inventory:: display() {
+        if (items.empty()) {
+            cout << "Your inventory is empty.\n";
+        } else {
+            cout << "Your inventory:\n";
+            for (auto i : items) {
+                cout << i << ". ";
+            }
+        }
+    }*/
 
 
-BRIEF:
-getter and setter functions
-subject to change 
-will discuss further aboput usefulness and if more efficient functions 
-can be called for beter use
 
-//getter and setter for weapon
-void inventory::addWeapon(){}
 
-void inventory::setWeapon(){}
 
-//getter and setter for potions
-void inventory::addPotion(){}
-
-void inventory::setPotion(){}
-
-//getter and setter for scroll
-void inventory::addscroll(){}
-
-void inventory::setWeapon(){}
-
-*/
