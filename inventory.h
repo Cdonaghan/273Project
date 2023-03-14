@@ -32,19 +32,6 @@ inventory();
 //adding space slot to inventory (will do further research in)
 //probably some sort of (add slot constructor type function)
 
-//notes for store function
-//getter and setter for weapon
-void addWeapon();
-void setWeapon();
-
-//getter and setter for potions
-void addPotion();
-void setPotion();
-
-//getter and setter for random scrolls
-//void addscroll();
-//void setScroll();
-//probably dont need to store scrolls 
 
 
 //notes for equip function
@@ -54,15 +41,12 @@ void setPotion();
 //get character stats and display whenever the command is called for inventory
 
 
-//vector to store weapons
-vector < shared_ptr<character>> setWeapon;
-
-//vector to store potions 
-vector < shared_ptr<character>> setPotion;
+void initialise();
 
 
+void addPotion();
 
-
+void displayinventory();
 
 private:
 
@@ -73,8 +57,9 @@ private:
  
  int  slotSpace; //subject to change
  
-
-
+character** invArray;
+int invSpace;
+int noOfItems;
 
 }; 
 

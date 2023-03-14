@@ -33,7 +33,12 @@ public:
 	//battle methods
 	void attackenemy(enemy &x,double b);
 	//void attack(int x);
-	void parry(enemy &x, character c);
+	void character::mutantparry(mutant& s, character c, int x);
+    void character::trollparry(troll &s, character c, int x);
+    void character::goblinparry(goblin &s, character c,int x);
+    void character::dragonparry(dragon& s, character c, int x);
+
+
 	//different enemies inherit but alter inside chance decreases
 	void explosion();
 	void attackspelll();

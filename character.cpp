@@ -122,7 +122,7 @@ void character::goblinparry(goblin &s, character c,int x)
 			s.bowattack;
 			break;
 		case 2:
-			s.daggerattack
+			s.daggerattack; 
 				break;
 		case 3:
 			s.swordattack;
@@ -151,7 +151,7 @@ void character::trollparry(troll &s, character c, int x)
 		switch (x)
 		{
 		case 1:
-			s.clubattack;
+		 s.clubattack;
 			break;
 		}
 
@@ -239,7 +239,7 @@ void character::attackspelll()
 }
 void character::getWeapon()
 {
-	return this->Weapon;
+	cout << this->Weapon << endl;
 }
 void character::setWeapon(string x)
 {
@@ -247,7 +247,7 @@ void character::setWeapon(string x)
 }
 void character::getPotion()
 {
-	return this->potion;
+	cout <<  this->potion << endl;
 }
 void character::setPotion(string x)
 {
