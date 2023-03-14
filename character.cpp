@@ -119,17 +119,13 @@ void character::goblinparry(goblin &s, character c)
 		switch (x)
 		{
 		case 1:
-			s.bowattack;
+			s.bowattack();
 			break;
 		case 2:
-<<<<<<< HEAD
-			s.daggerattack; 
-=======
-			s.daggerattack;
->>>>>>> aa1bcd5811f14ad57fe6c03b46f4ebcba9ccaf3f
+			s.daggerattack(); 
 				break;
 		case 3:
-			s.swordattack;
+			s.swordattack();
 			break;
 		}
 	}
@@ -155,10 +151,10 @@ void character::trollparry(troll &s, character c)
 		switch (x)
 		{
 		case 1:
-		 s.clubattack;
+		 s.clubattack();
 			break;
 		default:
-			s.clubattack;
+			s.clubattack();
 			break;
 		}
 
@@ -180,10 +176,10 @@ void character:: mutantparry(mutant& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.smash;
+			s.smash();
 			break;
 		case 2:
-			s.acid;
+			s.acid();
 			break;
 		}
 
@@ -205,10 +201,10 @@ void character::dragonparry(dragon& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.fireattack;
+			s.fireattack();
 			break;
 		case 2:
-			s.tailattack;
+			s.tailattack();
 			break;
 		}
 
@@ -250,7 +246,7 @@ void character::getWeapon()
 }
 void character::setWeapon(string x)
 {
-	x = weapon;
+	x = this->Weapon;
 }
 void character::getPotion()
 {

@@ -22,13 +22,16 @@ public:
 	troll();
 	~troll();
 	void clubattack();
+	
 
 	///more attacks
 private:
 	double club_attack;
+	
 };
 class mutant : public enemy
 {
+	public:
 	//assign attacks like before
 	mutant();
 	~mutant();
@@ -42,7 +45,7 @@ private:
 class dragon : public enemy
 {//repeat
 	//dragon attacks
-
+public:
 	dragon();
 	~dragon();
 	void fireattack();

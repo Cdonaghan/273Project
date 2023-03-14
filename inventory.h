@@ -1,6 +1,7 @@
 
 
 #pragma once
+
 #include "character.h"
 #include "chest.h"
 #include <vector>
@@ -11,6 +12,9 @@ class Inventory {
 public:
     vector<character> items;
     
+void addItem(character character);
+ void removeItem(int index);
+void display();
 };
 
 
