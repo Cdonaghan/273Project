@@ -1,7 +1,8 @@
 #pragma once
-#include"character.h"
+
 #include"game.h"
-#include "enemy.h"
+#include "character.h"
+
 class enemy : public character
 {
 public:
@@ -16,7 +17,8 @@ public:
 
 	//enemy and boss attacks
 	void attackcharacter(character &x, double b);
-protected:
-	double enemyhealth;
+
+
+
 	
 };
