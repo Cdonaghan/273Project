@@ -38,3 +38,6 @@ void enemy::setdeflect(double x)
 	deflect = x;
 }
 
+
+
+

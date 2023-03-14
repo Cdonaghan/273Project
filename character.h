@@ -1,13 +1,14 @@
 #pragma once
-#include"game.h"
-#include"enemy.h"
-#include "enemytype.h"
+
+//#include "enemy.h"
+
 #include<string>
 #include<iostream>
 #include<math.h>
 #include<random>
 using namespace std;
-class character
+
+class character 
 {
 	//do we need getters and setter if we initilize health ect.
 public:
@@ -32,12 +33,9 @@ public:
 	void decreasehealth(double x);
 
 	//battle methods
-	void attackenemy(enemy &x,double b);
+	//oid attackenemy(enemy &x,double b);
 	//void attack(int x);
-	void character::mutantparry(mutant& s, character c );
-    void character::trollparry(troll &s, character c );
-    void character::goblinparry(goblin &s, character c );
-    void character::dragonparry(dragon& s, character c );
+	
 
 
 	//different enemies inherit but alter inside chance decreases
@@ -66,12 +64,12 @@ protected:
 	double explosionspell;
 	double attackspell;
 	double healingpotion;
-	double deflect;
+double deflect = 80;
 	string sword = {"Sword"};
 	string bow = {"Bow"};
 	string wand = {"Wand"}; 
 	string potion = {"Potion"}; 
-	string Weapon;
+	string Weapon; 
 	
 	};
 

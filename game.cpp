@@ -59,13 +59,13 @@ void Game::mainmenu()
 	}
 	playing = false;
 }
-bool Game::getplaying() const
+bool Game::getplaying()
 {
 	return playing;
 }
-bool Game::playerdies(character x)
+bool Game::playerdies(double x)
 {
-	if (x.gethealth() <= 0)
+	if (x  <= 0)
 	{
 		cout << "you are dead";
 		this->playing= false;
