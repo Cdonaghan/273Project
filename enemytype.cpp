@@ -10,55 +10,50 @@ goblin::goblin()
 	this->sword_attack = 25;
 	this->goblindeflect = 10; //deflect chance for goblin
 }
+
 goblin::~goblin()
 {
 
 }
-void goblin::bowattack()
+void goblin::bowattack(character& s)
 {
-	character s;
+	cout << "Goblin is using bow attack\n\n";
 	attackcharacter(s, this->bow_attack);
 }
-void goblin::daggerattack()
+void goblin::daggerattack(character& s)
 {
-	character s;
+	cout << "Goblin is using dagger attack\n\n";
 	attackcharacter(s, this->dagger_attack);
 }
-void goblin::swordattack()
+void goblin::swordattack(character& s)
 {
-	character s;
+	cout << "Goblin is using sword attack\n\n";
 	attackcharacter(s, this->sword_attack);
 }
 
-void goblin::goblinparry(goblin &s, character c) 
-{ // rand function, while loop while health<50,, change attack
-	//access specific class enemy with its attacks 
-	//parry for each enemy, talked about constructor but having 
-	//seperate enemy classes is more organised and specfic
+void goblin::goblinparry(goblin& s, character& c)
+{
 	int x = rand() % (3 - 1 + 1) + 1;
 	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= this->goblindeflect)//update even odd idea for big boss,, phase attack
+	if (chance <= this->goblindeflect)
 	{
-		cout << "deflected"<<endl;
+		cout << "\t\t\t\t\you deflected the goblins attack" << endl;
 	}
 	else
 	{
 		switch (x)
 		{
 		case 1:
-			s.bowattack();
+			s.bowattack(c);
 			break;
 		case 2:
-			s.daggerattack(); 
-				break;
+			s.daggerattack(c);
+			break;
 		case 3:
-			s.swordattack();
+			s.swordattack(c);
 			break;
 		}
 	}
-
-				//c.gethealth = -s.attackcharacter;
-		//recognise what enemy attack it is,, taken from health
 }
 
 
@@ -81,14 +76,11 @@ void troll::clubattack()
 	character s;
 	attackcharacter(s, this->club_attack);
 }
-void troll::trollparry(troll &s, character c)
+void troll::trollparry(troll& s, character c)
 {
-	//access specific class enemy with its attacks 
-	//parry for each enemy, talked about constructor but having 
-	//seperate enemy classes is more organised and specfic
 	int x = rand() % (3 - 1 + 1) + 1;// create more troll attacks
 	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= this->trolldeflect)//update even odd idea for big boss
+	if (chance <= this->trolldeflect)
 	{
 		cout << "deflected" << endl;
 	}
@@ -97,7 +89,7 @@ void troll::trollparry(troll &s, character c)
 		switch (x)
 		{
 		case 1:
-		 s.clubattack();
+			s.clubattack();
 			break;
 		default:
 			s.clubattack();
@@ -133,14 +125,11 @@ void mutant::acid()
 	attackcharacter(s, this->acidattack);
 }
 
-void mutant:: mutantparry(mutant& s, character c)
+void mutant::mutantparry(mutant& s, character c)
 {
-	//access specific class enemy with its attacks 
-	//parry for each enemy, talked about constructor but having 
-	//seperate enemy classes is more organised and specfic
 	int x = rand() % 2 + 1;
 	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= this->mutantdeflect)//update even odd idea for big boss
+	if (chance <= this->mutantdeflect)
 	{
 		cout << "deflected" << endl;
 	}
@@ -188,12 +177,9 @@ void dragon::tailattack()
 
 void dragon::dragonparry(dragon& s, character c)
 {
-	//access specific class enemy with its attacks 
-	//parry for each enemy, talked about constructor but having 
-	//seperate enemy classes is more organised and specfic
 	int x = rand() % 2 + 1;
 	int chance = rand() % (100 - 1 + 1) + 1;
-	if (chance <= this->dragondeflect)//update even odd idea for big boss
+	if (chance <= this->dragondeflect)
 	{
 		cout << "deflected" << endl;
 	}
@@ -208,7 +194,6 @@ void dragon::dragonparry(dragon& s, character c)
 			s.tailattack();
 			break;
 		}
-
 	}
 }
 

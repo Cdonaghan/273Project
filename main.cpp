@@ -10,12 +10,12 @@ int main()
 	Game game;
 	character user;
 
-	while (((game.getplaying()==true)  && (game.playerdies(user.gethealth())==false)))
+	while (((game.getplaying() == true) && (game.playerdies(user.gethealth()) == false)))
 	{
 		game.mainmenu();
 		//start going through story
-		
-		
+		//test combat
+		game.firstencounter();
 	}
 
 }

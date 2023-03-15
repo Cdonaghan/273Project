@@ -3,45 +3,47 @@
 #include "character.h"
 class goblin : public enemy
 {
-	//attact attributes
-	//health ect
 public:
 	goblin();
 	~goblin();
-	void bowattack();
-	void daggerattack();
-	void swordattack();
-	 void goblinparry(goblin &s, character c );
+
+	//assign more attacks
+	void bowattack(character& s);
+	void daggerattack(character& s);
+	void swordattack(character& s);
+	void goblinparry(goblin& s, character& c);
 protected:
 	double bow_attack;
 	double dagger_attack;
-	double sword_attack; //only big goblins use sword
+	double sword_attack;
 	double goblindeflect;
 
 };
-class troll : public enemy 
+class troll : public enemy
 {
 public:
 	troll();
 	~troll();
-	void clubattack();
-	void trollparry(troll &s, character c );
 
 	///more attacks
+	void clubattack();
+	void trollparry(troll& s, character c);
+
 protected:
 	double club_attack;
 	double trolldeflect;
-	
+
 };
 class mutant : public enemy
 {
-	public:
-	//assign attacks like before
+public:
 	mutant();
 	~mutant();
-	void smash(); // he rapes the character violently
+
+	//assign more attacks
+	void smash();
 	void acid();
-	void mutantparry(mutant& s, character c );
+	void mutantparry(mutant& s, character c);
 protected:
 	double smashattack;
 	double acidattack;
@@ -49,16 +51,16 @@ protected:
 
 };
 class dragon : public enemy
-{//repeat
-	//dragon attacks
+{
 public:
 	dragon();
 	~dragon();
+
+	//assign more attacks
 	void fireattack();
 	void tailattack();
-	void dragonparry(dragon& s, character c );
-	//add more or less
-	//add more enemy spells apart from inherited ones
+	void dragonparry(dragon& s, character c);
+
 protected:
 	double fire_attck;
 	double tail_attck;

@@ -1,8 +1,8 @@
 #include "enemy.h"
 #include"character.h"
-enemy::enemy() 
+enemy::enemy()
 {
-	this->name = { "" };
+	this->name = " ";
 	this->deflect = { 0 };
 	this->health = { 0 };
 	this->maxhealth = { 0 };
@@ -13,22 +13,22 @@ enemy::~enemy()
 }
 void enemy::setname(string x)
 {
-	this->character::setname(name);
-	x = this->name;
+	name = x;
 }
-void enemy::attackcharacter(character &x, double b)
+void enemy::attackcharacter(character& x, double b)
+//called through from enemytype 
+//dialogue needed
 {
-	x.decreasehealth(b);	
+	x.decreasehealth(b);
 }
 void enemy::enemytostring()
 {
-	cout << "enemy name: " << this->name << endl;
-	cout << "enemy health: " << this->health << endl;
-	cout << "enemy level: " << this->level << endl;
+	cout << "\t\t\t\t\t\tEnemy Name: " << this->name << endl;
+	cout << "\t\t\t\t\t\tEnemy Health: " << this->health << endl;
+	cout << "\t\t\t\t\t\tEnemy Level: " << this->level << endl;
 }
-//different per enemy therfore needs to be altered,, health too
-//probs no need to add function as it will be inherited
-//comment out for now
+//inheritance
+
 double enemy::getdeflect()
 {
 	return deflect;
