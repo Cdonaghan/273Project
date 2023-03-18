@@ -120,7 +120,7 @@ void Game::firstencounter()
 				break;
 			case 5:
 				s.goblinparry(s, e);
-				break;
+				continue;
 			default:
 				cout << "wrong input enemy gets a free attack" << endl;
 				s.daggerattack(e);
@@ -153,7 +153,7 @@ void Game::firstencounter()
 		cout << "you let ur fam die cunt" << endl;
 		break;
 	default:
-		cout << "too late u died" << endl;
+		cout << "ur family got raped unlucky LOL" << endl;
 	}
 	//Assign dialogue for attacks and stories
 
