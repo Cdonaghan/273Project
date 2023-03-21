@@ -1,6 +1,7 @@
 #include"game.h"
 #include"character.h"
 #include "enemytype.h"
+#include "inventory.h"
 #include<string>
 #include<iostream>
 using namespace std;
@@ -8,6 +9,7 @@ Game::Game()
 {
 	choice = 0;
 	playing = true;
+
 }
 Game::~Game()
 {
@@ -18,6 +20,7 @@ void Game::mainmenu()
 	string start{ " " };
 	string name;
 	character s;
+
 	cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
 	cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 	cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
@@ -41,7 +44,7 @@ void Game::mainmenu()
 
 		cout << "Here are your starting stats: \n\n";
 		s.tostring();
-		cout << "\n\n\n\ make Inventory accessor to see potions ect::::::\n\n";
+		cout << "\n\n\n make Inventory accessor to see potions ect::::::\n\n";
 		cout << "Type 'yes' to start this adventure: ";
 		cin >> start;
 		if (start == "yes")
@@ -83,6 +86,7 @@ void Game::firstencounter()
 
 	character e;
 	goblin s;
+	Inventory i; // inventory declaration
 	s.setname("Hagrid");
 	cout << "Along your travels you see a fat goblin and he wants to rape ur family" << endl;
 	cout << "What do you do?\n\n";
@@ -120,14 +124,14 @@ void Game::firstencounter()
 				break;
 			case 5:
 				s.goblinparry(s, e);
-				continue;
+				break;
 			default:
 				cout << "wrong input enemy gets a free attack" << endl;
 				s.daggerattack(e);
 				break;
 			}
 			//enemy attack
-			cout << "\n\n\t\t\t\t\NOW ITS THE ENEMIES TURN TO ATTACK\n\n";
+			cout << "\n\n\t\t\t\tNOW ITS THE ENEMIES TURN TO ATTACK\n\n";
 			int x = rand() % (3 - 1 + 1) + 1;
 			switch (x)
 			{
@@ -141,21 +145,29 @@ void Game::firstencounter()
 				s.swordattack(e);
 				break;
 			}
-			if (s.gethealth() == 0)
+			if (s.gethealth() <= 0)
 			{
 				cout << "Congradulations Warrior you have defated the goblin" << endl;
 			}
 		} while ((e.gethealth() > 0) && (s.gethealth() > 0));
-
+//issue with this and statement as above as it breaks to case 2 no matter what.
 		break;
+
 	case 2:
 
 		cout << "you let ur fam die cunt" << endl;
 		break;
 	default:
-		cout << "ur family got raped unlucky LOL" << endl;
+		cout << "too late u died" << endl;
 	}
 	//Assign dialogue for attacks and stories
+
+
+ i.addItem(i.getsword()); // might work
+
+ i.addItem(i.getPotion());
+
+  i.display();
 
 
 }

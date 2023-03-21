@@ -42,13 +42,16 @@ public:
 	void attackspelll(character& bad);
 	//weapons
 
-	void getWeapon();
-	void setWeapon(string x);
+	//void getWeapon();
+	//void setWeapon(string x);
 
 	//potions
 
-	void getPotion();
-	void setPotion(string x);
+	//string getPotion();
+	//void setPotion(string x);
+
+//string setsword(string x); 
+//void getsword();
 
 
 
@@ -64,11 +67,11 @@ protected:
 	double attackspell;
 	double healingpotion;
 	double deflect = 80;
-	string sword = { "Sword" };
+	/*string sword = { "Sword" };
 	string bow = { "Bow" };
 	string wand = { "Wand" };
 	string potion = { "Potion" };
-	string Weapon;
+	string Weapon;*/
 
 };
 

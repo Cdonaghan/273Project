@@ -1,22 +1,58 @@
-/*#include "inventory.h"
+#include "inventory.h"
+
+
+void Inventory::getWeapon()
+{
+	cout << this->Weapon << endl;
+}
+void Inventory::setWeapon(string x)
+{
+	x = this->Weapon;
+}
+string Inventory::getPotion()
+{
+	return potion;
+}
+void Inventory::setPotion(string x)
+{
+	x = potion;
+}
+
+string Inventory::getsword()
+{
+return sword;
+}
+
+void Inventory::setsword(string x)
+{
+	x = this->sword;
+	
+}
 
 vector<character> items;
-    void Inventory:: addItem(character character) {
-        items.push_back(character);
+   void Inventory::addItem(string x) {
+        items.push_back(x);
     }
     void Inventory::removeItem(int index) {
         items.erase(items.begin() + index);
     }
     void Inventory:: display() {
+       ;
         if (items.empty()) {
             cout << "Your inventory is empty.\n";
+            cout << "-1";
         } else {
-            cout << "Your inventory:\n";
-            for (auto i : items) {
-                cout << i << ". ";
+            cout << "Your inventory contains " << items.size() <<" item(s):\n" ;
+            for (auto i : items)
+            cout << i << endl;
+
+
             }
-        }
-    }*/
+        
+        cout << "idk how u ended up here lol";
+    }
+
+
 
 
 
