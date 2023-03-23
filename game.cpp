@@ -233,15 +233,22 @@ cout << "congratulations warrior you deleted the stupid goblin" << endl;
 
 while (s.gethealth() > 0)
 {
+cout << "type (inv) to view inventory, you may only use this when allowed " << endl; //not sure just preview atm
+string invChoice{ "" };
+cin >> invChoice;
+   if (invChoice == "inv")
+{
 
-i.addItem(i.getsword()); // might work
+
+  i.addItem(i.getsword()); // might work
 
  i.addItem(i.getPotion());
 
   i.display();
-break;
+   break;
+}
 } 
-//issue with loop and player dies
+
 
 }
 

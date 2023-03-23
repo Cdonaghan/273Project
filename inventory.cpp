@@ -49,7 +49,7 @@ vector<character> items;
 
             }   
         
-        cout << "idk how u ended up here lol" << endl;
+       
     }
 
 
