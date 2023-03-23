@@ -33,13 +33,14 @@ void goblin::swordattack(character& s)
 
 void goblin::goblinparry(goblin& s, character& c)
 {
+	//why he atack 2 times wen parry?
 	int x = rand() % (3 - 1 + 1) + 1;
 	int chance = rand() % (100 - 1 + 1) + 1;
 	if (chance <= this->goblindeflect)
 	{
 		cout << "\t\t\t\t\you deflected the goblins attack" << endl;
 	}
-	else
+	/*else
 	{
 		switch (x)
 		{
@@ -53,7 +54,7 @@ void goblin::goblinparry(goblin& s, character& c)
 			s.swordattack(c);
 			break;
 		}
-	}
+	}*/
 }
 
 

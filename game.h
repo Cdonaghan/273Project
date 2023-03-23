@@ -13,7 +13,9 @@ public:
 	void mainmenu();
 	bool getplaying();
 	void firstencounter();
-	bool playerdies(double x);
+	bool playerdies();
+	void inventoryIntro();
+	bool enemydied();
 
 private:
 	int choice;

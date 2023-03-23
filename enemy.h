@@ -12,7 +12,9 @@ public:
 	double getdeflect();
 	void setdeflect(double x);
 
-	//enemy and boss attacks
+   
+
+    //enemy and boss attacks
 	void attackcharacter(character& x, double b);
 protected:
 	double enemyhealth;

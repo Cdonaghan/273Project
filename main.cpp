@@ -7,17 +7,19 @@
 using namespace std;
 int main()
 {
-	enemy bad;
+	//enemy bad;
 	Game game;
-	character user;
+	//character user;
 	
 
-	while (((game.getplaying() == true) && (game.playerdies(user.gethealth()) == false)))
+	/*while (((game.getplaying() == true) && (game.playerdies(user.gethealth()) == false)))
 	{
 		game.mainmenu();
 		//start going through story
 		//test combat
 		game.firstencounter();
-	}
+	}*/
+
+	game.mainmenu();
 
 }

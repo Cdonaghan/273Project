@@ -29,8 +29,9 @@ public:
 	double gethealth();
 	void sethealth(double x);
 	void healingpot();
-	double maxihealth();
-	void decreasehealth(double x);
+    void checkhealth();
+    double maxihealth();
+    void decreasehealth(double x);
 
 	//battle methods
 	void attackenemy(character& x);

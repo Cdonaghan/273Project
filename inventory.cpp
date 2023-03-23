@@ -47,9 +47,9 @@ vector<character> items;
             cout << i << endl;
 
 
-            }
+            }   
         
-        cout << "idk how u ended up here lol";
+        cout << "idk how u ended up here lol" << endl;
     }
 
 

@@ -5,6 +5,12 @@
 #include<string>
 #include<iostream>
 using namespace std;
+
+
+
+
+
+
 Game::Game()
 {
 	choice = 0;
@@ -15,12 +21,66 @@ Game::~Game()
 {
 
 }
+
+bool Game::getplaying()
+{
+	return playing;
+}
+bool Game::enemydied()
+{
+	return true;
+}
+
+bool Game::playerdies()
+{
+	//function to call if you are dead
+	/*if (x <= 0)
+	{
+		cout << "you are dead" << endl;
+		
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+*/
+
+cout << "you are dead, you will now need to restart" << endl;
+
+
+}
+
+
+
 void Game::mainmenu()
 {
+
+
+
 	string start{ " " };
 	string name;
 	character s;
+	goblin e;
+	
+    Inventory i; // inventory declaration
 
+
+
+//while loop for conditions to run the game 
+ while (((getplaying() == true) && (playerdies() == false)))
+
+
+
+/* Brief
+
+full game runs in while loop
+if player dies while loop ends 
+
+
+*/
+
+{
 	cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
 	cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 	cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
@@ -44,7 +104,7 @@ void Game::mainmenu()
 
 		cout << "Here are your starting stats: \n\n";
 		s.tostring();
-		cout << "\n\n\n make Inventory accessor to see potions ect::::::\n\n";
+		//cout << "\n\n\n make Inventory accessor to see potions ect::::::\n\n";
 		cout << "Type 'yes' to start this adventure: ";
 		cin >> start;
 		if (start == "yes")
@@ -62,8 +122,174 @@ void Game::mainmenu()
 		break;
 	}
 	playing = false;
+
+
+s.setname("Hagrid");
+	cout << "Along your travels you see a fat goblin and he wants to rape ur family" << endl;
+	cout << "What do you do?\n\n";
+	cout << "1. Attack" << endl;
+	cout << "2. Give him your wife\n\n";
+	cout << "Select '1' or '2'\n\n";
+	cin >> choice;
+	switch (choice)
+	{
+	case 1:
+		cout << "You call him a Degenrate fuck and he squares up to u\n";
+		cout << "Enemies stats: \n\n";
+		e.setname("Hagrid");
+		e.enemytostring();
+		cout << "Here are your select battle moves \n\n";
+		do
+		{
+			
+			int ans{ 0 };
+			cout << "\n1.Sword attack\n2.Explosion attack\n3.Attack Spell\n4.Healing Potion\n5.Parry\n\n";
+			cout << " Select to choose your fate: " << "\n\n";
+			cin >> ans;
+			switch (ans)
+			{
+			case 1:
+				s.attackenemy(e);
+				break;
+			case 2:
+				s.explosion(e);
+				break;
+			case 3:
+				s.attackspelll(e);
+				break;
+			case 4:
+				s.healingpot();
+				break;
+			case 5:
+				e.goblinparry(e, s);
+				break;
+			default:
+				cout << "wrong input enemy gets a free attack" << endl;
+				e.daggerattack(s);
+				break;
+			}
+			//enemy attack
+			if (e.gethealth() <= 0)
+			{
+				enemydied();
+			} else {
+			cout << "\n\n\t\t\t\tNOW ITS THE ENEMIES TURN TO ATTACK\n\n";
+			/*if (s.gethealth() < 0){
+				s.sethealth(0); 
+			}*/
+			int x = rand() % (3 - 1 + 1) + 1;
+			switch (x)
+			{
+			case 1:
+				e.bowattack(s);
+				break;
+			case 2:
+				e.daggerattack(s);
+				break;
+			case 3:
+				e.swordattack(s);
+				break;
+			}
+			/* if (s.gethealth() <= 0)
+			{
+            
+		playerdies() == true;
+			}*/
+			}
+		} while (((e.gethealth() > 0) && (s.gethealth() > 0) ) || (enemydied() == false) );
+//issue with this and statement as above as it breaks to case 2 no matter what.
+		break;
+
+	case 2:
+
+		cout << "you let ur fam die cunt" << endl;
+	
+		break;
+
+
+		/*
+	default:
+		cout << "too late u died" << endl;
+		
+	}
+	//Assign dialogue for attacks and stories
+	*/
+
+
 }
-bool Game::getplaying()
+
+if (s.gethealth() <= 0)
+			{
+            
+		playerdies() == true;
+		break;
+			}
+
+if (e.gethealth() <= 0)
+{
+cout << "congratulations warrior you deleted the stupid goblin" << endl;
+}
+
+
+while (s.gethealth() > 0)
+{
+
+i.addItem(i.getsword()); // might work
+
+ i.addItem(i.getPotion());
+
+  i.display();
+break;
+} 
+//issue with loop and player dies
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*bool Game::getplaying()
 {
 	return playing;
 }
@@ -81,12 +307,19 @@ bool Game::playerdies(double x)
 	}
 
 }
+
+
+
+
+
+
+
 void Game::firstencounter()
 {
 
 	character e;
 	goblin s;
-	Inventory i; // inventory declaration
+	
 	s.setname("Hagrid");
 	cout << "Along your travels you see a fat goblin and he wants to rape ur family" << endl;
 	cout << "What do you do?\n\n";
@@ -156,13 +389,19 @@ void Game::firstencounter()
 	case 2:
 
 		cout << "you let ur fam die cunt" << endl;
+	this->playing = false;
 		break;
 	default:
 		cout << "too late u died" << endl;
+		
 	}
 	//Assign dialogue for attacks and stories
+}
 
 
+
+void inventoryIntro()
+{
  i.addItem(i.getsword()); // might work
 
  i.addItem(i.getPotion());
@@ -170,4 +409,5 @@ void Game::firstencounter()
   i.display();
 
 
-}
+}*/ 
+

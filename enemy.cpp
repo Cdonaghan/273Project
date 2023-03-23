@@ -40,4 +40,3 @@ void enemy::setdeflect(double x)
 
 
 
-
