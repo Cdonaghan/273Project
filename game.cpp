@@ -125,7 +125,7 @@ if player dies while loop ends
 
 
 s.setname("Hagrid");
-	cout << "Along your travels you see a fat goblin and he wants to rape ur family" << endl;
+	cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
 	cout << "What do you do?\n\n";
 	cout << "1. Attack" << endl;
 	cout << "2. Give him your wife\n\n";
@@ -134,7 +134,7 @@ s.setname("Hagrid");
 	switch (choice)
 	{
 	case 1:
-		cout << "You call him a Degenrate fuck and he squares up to u\n";
+		cout << "You challenge him and he squares up \n";
 		cout << "Enemies stats: \n\n";
 		e.setname("Hagrid");
 		e.enemytostring();
@@ -202,7 +202,7 @@ s.setname("Hagrid");
 
 	case 2:
 
-		cout << "you let ur fam die cunt" << endl;
+		cout << "you let ur fam die " << endl;
 	
 		break;
 
@@ -227,7 +227,7 @@ if (s.gethealth() <= 0)
 
 if (e.gethealth() <= 0)
 {
-cout << "congratulations warrior you deleted the stupid goblin" << endl;
+cout << "congratulations warrior you defeted the goblin" << endl;
 }
 
 
