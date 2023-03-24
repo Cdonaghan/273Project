@@ -254,6 +254,10 @@ cin >> invChoice;
 
 }
 
+//times to call inventory
+//when you pick up a new object -- prompt will tell you
+//in a fight -- case statement 
+
 
 
 
