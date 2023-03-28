@@ -47,6 +47,7 @@ bool Game::playerdies()
 */
 
 cout << "you are dead, you will now need to restart" << endl;
+return this-> dead = true; //this fixes loop issue
 
 
 }
@@ -68,7 +69,7 @@ void Game::mainmenu()
 
 
 //while loop for conditions to run the game 
- while (((getplaying() == true) && (playerdies() == false)))
+ while (((getplaying() == true) && (this->dead == false)))
 
 
 
@@ -221,7 +222,7 @@ s.setname("Hagrid");
 if (s.gethealth() <= 0)
 			{
             
-		playerdies() == true;
+		playerdies();
 		break;
 			}
 

@@ -20,4 +20,5 @@ public:
 private:
 	int choice;
 	bool playing;
+	bool dead = false;
 };
