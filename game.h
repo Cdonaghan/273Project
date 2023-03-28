@@ -1,5 +1,6 @@
 #pragma once
 #include"character.h"
+#include "inventory.h"
 #include<string>
 using namespace std;
 #include<iomanip>
@@ -10,15 +11,14 @@ class Game
 public:
 	Game();
 	virtual ~Game();
-	void mainmenu();
+	void script();
 	bool getplaying();
-	void firstencounter();
 	bool playerdies();
-	void inventoryIntro();
 	bool enemydied();
+	void displayinv(character s, Inventory i);
 
 private:
 	int choice;
-	bool playing;
+	bool playing = true;
 	bool dead = false;
 };
