@@ -303,18 +303,22 @@ void Game::script()
 			cout << "bow\n" << "sword\n" << "dagger" << endl;
 			string choice2{ "" };
 			cin >> choice2;
+			validChoice = false;
+			while (validChoice == false){
 			if (choice2 == "sword")  //insatciate name like goblin sword
 			{
 				i.addItem(i.getsword());
-
+validChoice = true;
 			}
 			else if (choice2 == "bow")
 			{
 				i.addItem(i.getbow());
+				validChoice = true;
 			}
 			else if (choice2 == "dagger")
 			{
 				i.addItem(i.getdagger());
+				validChoice = true;
 			}
 			else
 			{
@@ -324,14 +328,13 @@ void Game::script()
 				//line so the storage reference has no memory
 				cout << "wrong input" << endl;
 			}
-			// {
-			 //i.addItem(i.get)
-			 //}
-			displayinv(s, i);
+			
+			
 
-			break;
+	
 		}
-
+		}
+         displayinv(s, i);
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
 		s.sethealth(200);
 
