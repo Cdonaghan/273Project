@@ -3,7 +3,7 @@
 #pragma once
 
 #include "character.h"
-#include "chest.h"
+
 #include <list>
 using namespace std;
 

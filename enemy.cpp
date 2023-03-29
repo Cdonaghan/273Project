@@ -38,5 +38,8 @@ void enemy::setdeflect(double x)
 	deflect = x;
 }
 
-
+void enemy::enemySetHealthZero()
+{
+	this->health = 0;
+}
 

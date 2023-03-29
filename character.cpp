@@ -107,24 +107,40 @@ void character::decreasehealth(double x)
 void character::attackenemy(character& x)
 {
 	x.health -= this->sworddamage;
+	if (x.health <= 0)
+				{
+					x.health = 0;
+					//enemydied();
+				}
 	cout << "\t\t\t\t\YOU HIT HIM!!\tEnemy health is: " << x.health << endl;
 }
 //explosion spell
 void character::explosion(character& bad)
 {
 	bad.health -= this->explosionspell;
-	cout << "\t\t\t\t\ YOU HIT HIM!!\tEnemy health is: " << bad.health << endl;
 	this->health -= 15;
 	checkhealth();
 	cout << "\t\t\t\t\ EXPLOSION IS TOO POWERFUL IT HIT YOU TOO\tYour health is: " << this->health << endl;
 	//c.attackcharacter(c, this->explosionspell);
 	//s.health -= 15;
+	if (bad.health <= 0)
+				{
+					bad.health = 0;
+					//enemydied();
+				}
+		cout << "\t\t\t\t\ YOU HIT HIM!!\tEnemy health is: " << bad.health << endl;
+
 	
 }
 //attack spell
 void character::attackspelll(character& bad)
 {
 	bad.health -= this->attackspell;
+	if (bad.health <= 0)
+				{
+					bad.health = 0;
+					//enemydied();
+				}
 	cout << "\t\t\t\t\YOU HIT HIM!!\tEnemy health is: " << bad.health << endl << endl;
 }
 

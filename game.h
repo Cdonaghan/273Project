@@ -16,9 +16,11 @@ public:
 	bool playerdies();
 	bool enemydied();
 	void displayinv(character s, Inventory i);
+	
 
 private:
 	int choice;
 	bool playing = true;
 	bool dead = false;
+	bool validChoice = false;
 };

@@ -11,6 +11,7 @@ public:
 	void enemytostring();
 	double getdeflect();
 	void setdeflect(double x);
+	void enemySetHealthZero();
 
    
 

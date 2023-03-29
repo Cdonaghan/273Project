@@ -20,6 +20,6 @@ int main()
 		game.firstencounter();
 	}*/
 
-	game.mainmenu();
+	game.script();
 
 }
