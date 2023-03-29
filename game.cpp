@@ -4,6 +4,7 @@
 #include "enemytype.h"
 #include<string>
 #include<iostream>
+
 using namespace std;
 
 
@@ -75,7 +76,7 @@ void Game::script()
 
 
 	string start{ " " };
-
+    
 	character s;
 	goblin e;
 	string name;
@@ -301,14 +302,16 @@ void Game::script()
 			cout << "the goblin drops to the floor and drops all of his weapons, you have a choice to pick up one" << endl;
 			cout << "Type the name of the weapon you want to pick up?" << endl;
 			cout << "bow\n" << "sword\n" << "dagger" << endl;
-			string choice2{ "" };
-			cin >> choice2;
+			
 			validChoice = false;
+			
 			while (validChoice == false){
+				string choice2{ "" };
+			cin >> choice2;
 			if (choice2 == "sword")  //insatciate name like goblin sword
 			{
 				i.addItem(i.getsword());
-validChoice = true;
+                validChoice = true;
 			}
 			else if (choice2 == "bow")
 			{
@@ -322,17 +325,20 @@ validChoice = true;
 			}
 			else
 			{
-				(cin.fail());//checker for anything other than an integer
-				cin.clear();//clears input
+				cin.fail();//checker for anything other than an integer
+				//clears input
 				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 				//line so the storage reference has no memory
-				cout << "wrong input" << endl;
+				
+				cout << "wrong input  -- " << choice2 <<endl;
+				choice2.clear();
 			}
 			
 			
 
 	
 		}
+		break;
 		}
          displayinv(s, i);
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
