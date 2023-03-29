@@ -66,6 +66,7 @@ void Game::displayinv(character s, Inventory i)
 
 }
 
+//----------------------------------------------------------------------
 
 void Game::script()
 {
@@ -85,7 +86,6 @@ void Game::script()
 	while ((this->playing == true) && (this->dead == false))
 
 
-
 		/* Brief
 
 		full game runs in while loop
@@ -96,8 +96,9 @@ void Game::script()
      {    
 		while (this->validChoice == false){
 
-	
-		cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
+	cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
+
+		
 		cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 		cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
 		cout << "\t\t\t\t\t\t1: Exit" << endl;
@@ -106,30 +107,12 @@ void Game::script()
 		cin >> choice;
 		
 		switch (choice)
-		
 		{
 		case 1:
 		    abort();
 
 		case 2:
-			//playing = true;
-			//character creation and start game
-			cout << "Enter characters name: ";
 			
-			cin >> name;
-			s.setname(name);
-			cout << "Welcome " << name << endl;
-
-			cout << "Here are your starting stats: \n\n";
-			s.tostring();
-			//cout << "\n\n\n make Inventory accessor to see potions ect::::::\n\n";
-			cout << "\n\nFirst lets have a walkthrough of the basic combat and inventory before starting the game\n\n\n";
-			cout << "Type 'yes' to start this walkthrough : ";
-			cin >> start;
-			if (start == "yes")
-			{
-				cout << "in combat you will be faced with a series of attack and a defence option \n\n\n";
-			}
 			
 			this->validChoice = true;
 			break;
@@ -142,52 +125,46 @@ void Game::script()
 				cout<<"wrong input" <<endl;
 		        }
 		}
-		/*if (choice == 1)
-		{
-			abort();
-			//this->validChoice = true;
-			
+		
+	 } 
 
 
-		}else if (choice == 2){//playing = true;
+//---------------------------------------------------
+this->validChoice = false;
+
 			//character creation and start game
 			cout << "Enter characters name: ";
 			
 			cin >> name;
 			s.setname(name);
 			cout << "Welcome " << name << endl;
+cout << "\n\nFirst lets have a walkthrough of the basic combat and inventory before starting the game\n\n\n";
 
-			cout << "Here are your starting stats: \n\n";
-			s.tostring();
+			while (this->validChoice == false){
 			//cout << "\n\n\n make Inventory accessor to see potions ect::::::\n\n";
-			cout << "\n\nFirst lets have a walkthrough of the basic combat and inventory before starting the game\n\n\n";
+			
 			cout << "Type 'yes' to start this walkthrough : ";
 			cin >> start;
 			if (start == "yes")
-			{
-				cout << "in combat you will be faced with a series of attack and a defence option \n\n\n";
+			{this->validChoice = true;}
+			else {cout << "wrong input please type 'yes' " << endl; }
 			}
-			
-			this->validChoice = true;
-			
-
-		}else {if (cin.fail())//checker for anything other than an integer
-				{cin.clear();//clears input
-				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
-				//line so the storage reference has no memory
-				cout<<"wrong input" <<endl;
-		        }}*/
-	 } 
-
-
-
-		s.setname("Hagrid");
-		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
+//--------------------------------------------------------
+            cout << "in combat you will be faced with a series of attack and a defence option \n\n\n";
+            cout << "Here are your starting stats: \n\n";
+			s.tostring();
+       this->validChoice = false;
+	   cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
 		cout << "What do you do?\n\n";
+       while (this->validChoice == false){
+		s.setname("Hagrid");
+		
 		cout << "1. Attack" << endl;
 		cout << "2. Give him your wife\n\n";
 		cout << "Select '1' or '2'\n\n";
 		cin >> choice;
+		
+		
 		switch (choice)
 		{
 		case 1:
@@ -267,12 +244,15 @@ void Game::script()
 				
 				
 			} while (((e.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
-			
+			this->validChoice = true;
 			break;
+			
 
 		case 2:
 
-			cout << "you let ur fam die " << endl;
+			cout << "you let you and your fam die " << endl;
+			abort();
+
 
 			break;
 
@@ -288,18 +268,15 @@ void Game::script()
 				cout<<"wrong input" <<endl;
 		        }
 		}
-		
+		}
+//--------------------------------------------------------------
 		//Assign dialogue for attacks and stories
 		
-
-
-		
-
 		if (s.gethealth() <= 0)
 		{
 
 			playerdies();
-			break;
+			//break;
 		}
 
 		if (e.gethealth() <= 0)
@@ -328,6 +305,8 @@ void Game::script()
 
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n";
 		s.sethealth(200);
+
+//------------------------------------------------------------------
 
 		cout << "welcome to io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
 		cout << "You have been on a research project to investigate and manipulate the space - time continuum and ended up teleporting from Jupiter to Io " << endl;

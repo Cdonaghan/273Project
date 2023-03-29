@@ -39,22 +39,9 @@ void goblin::goblinparry(goblin& s, character& c)
 	if (chance <= this->goblindeflect)
 	{
 		cout << "\t\t\t\t\you deflected the goblins attack" << endl;
-	}
-	/*else
-	{
-		switch (x)
-		{
-		case 1:
-			s.bowattack(c);
-			break;
-		case 2:
-			s.daggerattack(c);
-			break;
-		case 3:
-			s.swordattack(c);
-			break;
-		}
-	}*/
+	} else {cout << "failed to parry" << endl;}
+
+	
 }
 
 

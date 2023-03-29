@@ -41,10 +41,12 @@ vector<character> items;
         if (items.empty()) {
             cout << "Your inventory is empty.\n";
             cout << "-1";
+            character::tostring();
         } else {
             cout << "Your inventory contains " << items.size() <<" item(s):\n" ;
             for (auto i : items)
             cout << i << endl;
+            character::tostring();
 
 
             }   
