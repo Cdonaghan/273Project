@@ -63,7 +63,7 @@ void Game::displayinv(character s, Inventory i)
 
 		//i.addItem(i.getPotion());
 
-		i.display();
+		i.display(s);
 	}
 
 }
@@ -161,12 +161,12 @@ void Game::script()
 		//--------------------------------------------------------
 		cout << "in combat you will be faced with a series of attack and a defence option \n\n\n";
 		cout << "Here are your starting stats: \n\n";
-		s.tostring();
+		s.tostring(s);
 		this->validChoice = false;
 		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
 		cout << "What do you do?\n\n";
 		while (this->validChoice == false) {
-			s.setname("Hagrid");
+			e.setname("Hagrid");
 
 			cout << "1. Attack" << endl;
 			cout << "2. Give him your wife\n\n";
@@ -340,9 +340,11 @@ void Game::script()
 		}
 		break;
 		}
+		
+			s.sethealth(100);
+
          displayinv(s, i);
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
-		s.sethealth(200);
 
 		//------------------------------------------------------------------
 		cout << "welcome to io, a moon that orbits jupiter approximately 421700 km from its center." << endl;

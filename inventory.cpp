@@ -55,18 +55,18 @@ void Inventory::addItem(string x) {
 void Inventory::removeItem(int index) {
     items.erase(items.begin() + index);
 }
-void Inventory::display() {
+void Inventory::display(character s) {
     ;
     if (items.empty()) {
         cout << "Your inventory is empty.\n";
         cout << "-1";
-        character::tostring();
+        character::tostring(s);
     }
     else {
         cout << "Your inventory contains " << items.size() << " item(s):\n";
         for (auto i : items)
             cout << i << endl;
-        character::tostring();
+        character::tostring(s);
 
 
     }

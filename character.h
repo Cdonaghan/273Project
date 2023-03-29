@@ -14,7 +14,7 @@ class character
 public:
 	character();
 	~character();
-	void tostring();//user can access player information
+	void tostring(character s);//user can access player information
 
 	string getname();
 	void setname(string x);

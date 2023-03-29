@@ -56,19 +56,19 @@ void character::setlevel(int x)
 	level = x;
 }
 //function to display stats. will be called when command is given
-void character::tostring()
+void character::tostring(character s)
 {
-	cout << "\t\t\t\t\t\tName: " << this->name << endl;
-	cout << "\t\t\t\t\t\tLevel: " << this->level << endl;
-	cout << "\t\t\t\t\t\tExperience points: " << this->exp << endl;
+	cout << "\t\t\t\t\t\tName: " << s.name << endl;
+	cout << "\t\t\t\t\t\tLevel: " << s.level << endl;
+	cout << "\t\t\t\t\t\tExperience points: " << s.exp << endl;
 	cout << "\t\t\t\t\t\tExperience points needed for next level up: " << this->expnext << endl;
-	cout << "\t\t\t\t\t\tHealth: " << this->health << endl << endl;
+	cout << "\t\t\t\t\t\tHealth: " << s.health << endl << endl;
 	cout << "\t\t\t\t\t\tBattle stats:\n";
-	cout << "\t\t\t\t\t\tSword damage: " << this->sworddamage << endl;
-	cout << "\t\t\t\t\t\tExplosion spell damage: " << this->explosionspell <<
+	cout << "\t\t\t\t\t\tSword damage: " << s.sworddamage << endl;
+	cout << "\t\t\t\t\t\tExplosion spell damage: " << s.explosionspell <<
 		" using this potion will hurt you in the process" << endl;
-	cout << "\t\t\t\t\t\tAttack spell damage: " << this->attackspell << endl;
-	cout << "\t\t\t\t\t\tHealing potion: " << this->healingpotion << " per potion" << endl;
+	cout << "\t\t\t\t\t\tAttack spell damage: " << s.attackspell << endl;
+	cout << "\t\t\t\t\t\tHealing potion: " << s.healingpotion << " per potion" << endl;
 }
 void character::levelup()
 //if loop to see throughout game if exp>expnext
@@ -90,7 +90,7 @@ double character::gethealth()
 }
 void character::sethealth(double x)
 {
-	x = health;
+	health = x;
 }
 
 //max health param

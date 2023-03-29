@@ -15,7 +15,7 @@ public:
 
 	void addItem(string x);
 	void removeItem(int index);
-	void display();
+	void display(character s);
 	//weapons
 
 	void getWeapon();
