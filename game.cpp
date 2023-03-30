@@ -27,7 +27,22 @@ bool Game::playerdies()
 	return this->dead = true; 
 	abort();
 }
-
+/*void Game::choiceRemove(int x)
+{ 
+	if (cin.fail())//checker for anything other than an integer
+						{
+							
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+}*/
 void Game::displayinv(character s, Inventory i)
 {   validChoice = false;
 while (validChoice == false){
@@ -97,6 +112,7 @@ void Game::walkthrough()
 			switch (choice)
 			{
 			case 0:
+			cout << "come again!" << endl;
 				abort();
 
 			case 1:
@@ -113,6 +129,7 @@ void Game::walkthrough()
 					//line so the storage reference has no memory
 					cout << "wrong input" << endl;
 				}
+				//choiceRemove(choice);
 			}
 
 		}

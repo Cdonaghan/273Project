@@ -18,6 +18,7 @@ public:
 	void displayinv(character s, Inventory i);
 	void leftpath(character s, Inventory i);
 	void rightPath(character s, Inventory i);
+	void choiceRemove(int x);
 	
 
 private:
