@@ -25,6 +25,7 @@ bool Game::playerdies()
 {
 	cout << "you are dead, you will now need to restart" << endl;
 	return this->dead = true; 
+	abort();
 }
 
 void Game::displayinv(character s, Inventory i)
@@ -422,12 +423,13 @@ validChoice = false;
 		{
 			cout << "You pick up the sword" << endl;
 			i.addItem(i.getsword());
+			
 			validChoice = true;
 		
         } else if (userChoice == "2"){
 			cout << "You are detected by the goblin, he catches you as you run away and eats you" << endl;
-			playerdies();
-			validChoice = true;
+			playerdies(); // already aborts code
+			//validChoice = true;
 			
 		}else{
 			cout <<"wrong input please try again" << endl;
@@ -441,6 +443,122 @@ validChoice = false;
 		}
 		}
 
+
+displayinv(s,i);
+
+goblin e;
+
+cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
+this->validChoice = false;
+		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
+		cout << "What do you do?\n\n";
+		while (this->validChoice == false) {
+			e.setname("Small Goblin");
+
+			cout << "1. Attack" << endl;
+			
+			//cout << "Select '1' \n\n";
+			cin >> choice;
+
+
+			switch (choice)
+			{
+			case 1:
+				cout << "You challenge him and he squares up \n";
+				cout << "Enemies stats: \n\n";
+				e.enemytostring();
+				cout << "Here are your select battle moves \n\n";
+
+				do
+				{
+
+					int ans;
+					cout << "\n1.Sword attack\n";
+					cout << " Select to choose your fate: " << "\n\n";
+					cin >> ans;
+					switch (ans)
+					{
+					case 1:
+						s.attackenemy(e);
+						break;
+					
+					default:
+					{
+
+						if (cin.fail())//checker for anything other than an integer
+						{
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+
+						break;
+					}
+
+					}
+
+					//enemy attack
+					if (e.gethealth() <= 0)
+					{
+						e.enemySetHealthZero();
+						//enemydied();
+					}
+					else {
+						cout << "\n\n\t\t\t\tNOW ITS THE GOBLIN'S TURN TO ATTACK\n\n";
+
+						int x = 1;
+						switch (x)
+						{
+						case 1:
+							e.daggerattack(s);
+							break;
+						
+						}
+
+					}
+
+
+				} while (((e.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
+				this->validChoice = true;
+				break;
+
+			default:
+
+
+				if (cin.fail())//checker for anything other than an integer
+				{
+					cin.clear();//clears input
+					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+					//line so the storage reference has no memory
+					cout << "wrong input" << endl;
+				}
+			}
+		}
+
+if (s.gethealth() <= 0)
+		{
+
+			playerdies();
+			abort();
+			//break;
+		}
+
+		if (e.gethealth() <= 0)
+		{
+			cout << "congratulations warrior you defeted the goblin\n" << endl;
+			cout << "you gain 1 xp from defeating the goblin\n";
+			s.incexp(1);
+			s.levelup();
+		}
+
+
+	
 
 getplaying();
 }
