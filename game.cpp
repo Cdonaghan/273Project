@@ -59,10 +59,6 @@ void Game::displayinv(character s, Inventory i)
 	{
 
 
-		//i.addItem(i.getsword()); // might work
-
-		//i.addItem(i.getPotion());
-
 		i.display(s);
 	}
 
@@ -103,17 +99,17 @@ void Game::script()
 
 			cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 			cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
-			cout << "\t\t\t\t\t\t1: Exit" << endl;
-			cout << "\t\t\t\t\t\t2: Start Game" << endl;
+			cout << "\t\t\t\t\t\t0: Exit" << endl;
+			cout << "\t\t\t\t\t\t1: Start Game" << endl;
 			cout << "\t\t\t\t\t\tChoice: ";
 			cin >> choice;
 
 			switch (choice)
 			{
-			case 1:
+			case 0:
 				abort();
 
-			case 2:
+			case 1:
 
 
 				this->validChoice = true;
@@ -286,6 +282,7 @@ void Game::script()
 		{
 
 			playerdies();
+			abort();
 			//break;
 		}
 
@@ -338,20 +335,35 @@ void Game::script()
 
 	
 		}
-		break;
-		}
 		
-			s.sethealth(100);
+		break;
+		
+		}
+
+			s.sethealth(200);
 
          displayinv(s, i);
+		 i.removeItem(0);
+		 cout << "note -- your will notice your battle stats, these will increase for when you level up!" <<endl;
+		 cout << "levelling up can be done by defeating monsters as you go along your journey in this game" << endl;
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
+		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;
+
+		
 
 		//------------------------------------------------------------------
-		cout << "welcome to io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
-		cout << "You have been on a research project to investigate and manipulate the space - time continuum and ended up teleporting from Jupiter to Io " << endl;
-		//cout << 
+		//Main Story
+		cout << "Welcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
+		cout << "You have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
+		cout << "For some reason as you have teleported, you have also found yourself approx 2431 years in the future." <<endl;
+        cout << "As you bring your head out the moondust, you notice that there are other beings being detected on your organism radar" << endl;
+		cout << "you look down at your watch to check if it is intact" <<endl;
+		cout << "watch display" << endl;;
+		s.tostring(s);
+		cout << "\n\n\n\n\n\n\n\n\n\n\n you go to check your bag" << endl;
 
-
+        displayinv(s,i);
+    
 		getplaying();
 
 
