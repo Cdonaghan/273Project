@@ -378,7 +378,7 @@ void Game::walkthrough()
 			this->validChoice = true;
 			leftpath(s,i);
         } else if (userChoice == "right"){
-			cout << "you have chosen the left path" << endl;
+			cout << "you have chosen the right path" << endl;
 			this->validChoice = true;
 			rightPath(s,i);
 		}else{
@@ -388,57 +388,33 @@ void Game::walkthrough()
 				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 				//line so the storage reference has no memory
 				
-				cout << "wrong input  -- please type the correct name for your weapon of choice -- " << userChoice <<endl;
+				cout << "wrong input  -- please type the correct name for your weapon of choice -- "  <<endl;
 				userChoice.clear();
 		}
 		}
-
-		
-		
-
-
-
-
-
-
-
-       //----------------------------------
-	   //closes out game
-		
-
-
-
-
 	}
 }
 
 
-
 void Game::leftpath(character s, Inventory i)
-{
-	while ((this->playing == true) && (this->dead == false))
-{
-
+{while ((this->playing == true) && (this->dead == false))
+	{
 //cout << "you have chosen the left path" << endl;
 displayinv(s,i);
-getplaying();
-
-}
+getplaying();}
 
 
 }
+
+
+
 
 void Game::rightPath(character s, Inventory i)
+{while ((this->playing == true) && (this->dead == false))
 {
-
-while ((this->playing == true) && (this->dead == false))
-{
-
 //cout << "you have chosen the right path" << endl;
 displayinv(s,i);
-getplaying();
-
-}
+getplaying();}
 
 
 }
