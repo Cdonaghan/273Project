@@ -321,7 +321,7 @@ void Game::script()
 				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 				//line so the storage reference has no memory
 				
-				cout << "wrong input  -- please type the correct name for your weapon of choice" << choice2 <<endl;
+				cout << "wrong input  -- please type the correct name for your weapon of choice -- " << choice2 <<endl;
 				choice2.clear();
 			}
 			
@@ -360,7 +360,40 @@ void Game::script()
 
         displayinv(s,i);
 
-		//cout << ""
+		cout << "To your right you notice a sign that says" << endl;
+		cout << "\n\nSurvivors this way!!!\n\n" << endl;
+		cout << "which way do you turn?\n" << endl;
+		cout <<"left\n" << "right\n" << endl;
+		
+		validChoice = false;
+		string userChoice = {" "};
+		while (validChoice == false)
+		{
+		
+		cin >> userChoice;
+
+		if (userChoice == "left")
+		{
+			cout << "you have chosen the left path" << endl;
+			this->validChoice = true;
+        } else if (userChoice == "right"){
+			cout << "you have chosen the left path" << endl;
+			this->validChoice = true;
+		}else{
+			cout <<"wrong input please try again" << endl;
+			cin.fail();//checker for anything other than an integer
+				//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				
+				cout << "wrong input  -- please type the correct name for your weapon of choice -- " << userChoice <<endl;
+				userChoice.clear();
+		}
+		}
+
+		
+		
+
 
 
 
