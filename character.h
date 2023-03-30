@@ -19,7 +19,7 @@ public:
 	string getname();
 	void setname(string x);
 
-	int getlevel();
+	void getlevel();
 	void setlevel(int x);
 	double getexp();
 	void setexp(double x);

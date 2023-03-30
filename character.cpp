@@ -47,9 +47,9 @@ void character::incexp(int x)
 	exp += x;
 }
 //getter and setter for level
-int character::getlevel()
+void character::getlevel()
 {
-	return level;
+	cout << level;
 }
 void character::setlevel(int x)
 {

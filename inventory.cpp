@@ -59,7 +59,7 @@ void Inventory::display(character s) {
     ;
     if (items.empty()) {
         cout << "Your inventory is empty.\n";
-        cout << "-1";
+        //cout << "-1";
         character::tostring(s);
     }
     else {

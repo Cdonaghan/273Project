@@ -7,51 +7,29 @@
 
 using namespace std;
 
-
-
-
 Game::Game()
 {
 	choice = 0;
 	playing = true;
-
 }
-Game::~Game()
-{
-
-}
+Game::~Game(){}
 
 bool Game::getplaying()
 {
 	cout << "come back again soon" << endl;
 	return this->playing = false;
 }
-bool Game::enemydied()
-{
-	return true;
-}
+bool Game::enemydied(){return true;}
 
 bool Game::playerdies()
 {
-	//function to call if you are dead
-	/*if (x <= 0)
-	{
-		cout << "you are dead" << endl;
-
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-*/
-
 	cout << "you are dead, you will now need to restart" << endl;
-	return this->dead = true; //this fixes loop issue
+	return this->dead = true; 
 }
 
 void Game::displayinv(character s, Inventory i)
-{
+{   validChoice = false;
+while (validChoice == false){
 	cout << "type (inv) to view inventory, you may only use this when allowed " << endl; //not sure just preview atm
 	string invChoice{ "" };
 	cin >> invChoice;
@@ -60,9 +38,20 @@ void Game::displayinv(character s, Inventory i)
 
 
 		i.display(s);
-	}
+		validChoice = true;
+	} else {
+		cin.fail();//checker for anything other than an integer
+				//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				
+				cout << "wrong input -- please type inv to view inventory" << invChoice <<endl;
+				invChoice.clear();
+	 }
 
 }
+}
+
 
 //----------------------------------------------------------------------
 
@@ -289,14 +278,19 @@ void Game::script()
 		if (e.gethealth() <= 0)
 		{
 			cout << "congratulations warrior you defeted the goblin\n" << endl;
+			cout << "you gain 1 xp from defeating the goblin, this will allow you to level up" << endl;
+			s.incexp(1);
+			s.levelup();
+			
 
 		}
 
+           //s.getlevel();
 
 		while (s.gethealth() > 0)
 		{
 
-			cout << "the goblin drops to the floor and drops all of his weapons, you have a choice to pick up one" << endl;
+			cout << "\n\nthe goblin drops to the floor and drops all of his weapons, you have a choice to pick up one" << endl;
 			cout << "Type the name of the weapon you want to pick up?" << endl;
 			cout << "bow\n" << "sword\n" << "dagger" << endl;
 			
@@ -327,7 +321,7 @@ void Game::script()
 				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 				//line so the storage reference has no memory
 				
-				cout << "wrong input  -- " << choice2 <<endl;
+				cout << "wrong input  -- please type the correct name for your weapon of choice" << choice2 <<endl;
 				choice2.clear();
 			}
 			
@@ -344,7 +338,8 @@ void Game::script()
 
          displayinv(s, i);
 		 i.removeItem(0);
-		 cout << "note -- your will notice your battle stats, these will increase for when you level up!" <<endl;
+		 cout << "note -- you will now notice you have levelled from 1 to 2!" << endl;
+		 cout << "note -- you will notice your battle stats, these will increase for when you level up when you enter the main body of the game!" <<endl;
 		 cout << "levelling up can be done by defeating monsters as you go along your journey in this game" << endl;
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
 		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;
@@ -353,17 +348,23 @@ void Game::script()
 
 		//------------------------------------------------------------------
 		//Main Story
+		cout << "\n IN A OTHERWORLDIAN DIMENSION \n";
 		cout << "Welcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
 		cout << "You have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
 		cout << "For some reason as you have teleported, you have also found yourself approx 2431 years in the future." <<endl;
-        cout << "As you bring your head out the moondust, you notice that there are other beings being detected on your organism radar" << endl;
+        cout << "As you bring your head out the moondust, you notice that there are unrecognised beings being detected on your organism radar" << endl;
 		cout << "you look down at your watch to check if it is intact" <<endl;
-		cout << "watch display" << endl;;
-		s.tostring(s);
-		cout << "\n\n\n\n\n\n\n\n\n\n\n you go to check your bag" << endl;
+		cout << "watch display Location - [IO], TIME UNKNOWN" << endl;;
+		cout << " you go to check your bag\n\n\n\n\n" << endl;
+		s.setlevel(1);
 
         displayinv(s,i);
-    
+
+
+
+
+       //----------------------------------
+	   //closes out game
 		getplaying();
 
 
