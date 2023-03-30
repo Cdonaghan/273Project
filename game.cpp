@@ -360,6 +360,10 @@ void Game::script()
 
         displayinv(s,i);
 
+		//cout << ""
+
+
+
 
 
 
