@@ -400,8 +400,50 @@ void Game::leftpath(character s, Inventory i)
 {while ((this->playing == true) && (this->dead == false))
 	{
 //cout << "you have chosen the left path" << endl;
-displayinv(s,i);
-getplaying();}
+//displayinv(s,i);
+
+cout << "\nYou notice shadows in the distance, they seem to resemble something of a human being shape\n";
+
+cout << "\nAs you approach, it seems to resemble more and more like a monster! OH MY GOODNESS IT IS A GOBLIN-LIKE CREATURE. \n";
+cout << "\nTo stop it from seeing you. You hide behind a small pile of rubble \n";
+cout << "\nYou notice a sword on the top of the rubble. It looks rusty and like it has been there for a while.\n";
+cout << "\nwhat do you do?\n" << endl;
+cout << "1. Pick up sword\n" << "2.Take your chances and run" << endl;
+
+
+validChoice = false;
+		string userChoice = {" "};
+		while (validChoice == false)
+		{
+		
+		cin >> userChoice;
+
+		if (userChoice == "1")
+		{
+			cout << "You pick up the sword" << endl;
+			i.addItem(i.getsword());
+			validChoice = true;
+		
+        } else if (userChoice == "2"){
+			cout << "You are detected by the goblin, he catches you as you run away and eats you" << endl;
+			playerdies();
+			validChoice = true;
+			
+		}else{
+			cout <<"wrong input please try again" << endl;
+			cin.fail();//checker for anything other than an integer
+				//cin.clear();//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				
+				cout << "wrong input  -- please type the correct name for your weapon of choice -- "  <<endl;
+				userChoice.clear();
+		}
+		}
+
+
+getplaying();
+}
 
 
 }
