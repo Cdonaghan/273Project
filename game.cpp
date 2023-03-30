@@ -55,7 +55,7 @@ while (validChoice == false){
 
 //----------------------------------------------------------------------
 
-void Game::script()
+void Game::walkthrough()
 {
 
 
@@ -376,9 +376,11 @@ void Game::script()
 		{
 			cout << "you have chosen the left path" << endl;
 			this->validChoice = true;
+			leftpath(s,i);
         } else if (userChoice == "right"){
 			cout << "you have chosen the left path" << endl;
 			this->validChoice = true;
+			rightPath(s,i);
 		}else{
 			cout <<"wrong input please try again" << endl;
 			cin.fail();//checker for anything other than an integer
@@ -402,10 +404,47 @@ void Game::script()
 
        //----------------------------------
 	   //closes out game
-		getplaying();
+		
 
 
 
 
 	}
 }
+
+
+
+void Game::leftpath(character s, Inventory i)
+{
+	while ((this->playing == true) && (this->dead == false))
+{
+
+//cout << "you have chosen the left path" << endl;
+displayinv(s,i);
+getplaying();
+
+}
+
+
+}
+
+void Game::rightPath(character s, Inventory i)
+{
+
+while ((this->playing == true) && (this->dead == false))
+{
+
+//cout << "you have chosen the right path" << endl;
+displayinv(s,i);
+getplaying();
+
+}
+
+
+}
+
+
+
+
+
+

@@ -11,11 +11,13 @@ class Game
 public:
 	Game();
 	virtual ~Game();
-	void script();
+	void walkthrough();
 	bool getplaying();
 	bool playerdies();
 	bool enemydied();
 	void displayinv(character s, Inventory i);
+	void leftpath(character s, Inventory i);
+	void rightPath(character s, Inventory i);
 	
 
 private:
