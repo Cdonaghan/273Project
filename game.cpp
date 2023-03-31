@@ -27,6 +27,42 @@ bool Game::playerdies()
 	return this->dead = true; 
 	abort();
 }
+
+
+void Game::restart(character s)
+{
+validChoice = false;
+while (validChoice == false)
+{
+string choice {""};
+
+	cout << "would you like to restart the fight?" << endl;
+	cout << "\n yes \n" << "\n no \n" << endl;
+    cin >> choice;
+	if (choice == "yes")
+	{
+		cout << "Going Back <------" << endl;
+		
+		validChoice = true;
+	} else if (choice == "no")
+	{
+		cout << playerdies();
+		abort();
+	} else {
+		cin.fail();//checker for anything other than an integer
+				//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				
+				cout << "wrong input -- please type inv to view inventory" << choice <<endl;
+				choice.clear();
+	}
+
+}
+	
+
+
+}
 /*void Game::choiceRemove(int x)
 { 
 	if (cin.fail())//checker for anything other than an integer
@@ -546,8 +582,6 @@ this->validChoice = false;
 				break;
 
 			default:
-
-
 				if (cin.fail())//checker for anything other than an integer
 				{
 					cin.clear();//clears input
@@ -556,14 +590,12 @@ this->validChoice = false;
 					cout << "wrong input" << endl;
 				}
 			}
-		}
-
-if (s.gethealth() <= 0)
+			if (s.gethealth() <= 0)
 		{
-
-			playerdies();
-			abort();
-			//break;
+			restart(s);
+			s.sethealth(200);
+			validChoice = false;
+		
 		}
 
 		if (e.gethealth() <= 0)
@@ -572,7 +604,11 @@ if (s.gethealth() <= 0)
 			cout << "you gain 1 xp from defeating the goblin\n";
 			s.incexp(1);
 			s.levelup();
+			break;
 		}
+		}
+
+
 
 
 	
@@ -582,6 +618,7 @@ getplaying();
 
 
 }
+
 
 
 
