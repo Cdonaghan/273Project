@@ -453,6 +453,7 @@ void Game::walkthrough()
 				userChoice.clear();
 		}
 		}
+		getplaying();
 	}
 }
 
@@ -636,16 +637,166 @@ getplaying();
 
 
 
+//-------------------------------------------------------------------------
+
 
 void Game::rightPath(character s, Inventory i)
 {while ((this->playing == true) && (this->dead == false))
-{
-//cout << "you have chosen the right path" << endl;
-displayinv(s,i);
-getplaying();}
+	{
+		//surivor,, notice escape pod look arund see a chest see weapon,, off to distance you see goblin after a ghirl you ntoice her hiding 
+		//option 1.flee  2. attack
+
+		//flee--> left path --> troll 
+		//attack-->  kill --> she knows whwere the rest of the ship where escape pods from
+		// guraded its guarded by a dragon through the forrest its dangerous 
 
 
+		//---------------------------------------------------------------------
+		cout << "\nYou walk closer to the sign, the closer you get you notice that something is wrong, there is blood splattered on the\n sign with a big bloody handprint on it.\n";
+		cout << "You walk a few more paces and see what is shaped like an escape pod.\nIn excitment you starting running in hope of finding resources or even better a surivor. \n";
+		cout << "ITS AN ESCAPE POD.\n" << "Out of nowhere you hear a piercing scream and hide behind some rubble. " << "The screaming suddenly stops with an errie crunch.\n";
+		cout << "Right beside you in the rubble is a freshly cut arm torn clean off!!\n";
+		cout << "You take a peak above the rubble to see what caused the screming\nITS A TROLL KILLING A HUMAN.\n";
+		cout << "what do you do?\n";
+		cout << "1. Hide until it leaves\n2. Start screaming and run away\n ";
+
+		validChoice = false;
+		string userChoice1 = { " " };
+		while (validChoice == false)
+		{
+
+			cin >> userChoice1;
+
+			if (userChoice1 == "1")
+			{
+				i.addItem(i.getsword());
+				cout << "\nYou hide behind the rubble until the troll leaves and you start walking to the escape pod.";
+				cout << " Inside you find a bloody sword on the ground,  you pick it up and start following a trail of blood on the floor.\n";
+				cout << " You follow the trail and see that a golbin is holding an injured survivor hostage.\n ";
+				validChoice = true;
+
+			}
+			else if (userChoice1 == "2")
+			{
+				cout << "You panic and start screaming, the troll spots you instantly and lets out a horrible roar.\n It starts running to you and kills you with a deadly blow\n.";
+				playerdies(); // already aborts code
+				//validChoice = true;
+
+			}
+			else {
+				cout << "wrong input please try again" << endl;
+				cin.fail();//checker for anything other than an integer
+				//cin.clear();//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+
+				cout << "wrong input  -- please type the correct input -- " << endl;
+				userChoice1.clear();
+			}
+		}
+
+
+		displayinv(s, i);
+		goblin e;
+
+		cout << "\nNow you have a sword in your inventory do you\n1. Fight the goblin\n2. Continue exploring the escape pod\n";
+
+		string userchoice2{ "" };
+		cout << "What do you do:";
+		cin >> userchoice2;
+		if (userchoice2 == "1")
+		{
+			e.setname("Small Goblin");
+			cout << "Enemy stats:\n";
+			e.enemytostring();
+			cout << "Here are your battles moves\n\n";
+			do
+			{
+				int ans{};
+				cout << "\n1.Sword attack\n";
+				cout << "Select your move:";
+				cin >> ans;
+				switch (ans)
+				{
+				case 1:
+					s.attackenemy(e);
+					break;
+				default:
+					if (cin.fail())//checker for anything other than an integer
+					{
+						cin.clear();//clears input
+						cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+						//line so the storage reference has no memory
+						cout << "wrong input" << endl;
+					}
+					else
+					{
+						cout << "wrong input\n";
+					}
+					break;
+				}
+				//enemy attack
+				if (e.gethealth() <= 0)
+				{
+					e.enemySetHealthZero();
+				}
+				else
+				{
+					cout << "\n\n\t\t\t\tNOW ITS THE GOBLIN'S TURN TO ATTACK\n\n";
+					int x = 1;
+					switch (x)
+					{
+					case 1:
+						e.daggerattack(s);
+						break;						
+					}
+				}
+			} while (((e.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
+			this->validChoice = true;
+			break;
+
+			if (s.gethealth() <= 0)
+			{ 
+				playerdies();
+				abort();
+			}
+			if (e.gethealth() <= 0)
+			{
+				cout << "congratulations warrior you defeted the goblin\n" << endl;
+				cout << "you gain 1 xp from defeating the goblin\n";
+				s.incexp(1);
+				s.levelup();
+			}			
+		}
+
+
+
+		
+		else if (userchoice2 == "2")
+		{
+			cout << "\nYou rescue the hostage but he is seriously bleeding out and doesnt have a lot of time left.\nHis name is 'Igor' and he escaped his ship using the escape pod as the ship got taken down by a dragon.\n Before passing away he says that beyond the forrest is the wreckage with a more escape pods from where I can escape.";
+		}
+		else
+		{
+			if (cin.fail())//checker for anything other than an integer
+			{
+				cin.clear();//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				cout << "wrong input" << endl;
+			}
+
+		}
+
+		getplaying();
+	}		
+	
+
+		
 }
+
+
+
 
 
 
