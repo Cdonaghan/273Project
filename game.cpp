@@ -17,7 +17,10 @@ Game::~Game() {}
 bool Game::getplaying()
 {
 	cout << "come back again soon" << endl;
+	//has abort because of the loop in walkthrough function. This is fine.
+	abort();
 	return this->playing = false;
+	
 }
 bool Game::enemydied() { return true; }
 
@@ -27,6 +30,7 @@ bool Game::playerdies()
 	return this->dead = true;
 	abort();
 }
+<<<<<<< HEAD
 /*void Game::choiceRemove(int x)
 {
 	if (cin.fail())//checker for anything other than an integer
@@ -43,6 +47,53 @@ bool Game::playerdies()
 							;
 						}
 }*/
+=======
+
+
+void Game::restart(character s)
+{
+validChoice = false;
+while (validChoice == false)
+{
+string choice {""};
+
+	cout << "would you like to restart the fight?" << endl;
+	cout << "\n yes \n" << "\n no \n" << endl;
+    cin >> choice;
+	if (choice == "yes")
+	{
+		cout << "Going Back <------" << endl;
+		
+		validChoice = true;
+	} else if (choice == "no")
+	{
+		cout << playerdies();
+		abort();
+	} else {
+		cin.fail();//checker for anything other than an integer
+				//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				
+				cout << "wrong input -- please type inv to view inventory" << choice <<endl;
+				choice.clear();
+	}
+
+}
+	
+
+
+}
+void Game::choiceRemove(string x)
+{ 
+	cout << "wrong input try again" << endl;
+	x.clear();
+}
+
+
+
+
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 void Game::displayinv(character s, Inventory i)
 {
 	validChoice = false;
@@ -69,6 +120,39 @@ void Game::displayinv(character s, Inventory i)
 		}
 
 	}
+}
+
+
+void Game::storylineSelect(character s, Inventory i)
+{
+	validChoice = false;
+	while (validChoice == false)
+	{
+
+	string choice {""};
+	cout << "what part of the storyline would you like to go to?\n";
+	cout << "\n1: Start of Main Story" << endl;
+	cout << "\n2: Left path";
+	cout << "\n3: Right path" << endl;
+//update for more sections of story
+    cin >> choice;
+	if (choice == "0")
+	{
+validChoice = true;
+	}
+	else if (choice == "1"){beginning(s,i);
+		validChoice = true;
+	}
+	else if (choice == "2"){leftpath(s,i);
+	validChoice = true;}
+	else if (choice == "3"){rightPath(s,i);
+	validChoice = true;}
+	else {
+		
+	 choiceRemove(choice);
+	}
+	}
+
 }
 
 
@@ -104,11 +188,21 @@ void Game::walkthrough()
 
 			cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
 
+         cout << "Enter characters name: ";
+
+		 cin >> name;
+		 s.setname(name);
 
 			cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 			cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
 			cout << "\t\t\t\t\t\t0: Exit" << endl;
 			cout << "\t\t\t\t\t\t1: Start Game" << endl;
+			cout << "\t\t\t\t\t\t2: Storyline "<< endl;
+
+			//code for going to certain points in the story
+			/*
+			cout << "\t\t\t\t\t\t2: Storyline
+			"*/
 			cout << "\t\t\t\t\t\tChoice: ";
 			cin >> choice;
 
@@ -123,6 +217,18 @@ void Game::walkthrough()
 
 				this->validChoice = true;
 				break;
+
+				case 2:
+
+				storylineSelect(s,i);
+
+				//display functions fopr certain storypoints here
+				//done in an if statement with an input checker
+				//make look neat 
+				//eg 
+				//cout << "which part of the story would you like to travel too?"
+				//if(choice == "Left path")
+				//leftpath(s, i);
 
 			default:
 				if (cin.fail())//checker for anything other than an integer
@@ -142,10 +248,7 @@ void Game::walkthrough()
 		this->validChoice = false;
 
 		//character creation and start game
-		cout << "Enter characters name: ";
-
-		cin >> name;
-		s.setname(name);
+		
 		cout << "Welcome " << name << endl;
 		cout << "\n\nFirst lets have a walkthrough of the basic combat and inventory before starting the game\n\n\n";
 
@@ -319,6 +422,7 @@ void Game::walkthrough()
 
 			while (validChoice == false) {
 				string choice2{ "" };
+<<<<<<< HEAD
 				cin >> choice2;
 				if (choice2 == "sword")  //insatciate name like goblin sword
 				{
@@ -352,6 +456,30 @@ void Game::walkthrough()
 			}
 
 			break;
+=======
+			cin >> choice2;
+			if (choice2 == "sword")  //insatciate name like goblin sword
+			{
+				i.addItem(i.getsword());
+                validChoice = true;
+			}
+			else if (choice2 == "bow")
+			{
+				i.addItem(i.getbow());
+				validChoice = true;
+			}
+			else if (choice2 == "dagger")
+			{
+				i.addItem(i.getdagger());
+				validChoice = true;
+			}
+			else
+			{
+				choiceRemove(choice2);
+			}
+			
+			
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 
 		}
 
@@ -363,6 +491,7 @@ void Game::walkthrough()
 		cout << "note -- you will notice your battle stats, these will increase for when you level up when you enter the main body of the game!" << endl;
 		cout << "levelling up can be done by defeating monsters as you go along your journey in this game" << endl;
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
+<<<<<<< HEAD
 		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" << endl;
 
 
@@ -377,6 +506,30 @@ void Game::walkthrough()
 		cout << "you look down at your watch to check if it is intact" << endl;
 		cout << "watch display Location - [IO], TIME UNKNOWN" << endl;;
 		cout << " you go to check your bag\n\n\n\n\n" << endl;
+=======
+		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;
+        beginning(s,i);
+		
+     getplaying();
+	}
+
+}
+
+//---------------------------------------------------------------
+
+
+
+void Game::beginning(character s, Inventory i)
+{
+	cout << "\nIN A OTHERWORLDIAN DIMENSION \n";
+		cout << "\nWelcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
+		cout << "\nYou have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
+		cout << "\nFor some reason as you have teleported, you have also found yourself approx 2431 years in the future." <<endl;
+        cout << "\nAs you bring your head out the moondust, you notice that there are unrecognised beings being detected on your organism radar" << endl;
+		cout << "\nyou look down at your watch to check if it is intact" <<endl;
+		cout << "\nwatch display Location - [IO], TIME UNKNOWN" << endl;;
+		cout << "\nyou go to check your bag\n\n\n\n\n" << endl;
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 		s.setlevel(1);
 
 		displayinv(s, i);
@@ -391,6 +544,7 @@ void Game::walkthrough()
 		while (validChoice == false)
 		{
 
+<<<<<<< HEAD
 			cin >> userChoice;
 
 			if (userChoice == "left")
@@ -407,6 +561,24 @@ void Game::walkthrough()
 			else {
 				cout << "wrong input please try again" << endl;
 				cin.fail();//checker for anything other than an integer
+=======
+		if (userChoice == "left")
+		{
+			cout << "you have chosen the left path" << endl;
+			leftpath(s,i);
+			getplaying();
+			this->validChoice = true;
+			
+        } else if (userChoice == "right"){
+			cout << "you have chosen the right path" << endl;
+			rightPath(s,i);
+			getplaying();
+			this->validChoice = true;
+			
+		}else{
+			cout <<"wrong input please try again" << endl;
+			cin.fail();//checker for anything other than an integer
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 				//clears input
 				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 				//line so the storage reference has no memory
@@ -415,8 +587,12 @@ void Game::walkthrough()
 				userChoice.clear();
 			}
 		}
-	}
+		getplaying();
 }
+
+
+
+
 
 
 void Game::leftpath(character s, Inventory i)
@@ -473,10 +649,17 @@ void Game::leftpath(character s, Inventory i)
 
 		goblin e;
 
+<<<<<<< HEAD
 		cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
 		this->validChoice = false;
 		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
 		cout << "What do you do?\n\n";
+=======
+cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
+this->validChoice = false;
+		cout << "You charge at the goblin with all your might" << endl;
+		//cout << "What do you do?\n\n";
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 		while (this->validChoice == false) {
 			e.setname("Small Goblin");
 
@@ -489,7 +672,7 @@ void Game::leftpath(character s, Inventory i)
 			switch (choice)
 			{
 			case 1:
-				cout << "You challenge him and he squares up \n";
+				//cout << "You challenge him and he squares up \n";
 				cout << "Enemies stats: \n\n";
 				e.enemytostring();
 				cout << "Here are your select battle moves \n\n";
@@ -554,8 +737,6 @@ void Game::leftpath(character s, Inventory i)
 				break;
 
 			default:
-
-
 				if (cin.fail())//checker for anything other than an integer
 				{
 					cin.clear();//clears input
@@ -564,14 +745,18 @@ void Game::leftpath(character s, Inventory i)
 					cout << "wrong input" << endl;
 				}
 			}
+<<<<<<< HEAD
 		}
 
 		if (s.gethealth() <= 0)
+=======
+			if (s.gethealth() <= 0)
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 		{
-
-			playerdies();
-			abort();
-			//break;
+			restart(s);
+			s.sethealth(200);
+			validChoice = false;
+		
 		}
 
 		if (e.gethealth() <= 0)
@@ -580,13 +765,28 @@ void Game::leftpath(character s, Inventory i)
 			cout << "you gain 1 xp from defeating the goblin\n";
 			s.incexp(1);
 			s.levelup();
+			//displayinv(s,i);
+			break;
+		}
 		}
 
+cout << "\nthe small goblin falls to the floor and you go over to its lifeless structure\n";
+cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
+i.addItem(i.getdagger());
+cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
+cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
+cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
 
 
+<<<<<<< HEAD
 
 		getplaying();
 	}
+=======
+getplaying();
+
+}
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 
 
 }
@@ -594,9 +794,16 @@ void Game::leftpath(character s, Inventory i)
 
 
 
+//-------------------------------------------------------------------------
+
+
 void Game::rightPath(character s, Inventory i)
+<<<<<<< HEAD
 {
 	while ((this->playing == true) && (this->dead == false))
+=======
+{while ((this->playing == true) && (this->dead == false))
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 	{
 		//surivor,, notice escape pod look arund see a chest see weapon,, off to distance you see goblin after a ghirl you ntoice her hiding 
 		//option 1.flee  2. attack
@@ -703,7 +910,11 @@ void Game::rightPath(character s, Inventory i)
 					{
 					case 1:
 						e.daggerattack(s);
+<<<<<<< HEAD
 						break;
+=======
+						break;						
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 					}
 				}
 			} while (((e.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
@@ -711,7 +922,11 @@ void Game::rightPath(character s, Inventory i)
 			break;
 
 			if (s.gethealth() <= 0)
+<<<<<<< HEAD
 			{
+=======
+			{ 
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 				playerdies();
 				abort();
 			}
@@ -721,8 +936,39 @@ void Game::rightPath(character s, Inventory i)
 				cout << "you gain 1 xp from defeating the goblin\n";
 				s.incexp(1);
 				s.levelup();
+<<<<<<< HEAD
 			}
 		}
+=======
+			}			
+		}
+
+
+
+		
+		else if (userchoice2 == "2")
+		{
+			cout << "\nYou rescue the hostage but he is seriously bleeding out and doesnt have a lot of time left.\nHis name is 'Igor' and he escaped his ship using the escape pod as the ship got taken down by a dragon.\n Before passing away he says that beyond the forrest is the wreckage with a more escape pods from where I can escape.";
+		}
+		else
+		{
+			if (cin.fail())//checker for anything other than an integer
+			{
+				cin.clear();//clears input
+				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+				//line so the storage reference has no memory
+				cout << "wrong input" << endl;
+			}
+
+		}
+
+		
+	}		
+	
+
+		getplaying();
+}
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 
 
 
@@ -748,4 +994,18 @@ void Game::rightPath(character s, Inventory i)
 
 
 
+<<<<<<< HEAD
 }
+=======
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
