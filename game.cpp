@@ -17,7 +17,10 @@ Game::~Game(){}
 bool Game::getplaying()
 {
 	cout << "come back again soon" << endl;
+	//has abort because of the loop in walkthrough function. This is fine.
+	abort();
 	return this->playing = false;
+	
 }
 bool Game::enemydied(){return true;}
 
@@ -105,6 +108,50 @@ while (validChoice == false){
 }
 
 
+void Game::storylineSelect(character s, Inventory i)
+{
+	validChoice = false;
+	while (validChoice == false)
+	{
+
+	string choice {""};
+	cout << "what part of the storyline would you like to go to?\n";
+	cout << "\n1: Start of Main Story" << endl;
+	cout << "\n2: Left path";
+	cout << "\n3: Right path" << endl;
+//update for more sections of story
+    cin >> choice;
+	if (choice == "0")
+	{
+validChoice = true;
+	}
+	else if (choice == "1"){beginning(s,i);
+		validChoice = true;
+	}
+	else if (choice == "2"){leftpath(s,i);
+	validChoice = true;}
+	else if (choice == "3"){rightPath(s,i);
+	validChoice = true;}
+	else {
+		
+						if (cin.fail())//checker for anything other than an integer
+						{
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+	}
+	}
+
+}
+
+
 //----------------------------------------------------------------------
 
 void Game::walkthrough()
@@ -142,6 +189,7 @@ void Game::walkthrough()
 			cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
 			cout << "\t\t\t\t\t\t0: Exit" << endl;
 			cout << "\t\t\t\t\t\t1: Start Game" << endl;
+			cout << "\t\t\t\t\t\t2: Storyline "<< endl;
 
 			//code for going to certain points in the story
 			/*
@@ -162,7 +210,9 @@ void Game::walkthrough()
 				this->validChoice = true;
 				break;
 
-				case 3:
+				case 2:
+
+				storylineSelect(s,i);
 
 				//display functions fopr certain storypoints here
 				//done in an if statement with an input checker
@@ -412,19 +462,20 @@ void Game::walkthrough()
 		 cout << "levelling up can be done by defeating monsters as you go along your journey in this game" << endl;
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
 		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;
-
+        beginning(s,i);
 		
+     getplaying();
+	}
 
-		//------------------------------------------------------------------
-		//Main Story
+}
+
+//---------------------------------------------------------------
 
 
 
-
-
-
-		
-		cout << "\nIN A OTHERWORLDIAN DIMENSION \n";
+void Game::beginning(character s, Inventory i)
+{
+	cout << "\nIN A OTHERWORLDIAN DIMENSION \n";
 		cout << "\nWelcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
 		cout << "\nYou have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
 		cout << "\nFor some reason as you have teleported, you have also found yourself approx 2431 years in the future." <<endl;
@@ -451,12 +502,16 @@ void Game::walkthrough()
 		if (userChoice == "left")
 		{
 			cout << "you have chosen the left path" << endl;
-			this->validChoice = true;
 			leftpath(s,i);
+			getplaying();
+			this->validChoice = true;
+			
         } else if (userChoice == "right"){
 			cout << "you have chosen the right path" << endl;
-			this->validChoice = true;
 			rightPath(s,i);
+			getplaying();
+			this->validChoice = true;
+			
 		}else{
 			cout <<"wrong input please try again" << endl;
 			cin.fail();//checker for anything other than an integer
@@ -469,10 +524,11 @@ void Game::walkthrough()
 		}
 		}
 		getplaying();
-	}
 }
 
-//---------------------------------------------------------------
+
+
+
 
 
 void Game::leftpath(character s, Inventory i)
@@ -644,6 +700,7 @@ cout << "There is an escape pod on the top of the highest hill in the area, if y
 	
 
 getplaying();
+
 }
 
 
@@ -803,12 +860,21 @@ void Game::rightPath(character s, Inventory i)
 
 		}
 
-		getplaying();
+		
 	}		
 	
 
-		
+		getplaying();
 }
+
+
+
+
+
+
+
+
+
 
 
 
