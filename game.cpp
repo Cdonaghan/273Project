@@ -402,6 +402,13 @@ void Game::walkthrough()
 
 		//------------------------------------------------------------------
 		//Main Story
+
+
+
+
+
+
+		
 		cout << "\nIN A OTHERWORLDIAN DIMENSION \n";
 		cout << "\nWelcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
 		cout << "\nYou have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
@@ -616,7 +623,7 @@ cout << "you search it for any item and find the dagger, you pick it up as it ma
 i.addItem(i.getdagger());
 cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
 cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
-
+cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
 
 	
 
