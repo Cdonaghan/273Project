@@ -66,22 +66,15 @@ string choice {""};
 
 
 }
-/*void Game::choiceRemove(int x)
+void Game::choiceRemove(string x)
 { 
-	if (cin.fail())//checker for anything other than an integer
-						{
-							
-							cin.clear();//clears input
-							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
-							//line so the storage reference has no memory
-							cout << "wrong input" << endl;
-							;
-						}
-						else {
-							cout << "wrong input " << endl;
-							;
-						}
-}*/
+	cout << "wrong input try again" << endl;
+	x.clear();
+}
+
+
+
+
 void Game::displayinv(character s, Inventory i)
 {   validChoice = false;
 while (validChoice == false){
@@ -134,18 +127,7 @@ validChoice = true;
 	validChoice = true;}
 	else {
 		
-						if (cin.fail())//checker for anything other than an integer
-						{
-							cin.clear();//clears input
-							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
-							//line so the storage reference has no memory
-							cout << "wrong input" << endl;
-							;
-						}
-						else {
-							cout << "wrong input " << endl;
-							;
-						}
+	 choiceRemove(choice);
 	}
 	}
 
@@ -184,6 +166,10 @@ void Game::walkthrough()
 
 			cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
 
+         cout << "Enter characters name: ";
+
+		 cin >> name;
+		 s.setname(name);
 
 			cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 			cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
@@ -240,10 +226,7 @@ void Game::walkthrough()
 		this->validChoice = false;
 
 		//character creation and start game
-		cout << "Enter characters name: ";
-
-		cin >> name;
-		s.setname(name);
+		
 		cout << "Welcome " << name << endl;
 		cout << "\n\nFirst lets have a walkthrough of the basic combat and inventory before starting the game\n\n\n";
 
@@ -435,13 +418,7 @@ void Game::walkthrough()
 			}
 			else
 			{
-				cin.fail();//checker for anything other than an integer
-				//clears input
-				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
-				//line so the storage reference has no memory
-				
-				cout << "wrong input  -- please type the correct name for your weapon of choice -- " << choice2 <<endl;
-				choice2.clear();
+				choiceRemove(choice2);
 			}
 			
 			

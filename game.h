@@ -16,10 +16,11 @@ public:
 	bool playerdies();
 	bool enemydied();
 	void displayinv(character s, Inventory i);
+	//void walkthrough(character s, Inventory i, string start, string name);
 	void leftpath(character s, Inventory i);
 	void rightPath(character s, Inventory i);
 	void beginning(character s, Inventory i);
-	void choiceRemove(int x);
+	void choiceRemove(string x);
 	void restart(character s);
 	void storylineSelect(character s, Inventory i);
 
