@@ -604,6 +604,7 @@ this->validChoice = false;
 			cout << "you gain 1 xp from defeating the goblin\n";
 			s.incexp(1);
 			s.levelup();
+			displayinv(s,i);
 			break;
 		}
 		}

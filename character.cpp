@@ -80,6 +80,9 @@ void character::levelup()
 		level++;
 		expnext = pow(level, 3) + 1;
 		//for level 1 to show how levelling works to the audience
+	} else 
+	{
+		cout << "not enough xp to level yet!" << endl;
 	}
 }
 
