@@ -142,6 +142,11 @@ void Game::walkthrough()
 			cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
 			cout << "\t\t\t\t\t\t0: Exit" << endl;
 			cout << "\t\t\t\t\t\t1: Start Game" << endl;
+
+			//code for going to certain points in the story
+			/*
+			cout << "\t\t\t\t\t\t2: Storyline
+			"*/
 			cout << "\t\t\t\t\t\tChoice: ";
 			cin >> choice;
 
@@ -156,6 +161,16 @@ void Game::walkthrough()
 
 				this->validChoice = true;
 				break;
+
+				case 3:
+
+				//display functions fopr certain storypoints here
+				//done in an if statement with an input checker
+				//make look neat 
+				//eg 
+				//cout << "which part of the story would you like to travel too?"
+				//if(choice == "Left path")
+				//leftpath(s, i);
 
 			default:
 				if (cin.fail())//checker for anything other than an integer
