@@ -402,14 +402,14 @@ void Game::walkthrough()
 
 		//------------------------------------------------------------------
 		//Main Story
-		cout << "\n IN A OTHERWORLDIAN DIMENSION \n";
-		cout << "Welcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
-		cout << "You have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
-		cout << "For some reason as you have teleported, you have also found yourself approx 2431 years in the future." <<endl;
-        cout << "As you bring your head out the moondust, you notice that there are unrecognised beings being detected on your organism radar" << endl;
-		cout << "you look down at your watch to check if it is intact" <<endl;
-		cout << "watch display Location - [IO], TIME UNKNOWN" << endl;;
-		cout << " you go to check your bag\n\n\n\n\n" << endl;
+		cout << "\nIN A OTHERWORLDIAN DIMENSION \n";
+		cout << "\nWelcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
+		cout << "\nYou have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
+		cout << "\nFor some reason as you have teleported, you have also found yourself approx 2431 years in the future." <<endl;
+        cout << "\nAs you bring your head out the moondust, you notice that there are unrecognised beings being detected on your organism radar" << endl;
+		cout << "\nyou look down at your watch to check if it is intact" <<endl;
+		cout << "\nwatch display Location - [IO], TIME UNKNOWN" << endl;;
+		cout << "\nyou go to check your bag\n\n\n\n\n" << endl;
 		s.setlevel(1);
 
         displayinv(s,i);
@@ -448,6 +448,8 @@ void Game::walkthrough()
 		}
 	}
 }
+
+//---------------------------------------------------------------
 
 
 void Game::leftpath(character s, Inventory i)
@@ -503,8 +505,8 @@ goblin e;
 
 cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
 this->validChoice = false;
-		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
-		cout << "What do you do?\n\n";
+		cout << "You charge at the goblin with all your might" << endl;
+		//cout << "What do you do?\n\n";
 		while (this->validChoice == false) {
 			e.setname("Small Goblin");
 
@@ -517,7 +519,7 @@ this->validChoice = false;
 			switch (choice)
 			{
 			case 1:
-				cout << "You challenge him and he squares up \n";
+				//cout << "You challenge him and he squares up \n";
 				cout << "Enemies stats: \n\n";
 				e.enemytostring();
 				cout << "Here are your select battle moves \n\n";
@@ -604,12 +606,16 @@ this->validChoice = false;
 			cout << "you gain 1 xp from defeating the goblin\n";
 			s.incexp(1);
 			s.levelup();
-			displayinv(s,i);
+			//displayinv(s,i);
 			break;
 		}
 		}
 
-
+cout << "\nthe small goblin falls to the floor and you go over to its lifeless structure\n";
+cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
+i.addItem(i.getdagger());
+cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
+cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
 
 
 	
