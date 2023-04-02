@@ -30,7 +30,6 @@ bool Game::playerdies()
 	return this->dead = true;
 	abort();
 }
-<<<<<<< HEAD
 /*void Game::choiceRemove(int x)
 {
 	if (cin.fail())//checker for anything other than an integer
@@ -47,7 +46,6 @@ bool Game::playerdies()
 							;
 						}
 }*/
-=======
 
 
 void Game::restart(character s)
@@ -93,7 +91,7 @@ void Game::choiceRemove(string x)
 
 
 
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
+//>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 void Game::displayinv(character s, Inventory i)
 {
 	validChoice = false;
@@ -419,10 +417,9 @@ void Game::walkthrough()
 			cout << "bow\n" << "sword\n" << "dagger" << endl;
 
 			validChoice = false;
-
+           string choice2{ "" };
 			while (validChoice == false) {
-				string choice2{ "" };
-<<<<<<< HEAD
+				
 				cin >> choice2;
 				if (choice2 == "sword")  //insatciate name like goblin sword
 				{
@@ -456,7 +453,7 @@ void Game::walkthrough()
 			}
 
 			break;
-=======
+            //string choice2; 
 			cin >> choice2;
 			if (choice2 == "sword")  //insatciate name like goblin sword
 			{
@@ -479,7 +476,6 @@ void Game::walkthrough()
 			}
 			
 			
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 
 		}
 
@@ -491,7 +487,6 @@ void Game::walkthrough()
 		cout << "note -- you will notice your battle stats, these will increase for when you level up when you enter the main body of the game!" << endl;
 		cout << "levelling up can be done by defeating monsters as you go along your journey in this game" << endl;
 		cout << "\n\nWalkthrough complete, Congulatations\n\n\n\n\n";
-<<<<<<< HEAD
 		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" << endl;
 
 
@@ -506,7 +501,7 @@ void Game::walkthrough()
 		cout << "you look down at your watch to check if it is intact" << endl;
 		cout << "watch display Location - [IO], TIME UNKNOWN" << endl;;
 		cout << " you go to check your bag\n\n\n\n\n" << endl;
-=======
+
 		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;
         beginning(s,i);
 		
@@ -529,7 +524,6 @@ void Game::beginning(character s, Inventory i)
 		cout << "\nyou look down at your watch to check if it is intact" <<endl;
 		cout << "\nwatch display Location - [IO], TIME UNKNOWN" << endl;;
 		cout << "\nyou go to check your bag\n\n\n\n\n" << endl;
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 		s.setlevel(1);
 
 		displayinv(s, i);
@@ -544,7 +538,6 @@ void Game::beginning(character s, Inventory i)
 		while (validChoice == false)
 		{
 
-<<<<<<< HEAD
 			cin >> userChoice;
 
 			if (userChoice == "left")
@@ -561,7 +554,6 @@ void Game::beginning(character s, Inventory i)
 			else {
 				cout << "wrong input please try again" << endl;
 				cin.fail();//checker for anything other than an integer
-=======
 		if (userChoice == "left")
 		{
 			cout << "you have chosen the left path" << endl;
@@ -578,7 +570,6 @@ void Game::beginning(character s, Inventory i)
 		}else{
 			cout <<"wrong input please try again" << endl;
 			cin.fail();//checker for anything other than an integer
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 				//clears input
 				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 				//line so the storage reference has no memory
@@ -589,7 +580,7 @@ void Game::beginning(character s, Inventory i)
 		}
 		getplaying();
 }
-
+}
 
 
 
@@ -649,17 +640,15 @@ void Game::leftpath(character s, Inventory i)
 
 		goblin e;
 
-<<<<<<< HEAD
 		cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
 		this->validChoice = false;
 		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
 		cout << "What do you do?\n\n";
-=======
-cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
-this->validChoice = false;
+
+    cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
+     this->validChoice = false;
 		cout << "You charge at the goblin with all your might" << endl;
 		//cout << "What do you do?\n\n";
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 		while (this->validChoice == false) {
 			e.setname("Small Goblin");
 
@@ -745,13 +734,10 @@ this->validChoice = false;
 					cout << "wrong input" << endl;
 				}
 			}
-<<<<<<< HEAD
 		}
 
 		if (s.gethealth() <= 0)
-=======
 			if (s.gethealth() <= 0)
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 		{
 			restart(s);
 			s.sethealth(200);
@@ -768,28 +754,26 @@ this->validChoice = false;
 			//displayinv(s,i);
 			break;
 		}
-		}
+		
 
-cout << "\nthe small goblin falls to the floor and you go over to its lifeless structure\n";
-cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
-i.addItem(i.getdagger());
-cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
-cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
-cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
+        cout << "\nthe small goblin falls to the floor and you go over to its lifeless structure\n";
+         cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
+              i.addItem(i.getdagger());
+         cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
+            cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
+         cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
 
 
-<<<<<<< HEAD
 
 		getplaying();
 	}
-=======
-getplaying();
+
+        getplaying();
 
 }
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 
 
-}
+
 
 
 
@@ -798,12 +782,11 @@ getplaying();
 
 
 void Game::rightPath(character s, Inventory i)
-<<<<<<< HEAD
 {
 	while ((this->playing == true) && (this->dead == false))
-=======
+	{
+
 {while ((this->playing == true) && (this->dead == false))
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 	{
 		//surivor,, notice escape pod look arund see a chest see weapon,, off to distance you see goblin after a ghirl you ntoice her hiding 
 		//option 1.flee  2. attack
@@ -910,11 +893,8 @@ void Game::rightPath(character s, Inventory i)
 					{
 					case 1:
 						e.daggerattack(s);
-<<<<<<< HEAD
 						break;
-=======
 						break;						
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 					}
 				}
 			} while (((e.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
@@ -922,11 +902,9 @@ void Game::rightPath(character s, Inventory i)
 			break;
 
 			if (s.gethealth() <= 0)
-<<<<<<< HEAD
+
 			{
-=======
 			{ 
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 				playerdies();
 				abort();
 			}
@@ -936,12 +914,12 @@ void Game::rightPath(character s, Inventory i)
 				cout << "you gain 1 xp from defeating the goblin\n";
 				s.incexp(1);
 				s.levelup();
-<<<<<<< HEAD
+
 			}
 		}
-=======
+
 			}			
-		}
+		
 
 
 
@@ -968,11 +946,11 @@ void Game::rightPath(character s, Inventory i)
 
 		getplaying();
 }
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 
 
 
 
+/*
 		else if (userchoice2 == "2")
 		{
 			cout << "\nYou rescue the hostage but he is seriously bleeding out and doesnt have a lot of time left.\nHis name is 'Igor' and he escaped his ship using the escape pod as the ship got taken down by a dragon.\n Before passing away he says that beyond the forrest is the wreckage with a more escape pods from where I can escape.";
@@ -987,16 +965,15 @@ void Game::rightPath(character s, Inventory i)
 				cout << "wrong input" << endl;
 			}
 
-		}
+		}*/
 
 		getplaying();
 	}
 
 
 
-<<<<<<< HEAD
+
 }
-=======
 
 
 
@@ -1008,4 +985,4 @@ void Game::rightPath(character s, Inventory i)
 
 
 
->>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
+
