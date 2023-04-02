@@ -16,6 +16,7 @@ Game::~Game() {}
 
 bool Game::getplaying()
 {
+	//ends game loop
 	cout << "come back again soon" << endl;
 	//has abort because of the loop in walkthrough function. This is fine.
 	abort();
@@ -89,9 +90,6 @@ void Game::choiceRemove(string x)
 }
 
 
-
-
-//>>>>>>> 0659aaff76b10209e80433bf6bbd90047b609210
 void Game::displayinv(character s, Inventory i)
 {
 	validChoice = false;
@@ -166,7 +164,7 @@ void Game::walkthrough()
 	character s;
 	goblin e;
 	string name;
-	Inventory i; // inventory declaration
+	Inventory i; //inventory declaration
 
 
 
@@ -491,18 +489,7 @@ void Game::walkthrough()
 
 
 
-		//------------------------------------------------------------------
-		//Main Story
-		/*cout << "\n IN A OTHERWORLDIAN DIMENSION \n";
-		cout << "Welcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
-		cout << "You have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
-		cout << "For some reason as you have teleported, you have also found yourself approx 2431 years in the future." << endl;
-		cout << "As you bring your head out the moondust, you notice that there are unrecognised beings being detected on your organism radar" << endl;
-		cout << "you look down at your watch to check if it is intact" << endl;
-		cout << "watch display Location - [IO], TIME UNKNOWN" << endl;;
-		cout << " you go to check your bag\n\n\n\n\n" << endl;
-
-		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;*/
+		
         beginning(s,i);
 		
      getplaying();
@@ -516,6 +503,8 @@ void Game::walkthrough()
 
 void Game::beginning(character s, Inventory i)
 {
+
+	cout << "\n Beginnning of Main story \n";
 	cout << "\nIN A OTHERWORLDIAN DIMENSION \n";
 		cout << "\nWelcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
 		cout << "\nYou have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
@@ -594,7 +583,6 @@ void Game::leftpath(character s, Inventory i)
 		//displayinv(s,i);
 
 		cout << "\nYou notice shadows in the distance, they seem to resemble something of a human being shape\n";
-
 		cout << "\nAs you approach, it seems to resemble more and more like a monster! OH MY GOODNESS IT IS A GOBLIN-LIKE CREATURE. \n";
 		cout << "\nTo stop it from seeing you. You hide behind a small pile of rubble \n";
 		cout << "\nYou notice a sword on the top of the rubble. It looks rusty and like it has been there for a while.\n";
@@ -646,8 +634,8 @@ void Game::leftpath(character s, Inventory i)
 		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
 		cout << "What do you do?\n\n";
 
-    cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
-     this->validChoice = false;
+        cout << "\nNow you have your sword. You are ready to take on the goblin\n" << endl;
+        this->validChoice = false;
 		cout << "You charge at the goblin with all your might" << endl;
 		//cout << "What do you do?\n\n";
 		while (this->validChoice == false) {
@@ -757,11 +745,11 @@ void Game::leftpath(character s, Inventory i)
 		
 
         cout << "\nthe small goblin falls to the floor and you go over to its lifeless structure\n";
-         cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
-              i.addItem(i.getdagger());
-         cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
-            cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
-         cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
+        cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
+        i.addItem(i.getdagger());
+        cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
+        cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
+        cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
 
 
 
