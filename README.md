@@ -1,14 +1,3 @@
-# 273Project
-Text based RPG
-https://cplusplus.com/forum/beginner/232335/
-
-
-
-heres my code so far you can correct if u want 
-
-
-
-
 void Game::rightPath(character s, Inventory i)
 {
 	while ((this->playing == true) && (this->dead == false))
@@ -152,6 +141,7 @@ void Game::rightPath(character s, Inventory i)
 				cout << "He stands up again insantly and proceeds to say with more urgency\n\t\t\t\t\ 'The ship is going down a dragon I repeat A FIREBREATHING DRAGON has attacked and intercepted this mission. The crew have now escaped via escape pods with 2 more for myself and Lutenet Garcia we are sending this message out to warn anyone in the area this world is not saf.... ' ";
 				cout << "\nBefore he could finish a large claw enters breaks the ship window and pierces the Lutenent Garcia in the chest and is sent dragged out of the ship window.\n";
 				cout << "Oh Shit Garcia is dead. I'll keep this short. This ship is projected to crash in a few minutes and I need to escape. The ship and all this cargo is going to crash in the forrest. If there are any survivors meet there\n\n And just like that the projection ended.\n";
+				cout << "If you find this forrest and locate the ship you can use the remaining escape pod to leave this world and go back to your family, you step outside the escape pod and go in search of the lost ship.\n ";
 				this->validChoice = true;
 				getplaying();
 			}
@@ -161,17 +151,18 @@ void Game::rightPath(character s, Inventory i)
 		{
 			mutant p;
 			cout << "You ignore the hostage and continue walking to explore the rest of the pod. You come across a chest and look inside, theres a wand and a scroll. You take the wand as you know a few powerful spells which will come in very handy.\n";
-			cout << "The scroll reads.\n\t\t\t\t\tMy Ship got attacked by a dragon and I have just escaped through this escape pod,\n\t\t\t\t\I'm not sure if Ill make it out alive but if anyone of my crew finds this meet in the forrest.\n\t\t\t\t\I have sent out a telegram to all my crew and we should all regroup there.\nCommander Salamander\n";
+			cout << "The scroll reads.\n\t\t'My Ship got attacked by a dragon and I have just escaped through this escape pod,\n\t\t\t\t\I'm not sure if Ill make it out alive but if anyone of my crew finds this meet in the forrest.\n\t\t\t\t\I have sent out a telegram to all my crew and we should all regroup there.\n\t\t\t\t\I'm not sure if Ill make it out alive but if anyone of my crew finds this meet in the forrest.\n\t\t\t\t\Commander Salamander'\n";
 			i.addItem(i.getwand());
 			i.addItem(i.getscroll());
 			displayinv(s, i);
-			cout << "You take a step outside the pod and look around you for any sign of a forrest as this can be your chance to find other survivors. In the distance you hear disturbing growling and loud chewing very nearby. You walk cautiously ahead and see what is shaped like a human.\nExcited you start jogging towards the figure. The figure turns around hearing your footsteps, his face is covered in blood and in his hand is a half eaten leg. He gets down on all fours and starts running towards you\n. ";
+			cout << "If I find this ship it could help me escape this godforsaken world and use any remaining escape pods to go back home to my family. You take a step outside the pod and look around you for any sign of a forrest that the scroll mentioned. In the distance you hear disturbing growling and loud chewing very nearby. You walk cautiously ahead and see what is shaped like a human.\nExcited you start jogging towards the figure, maybe hes lost and looking for the forrest. The figure turns around hearing your footsteps, his face is covered in blood and in his hand is a half eaten leg. He gets down on all fours and starts running towards you\n. ";
 			cout << "What do you do?\n1.Do you run back into the escape pod\n2.Fight the creature\n";
 			int userchoice2323{};
 			cin >> userchoice2323;
 			if (userchoice2323 == 1)
 			{
-				cout << "Run back ... find commander ect";
+				cout << "You run back into the escape pod and slam the door shut behind you. AS you slam the door the goblin pounces on your back and pierces you through the chest with his sword.\n";
+				restart(s);
 			}
 			else if (userchoice2323 == 2)
 			{
@@ -245,7 +236,9 @@ void Game::rightPath(character s, Inventory i)
 				{
 					cout << "congratulations warrior you defeted the mutant\n" << endl;
 					cout << "you gain 5 xp from defeating the mutant\n";
-					//cout << "you search the goblins lifless body for any items and find a wand and 2 healing potions!\n";
+					cout << "you search the mutants lifless body to find 2 healing potions!\n";
+					cout << "You walk on to find the crashed ship\n";
+					//cout << "you search the goblins lifless body  2 healing potions!\n";
 					//cout << "you pick them both up up as it may come in handy at some point as you know some useful spells.\n";
 					s.incexp(5);
 					s.levelup();
@@ -269,6 +262,6 @@ void Game::rightPath(character s, Inventory i)
 				break;
 			}
 		}
-		getplaying();
+		//getplaying();
 	}
 }
