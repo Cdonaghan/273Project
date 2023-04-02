@@ -493,7 +493,7 @@ void Game::walkthrough()
 
 		//------------------------------------------------------------------
 		//Main Story
-		cout << "\n IN A OTHERWORLDIAN DIMENSION \n";
+		/*cout << "\n IN A OTHERWORLDIAN DIMENSION \n";
 		cout << "Welcome to Io, a moon that orbits jupiter approximately 421700 km from its center." << endl;
 		cout << "You have been on a research project to investigate and manipulate the space-time continuum and ended up teleporting from Jupiter to Io " << endl;
 		cout << "For some reason as you have teleported, you have also found yourself approx 2431 years in the future." << endl;
@@ -502,7 +502,7 @@ void Game::walkthrough()
 		cout << "watch display Location - [IO], TIME UNKNOWN" << endl;;
 		cout << " you go to check your bag\n\n\n\n\n" << endl;
 
-		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;
+		cout << "context - in this world you play as a user of many weapons, including a wand for spells, a sword, bow and a dagger\n\n\n\n" <<endl;*/
         beginning(s,i);
 		
      getplaying();
@@ -619,7 +619,8 @@ void Game::leftpath(character s, Inventory i)
 			}
 			else if (userChoice == "2") {
 				cout << "You are detected by the goblin, he catches you as you run away and eats you" << endl;
-				playerdies(); // already aborts code
+				playerdies();
+				restart(s); // already aborts code
 				//validChoice = true;
 
 			}
@@ -737,7 +738,6 @@ void Game::leftpath(character s, Inventory i)
 		}
 
 		if (s.gethealth() <= 0)
-			if (s.gethealth() <= 0)
 		{
 			restart(s);
 			s.sethealth(200);
