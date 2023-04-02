@@ -15,11 +15,13 @@ public:
 	bool getplaying();
 	bool playerdies();
 	bool enemydied();
+	void getUserName(character s, string name);
 	void displayinv(character s, Inventory i);
 	//void walkthrough(character s, Inventory i, string start, string name);
 	void leftpath(character s, Inventory i);
 	void rightPath(character s, Inventory i);
 	void beginning(character s, Inventory i);
+	void leftPathStory(character s, Inventory i);
 	void choiceRemove(string x);
 	void restart(character s);
 	void storylineSelect(character s, Inventory i);

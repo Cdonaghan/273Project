@@ -151,22 +151,31 @@ validChoice = true;
 
 }
 
+void Game::getUserName(character s, string r)
+{
+cout << "\n\nEnter characters name: ";
+         string name;
+		 cin >> name;
+		 s.setname(name);
+}
+
 
 //----------------------------------------------------------------------
 
 void Game::walkthrough()
 {
 
-
+    
 
 	string start{ " " };
 
 	character s;
 	goblin e;
 	string name;
+	
 	Inventory i; //inventory declaration
 
-
+    getUserName(s, name);
 
 	//while loop for conditions to run the game 
 	while ((this->playing == true) && (this->dead == false))
@@ -184,11 +193,8 @@ void Game::walkthrough()
 
 			cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
 
-         cout << "Enter characters name: ";
-
-		 cin >> name;
-		 s.setname(name);
-
+         
+            
 			cout << "\t\t\t\t\t\tRISE OF THE WARRIOR" << endl;
 			cout << "\t\t\t\t\t\tMAIN MENU" << endl << endl;
 			cout << "\t\t\t\t\t\t0: Exit" << endl;
@@ -742,26 +748,67 @@ void Game::leftpath(character s, Inventory i)
 			//displayinv(s,i);
 			break;
 		}
+		validChoice = true;
 		
+	} // end of battle with first goblin, will tell storyline and build another function around the second fight 
 
         cout << "\nthe small goblin falls to the floor and you go over to its lifeless structure\n";
         cout << "you search it for any item and find the dagger, you pick it up as it may come in handy at some point.\n";
         i.addItem(i.getdagger());
         cout << "\nyou notice the goblin is also carrying a scroll. You take the scroll from his belt and read it.\n";
-        cout << "    TO WHOMSTEVER THIS MAY CONCERN\n" << endl;
-        cout << "There is an escape pod on the top of the highest hill in the area, if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
+        cout << "\nTO WHOEVER THIS MAY CONCERN\n" << endl;
+        cout << "There is an escape pod on the top of the tallest hill in the area.\n";
+		cout << "if you are reading this i hope you know this is a sign to make it to the top of the hill and get out of here" << endl;
+		cout << "you feel tired from all the chaos and lie down. You find yourself shutting your eyes and falling sound asleep" << endl;
+
+       cout << "\n\n\n DARKNESS \n\n\n" << endl;
+	   cout << "\nThe sun is shining, it is summer. The smell of freshly-cut grass is prominent as you walk out into the garden \n";
+       cout << "\n'Let's play Catch!' Your daughter shouts from across the garden as she proceeds to launch a ball towards you \n";
+	   cout << "\nIt doesn't go far although you habve a big cheesy ear-to-ear grin as you know it was her best attempt\n";
+	   cout << "\nYou tell her what an excellent throw it was and she is a good girl as you throw it back to her\n";
+       cout << "\nHer laugh is so loud and prominent. It is the last thing you hear before a big crash\n";
+	   cout << "\n\nBOOM\n\n";
+	   
+
+	   string choice = {""};
+	   validChoice = false;
+	   cout << "would you like to continue?\n";
+	   cout << "note -- if not you will be asked to restart\n";
+	   cout << "1. Continue?\n" <<  "2. Restart?\n";
+       cin >> choice;
+	   while (validChoice == false)
+	   {
+		if (choice == "1")
+		{
+			leftPathStory(s,i);
+			validChoice = true;
+		} else if (choice == "2")
+		{
+
+			restart(s);
+			walkthrough();
+			validChoice = true;
+		}
+		else 
+		{
+          choiceRemove(choice);
+		}
+
+	   }
+	   
 
 
-
-		getplaying();
-	}
+	
 
         getplaying();
 
 }
 
 
+void Game::leftPathStory(character s, Inventory i)
+{
 
+}
 
 
 
