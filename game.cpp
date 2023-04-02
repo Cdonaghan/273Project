@@ -9,7 +9,7 @@ using namespace std;
 
 Game::Game()
 {
-	choice = 0;
+	//choice = 0;
 	playing = true;
 }
 Game::~Game() {}
@@ -795,33 +795,21 @@ void Game::leftpath(character s, Inventory i)
 		}
 
 	   }
-	   
-
-
-	
-
-        getplaying();
-
-}
+	    getplaying();}
 
 
 void Game::leftPathStory(character s, Inventory i)
 {
-
+//rest of story
 }
 
-
-
-
 //-------------------------------------------------------------------------
-
 
 void Game::rightPath(character s, Inventory i)
 {
 	while ((this->playing == true) && (this->dead == false))
 	{
-
-{while ((this->playing == true) && (this->dead == false))
+		{while ((this->playing == true) && (this->dead == false))
 	{
 		//surivor,, notice escape pod look arund see a chest see weapon,, off to distance you see goblin after a ghirl you ntoice her hiding 
 		//option 1.flee  2. attack
@@ -954,10 +942,7 @@ void Game::rightPath(character s, Inventory i)
 		}
 
 			}			
-		
-
-
-
+	
 		
 		else if (userchoice2 == "2")
 		{
@@ -973,9 +958,7 @@ void Game::rightPath(character s, Inventory i)
 				cout << "wrong input" << endl;
 			}
 
-		}
-
-		
+		}	
 	}		
 	
 
