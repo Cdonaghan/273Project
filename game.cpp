@@ -31,22 +31,6 @@ bool Game::playerdies()
 	return this->dead = true;
 	abort();
 }
-/*void Game::choiceRemove(int x)
-{
-	if (cin.fail())//checker for anything other than an integer
-						{
-
-							cin.clear();//clears input
-							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new
-							//line so the storage reference has no memory
-							cout << "wrong input" << endl;
-							;
-						}
-						else {
-							cout << "wrong input " << endl;
-							;
-						}
-}*/
 
 
 void Game::restart(character s)
@@ -79,10 +63,9 @@ string choice {""};
 	}
 
 }
-	
-
-
 }
+
+
 void Game::choiceRemove(string x)
 { 
 	cout << "wrong input try again" << endl;
@@ -162,19 +145,14 @@ cout << "\n\nEnter characters name: ";
 
 //----------------------------------------------------------------------
 
+
 void Game::walkthrough()
 {
-
-    
-
 	string start{ " " };
-
 	character s;
 	goblin e;
 	string name;
-	
 	Inventory i; //inventory declaration
-
     getUserName(s, name);
 
 	//while loop for conditions to run the game 
@@ -183,11 +161,11 @@ void Game::walkthrough()
 
 		/* Brief
 
-		full game runs in while loop
+		full game runs within functions
 		if player dies while loop ends
 
-
 		*/
+
 	{
 		while (this->validChoice == false) {
 
@@ -224,7 +202,7 @@ void Game::walkthrough()
 
 				storylineSelect(s,i);
 
-				//display functions fopr certain storypoints here
+				//display functions for certain storypoints here
 				//done in an if statement with an input checker
 				//make look neat 
 				//eg 
@@ -247,6 +225,7 @@ void Game::walkthrough()
 
 
 		//---------------------------------------------------
+		
 		this->validChoice = false;
 
 		//character creation and start game
@@ -802,7 +781,7 @@ void Game::leftPathStory(character s, Inventory i)
 {
 //rest of story
 }
-
+ 
 //-------------------------------------------------------------------------
 
 void Game::rightPath(character s, Inventory i)
@@ -925,9 +904,7 @@ void Game::rightPath(character s, Inventory i)
 			break;
 
 			if (s.gethealth() <= 0)
-
-			{
-			{ 
+			{{ 
 				playerdies();
 				abort();
 			}
