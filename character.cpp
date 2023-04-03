@@ -177,37 +177,9 @@ void character::healingpot()
 		cout << "\t\t\t\t\t\tYour health is " << maxhealth << endl;;
 	}
 }
-/*void character::getWeapon()
-{
-	cout << this->Weapon << endl;
-}
-void character::setWeapon(string x)
-{
-	x = this->Weapon;
-}
-string character::getPotion()
-{
-	cout << this->potion << endl;
-}
-void character::setPotion(string x)
-{
-	x = potion;
-}
-
-string character::getsword()
-{
-return sword;
-}
-
-void character::setsword(string x)
-{
-	x = this->sword;
-	
-}*/
-
 
 void character::checkhealth()
-{
+{	
 	if (health < 0){
 health = 0;
 	}

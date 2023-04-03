@@ -134,13 +134,13 @@ validChoice = true;
 
 }
 
-void Game::getUserName(character s, string r)
+/*void Game::getUserName(character s, string r)
 {
 cout << "\n\nEnter characters name: ";
-         string name;
-		 cin >> name;
-		 s.setname(name);
-}
+   
+		 cin >> r;
+		 
+}*/
 
 
 //----------------------------------------------------------------------
@@ -151,9 +151,12 @@ void Game::walkthrough()
 	string start{ " " };
 	character s;
 	goblin e;
-	string name;
+	string names;
 	Inventory i; //inventory declaration
-    getUserName(s, name);
+	
+    cout << "enter your name" << endl;
+	cin >> names;
+	s.setname(names);
 
 	//while loop for conditions to run the game 
 	while ((this->playing == true) && (this->dead == false))
@@ -165,9 +168,12 @@ void Game::walkthrough()
 		if player dies while loop ends
 
 		*/
-
+	
+        
 	{
 		while (this->validChoice == false) {
+
+
 
 			cout << "273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n";
 
@@ -230,7 +236,7 @@ void Game::walkthrough()
 
 		//character creation and start game
 		
-		cout << "Welcome " << name << endl;
+		cout << "Welcome " << names << endl;
 		cout << "\n\nFirst lets have a walkthrough of the basic combat and inventory before starting the game\n\n\n";
 
 		while (this->validChoice == false)
