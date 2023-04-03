@@ -65,7 +65,7 @@ string choice {""};
 }
 }
 
-
+//call string inside loop for any choice otherwise this will not work
 void Game::choiceRemove(string x)
 { 
 	 cin.fail();//checker for anything other than an integer
@@ -614,7 +614,7 @@ void Game::leftpath(character s, Inventory i)
 		cout << "\nTo stop it from seeing you. You hide behind a small pile of rubble \n";
 		cout << "\nYou notice a sword on the top of the rubble. It looks rusty and like it has been there for a while.\n";
 		cout << "\nwhat do you do?\n" << endl;
-		cout << "1. Pick up sword\n" << "2.Take your chances and run" << endl;
+		cout << "1.Pick up sword\n" << "2.Take your chances and run" << endl;
 
 
 		validChoice = false;
@@ -1014,7 +1014,7 @@ cout << "\nOne in particular. Has the resemblance of a supermarket. You feel hun
 		cout << "\nYour path still beckons ahead, take these two healing potions for any battles along the way\n";
 		cout << "\ngood luck survivor, the escape pod is waiting...\n";
 		
-		continueToNext(s,i);
+		 continueToNext(s,i);
 
 	     leftpathStoryContd(s,i);
 
@@ -1046,7 +1046,7 @@ void Game::leftpathStoryContd(character s, Inventory i)
 		if (choice5 == "1")
 		{
          leftpathMutantFight(s,i);
-		 getplaying();
+		 
 		 validChoice = true;
 		}
 		else if (choice5 == "2")
@@ -1058,12 +1058,151 @@ void Game::leftpathStoryContd(character s, Inventory i)
 			choiceRemove(choice5);
 		}
 	}
+cout << "you begin to make your way around the hill's circumference\n";
+cout << "\noh no, you encounter another goblin\n";
+cout << "what do you do?" << "\n1.Fight\n2.run\n";
+goblin e;
+validChoice = false;
 
-}
 
-void Game::leftpathMutantFight(character s, Inventory i)
+while (validChoice == false)
+{
+string choice7;
+cin >> choice7;
+if (choice7 == "1")
 {
 
+while (this->validChoice == false) {
+			e.setname("Small Goblin");
+
+			cout << "1. Attack" << endl;
+
+			//cout << "Select '1' \n\n";
+			
+			cin >> choice;
+
+
+			switch (choice)
+			{
+			case 1:
+				//cout << "You challenge him and he squares up \n";
+				cout << "Enemies stats: \n\n";
+				e.enemytostring();
+				cout << "Here are your select battle moves \n\n";
+
+				do
+				{
+
+					int ans;
+					cout << "\n1.Sword attack\n";
+					cout << " Select to choose your fate: " << "\n\n";
+					cin >> ans;
+					switch (ans)
+					{
+					case 1:
+						s.attackenemy(e);
+						break;
+
+					default:
+					{
+
+						if (cin.fail())//checker for anything other than an integer
+						{
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+
+						break;
+					}
+
+					}
+
+					//enemy attack
+					if (e.gethealth() <= 0)
+					{
+						e.enemySetHealthZero();
+						//enemydied();
+					}
+					else {
+						cout << "\n\n\t\t\t\tNOW ITS THE GOBLIN'S TURN TO ATTACK\n\n";
+
+						int x = 1;
+						switch (x)
+						{
+						case 1:
+							e.daggerattack(s);
+							break;
+
+						}
+
+					}
+
+
+				} while (((e.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
+				this->validChoice = true;
+				break;
+
+			default:
+				if (cin.fail())//checker for anything other than an integer
+				{
+					cin.clear();//clears input
+					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+					//line so the storage reference has no memory
+					cout << "wrong input" << endl;
+				}
+			}
+		
+
+		if (s.gethealth() <= 0)
+		{
+			restart(s);
+			s.sethealth(200);
+			validChoice = false;
+		
+		}
+
+		if (e.gethealth() <= 0)
+		{
+			cout << "congratulations warrior you defeted the goblin\n" << endl;
+			cout << "you gain 1 xp from defeating the goblin\n";
+			s.incexp(1);
+			s.levelup();
+			//displayinv(s,i);
+			break;
+		}
+		validChoice = true; //to break the second loop
+		
+	}
+validChoice = true; //to break the first loop
+}
+else if (choice7 == "2")
+{
+cout << "the goblin catches you and kills you" << endl;
+restart(s);
+leftpathStoryContd(s,i);
+//validChoice = true;
+} else 
+{
+choiceRemove(choice7);
+}
+}
+cout << "\nyou circle the hill and find there is no other option but to enter through the gates\n";
+continueToNext(s,i);
+leftpathMutantFight(s,i);
+getplaying();
+}
+void Game::leftpathMutantFight(character s, Inventory i)
+{
+cout << "welcome to the mutant fight\n";
+displayinv(s,i);
+getplaying();
 }
  
 //-------------------------------------------------------------------------
