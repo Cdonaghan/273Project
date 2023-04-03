@@ -1102,6 +1102,9 @@ while (this->validChoice == false) {
 					case 1:
 						s.attackenemy(e);
 						break;
+						
+						case 2:
+						s.daggerAttack(e);
 
 					default:
 					{
