@@ -38,6 +38,7 @@ public:
 
 
 
+
 	//different enemies inherit but alter inside chance decreases
 	void explosion(character& bad);
 	void attackspelll(character& bad);
