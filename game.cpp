@@ -1007,12 +1007,45 @@ string choice = {""};
 		
 		}
 
-		//--------------------------------
-		//Mutant fight
+		
+		
+		
+		//-----------------------------------------
+		
 
 void Game::leftpathStoryContd(character s, Inventory i)
 {
 	cout << "\nYou walk on past the supermarket towards the hill\n";
+	cout << "\nIt is alot closer now, You can see a massive fence surrounding the hill\n";
+	cout << "\nThere appears to be no way around it and you have to enter through the gates\n";
+	cout << "\nwhat do you do?\n";
+	cout << "\n1. Enter through the gates\n 2. Look for another way\n";
+	
+	string choice {""};
+	validChoice = false;
+	
+	while (validChoice == false)
+	{
+		if (choice == "1")
+		{
+         leftpathMutantFight(s,i);
+		 getplaying();
+		 validChoice = true;
+		}
+		else if (choice == "2")
+		{
+          validChoice = true;
+		}
+		else 
+		{
+			choiceRemove(choice);
+		}
+	}
+
+}
+
+void Game::leftpathMutantFight(character s, Inventory i)
+{
 
 }
  
