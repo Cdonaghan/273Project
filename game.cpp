@@ -154,7 +154,7 @@ void Game::continueToNext(character s, Inventory i)
 	   {
 		if (choice == "1")
 		{
-			leftPathStory(s,i);
+			//leftPathStory(s,i);
 			validChoice = true;
 		} else if (choice == "2")
 		{
@@ -811,6 +811,7 @@ void Game::leftpath(character s, Inventory i)
 
 	   }*/
 	   continueToNext(s,i);
+	   leftPathStory(s,i);
 	    getplaying();}
 
 
@@ -847,7 +848,7 @@ string choice = {""};
 		{
           choiceRemove(choice);
 		}
-
+	
 	   }
 	    
       cout << "\nYou open the crooked door, A big gust of wind hits as you are slammed back into the door\n";
@@ -997,6 +998,8 @@ string choice = {""};
 		cout << "\nI assume you have defeated any monsters on your path to collecting this scroll, even the troll guarding these items\n";
 		cout << "\nYour path still beckons ahead, take these two healing potions for any battles along the way\n";
 		cout << "\ngood luck survivor, the escape pod is waiting...\n";
+		
+		continueToNext(s,i);
 
 	     leftpathStoryContd(s,i);
 
@@ -1149,6 +1152,9 @@ void Game::rightPath(character s, Inventory i)
 
 			}
 		}
+		continueToNext(s,i);
+
+
 
 			}			
 	
