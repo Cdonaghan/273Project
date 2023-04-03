@@ -59,7 +59,7 @@ troll::~troll()
 {
 
 }
-void troll::clubattack(character s)
+void troll::clubattack(character& s)
 {
 	
 	attackcharacter(s, this->club_attack);

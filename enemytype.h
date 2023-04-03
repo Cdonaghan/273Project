@@ -26,7 +26,7 @@ public:
 	~troll();
 
 	///more attacks
-	void clubattack(character s);
+	void clubattack(character& s);
 	void trollparry(troll& s, character c);
 
 protected:

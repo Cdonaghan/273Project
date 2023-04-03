@@ -111,7 +111,7 @@ void Game::storylineSelect(character s, Inventory i)
 	string choice {""};
 	cout << "what part of the storyline would you like to go to?\n";
 	cout << "\n1: Start of Main Story" << endl;
-	cout << "\n2: Left path";
+	cout << "\n2: Left path" << endl;
 	cout << "\n3: Right path" << endl;
 //update for more sections of story
     cin >> choice;
@@ -818,7 +818,7 @@ string choice = {""};
 	    
       cout << "\nYou open the crooked door, A big gust of wind hits as you are slammed back into the door\n";
 	  cout << "\nYou look up to see what had happened and you notice a troll, standing to the left\n";
-	  cout << "\nIt is holstering a sword. Ready to charge at you.\n";
+	  cout << "\nIt is holstering a club. Ready to charge at you.\n";
 	  cout << "\nwhat do you do\n";
 
        choice = {""};
