@@ -13,10 +13,10 @@ public:
 	void setdeflect(double x);
 	void enemySetHealthZero();
 
-   
+    string getname();
 
-    //enemy and boss attacks
-	void attackcharacter(character& x, double b);
+    // enemy and boss attacks
+    void attackcharacter(character& x, double b);
 protected:
 	double enemyhealth;
 

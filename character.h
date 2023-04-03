@@ -41,9 +41,10 @@ public:
 	//different enemies inherit but alter inside chance decreases
 	void explosion(character& bad);
 	void attackspelll(character& bad);
-	//weapons
+    void daggerAttack(character &bad);
+    // weapons
 
-	//void getWeapon();
+    //void getWeapon();
 	//void setWeapon(string x);
 
 	//potions
@@ -67,6 +68,7 @@ protected:
 	double explosionspell;
 	double attackspell;
 	double healingpotion;
+	double daggerattack;
 	double deflect = 80;
 	/*string sword = { "Sword" };
 	string bow = { "Bow" };

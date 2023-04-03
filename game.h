@@ -22,6 +22,7 @@ public:
 	void rightPath(character s, Inventory i);
 	void beginning(character s, Inventory i);
 	void leftPathStory(character s, Inventory i);
+	void leftpathStoryContd(character s, Inventory i);
 	void choiceRemove(string x);
 	void restart(character s);
 	void storylineSelect(character s, Inventory i);

@@ -16,6 +16,7 @@ character::character()
 	this->explosionspell = 100;
 	this->attackspell = 25;
 	this->healingpotion = 25;
+	this->daggerattack = 15;
 
 }
 //destructor
@@ -80,6 +81,7 @@ void character::levelup()
 		level++;
 		expnext = pow(level, 3) + 1;
 		//for level 1 to show how levelling works to the audience
+		cout << "\nCongratulations, you have just levelled up\n";
 	}
 }
 
@@ -136,6 +138,17 @@ void character::explosion(character& bad)
 void character::attackspelll(character& bad)
 {
 	bad.health -= this->attackspell;
+	if (bad.health <= 0)
+				{
+					bad.health = 0;
+					//enemydied();
+				}
+	cout << "\t\t\t\t\YOU HIT HIM!!\tEnemy health is: " << bad.health << endl << endl;
+}
+
+void character::daggerAttack(character& bad)
+{
+	bad.health -=this->daggerattack;
 	if (bad.health <= 0)
 				{
 					bad.health = 0;

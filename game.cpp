@@ -225,7 +225,7 @@ void Game::walkthrough()
 
 
 		//---------------------------------------------------
-		
+
 		this->validChoice = false;
 
 		//character creation and start game
@@ -745,6 +745,7 @@ void Game::leftpath(character s, Inventory i)
        cout << "\n'Let's play Catch!' Your daughter shouts from across the garden as she proceeds to launch a ball towards you \n";
 	   cout << "\nIt doesn't go far although you habve a big cheesy ear-to-ear grin as you know it was her best attempt\n";
 	   cout << "\nYou tell her what an excellent throw it was and she is a good girl as you throw it back to her\n";
+	   cout << "\nYou must push through, even if the chances are slim of ever seeing your daughteragain\n";
        cout << "\nHer laugh is so loud and prominent. It is the last thing you hear before a big crash\n";
 	   cout << "\n\nBOOM\n\n";
 	   
@@ -779,7 +780,184 @@ void Game::leftpath(character s, Inventory i)
 
 void Game::leftPathStory(character s, Inventory i)
 {
-//rest of story
+cout << "\nYou awake from the dream only to a massive meteor strike about 5 miles south\n";
+cout << "\nThe force from the strike rippled through your body, almost enough to bring your feet off the ground\n";
+cout << "\nYou look for the tallest hill in all directions, the tallest one should signal north.\n";
+cout << "\nYou spot it and make your way towards it.\n";
+cout << "\nSword and Dagger in hand, you make your way along the rubble surface of Io. Observing what looked like man made structure as you walk past\n";
+cout << "\nOne in particular. Has the resemblance of a supermarket. You feel hungry. Do you enter?\n";
+
+string choice = {""};
+	   validChoice = false;
+	   cout << "1. Enter the Supermarket\n" <<  "2. Continue\n";
+       cin >> choice;
+	   while (validChoice == false)
+	   {
+		if (choice == "1")
+		{
+			
+			validChoice = true;
+		} else if (choice == "2")
+		{
+
+			leftpathStoryContd(s,i);
+			validChoice = true;
+		}
+		else 
+		{
+          choiceRemove(choice);
+		}
+
+	   }
+	    
+      cout << "\nYou open the crooked door, A big gust of wind hits as you are slammed back into the door\n";
+	  cout << "\nYou look up to see what had happened and you notice a troll, standing to the left\n";
+	  cout << "\nIt is holstering a sword. Ready to charge at you.\n";
+	  cout << "\nwhat do you do\n";
+
+       choice = {""};
+	   validChoice = false;
+	   cout << "1. Fight the troll?\n" <<  "2. Take your chances and run\n";
+       cin >> choice;
+	   while (validChoice == false)
+	   {
+		if (choice == "1")
+		{
+			
+			validChoice = true;
+		} else if (choice == "2")
+		{
+            cout << "You dodge the Troll and jump out the smashed window and flee from the supermarket, towards the hill\n";
+			leftpathStoryContd(s,i);
+			validChoice = true;
+		}
+		else 
+		{
+          choiceRemove(choice);
+		}
+
+	   }
+
+       troll r;
+	   validChoice = false;
+
+	   while (this->validChoice == false) {
+		int choice;
+			r.setname("Zodd - Boss troll");
+            cout << "\nPress 1 to attack\n";
+			cout << "1. Attack" << endl;
+
+			//cout << "Select '1' \n\n";
+			cin >> choice;
+
+
+			switch (choice)
+			{
+			case 1:
+				//cout << "You challenge him and he squares up \n";
+				cout << "Enemies stats: \n\n";
+				r.enemytostring();
+				cout << "Here are your select battle moves \n\n";
+
+				do
+				{
+
+					int ans;
+					cout << "\n1.Sword attack\n2.Dagger attack\n";
+					cout << "Select to choose your fate: " << "\n\n";
+					cin >> ans;
+					switch (ans)
+					{
+					case 1:
+						s.attackenemy(r);
+						break;
+
+						case 2:
+						s.daggerAttack(r);
+
+					default:
+					{
+
+						if (cin.fail())//checker for anything other than an integer
+						{
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+
+						break;
+					}
+
+					}
+
+					//enemy attack
+					if (r.gethealth() <= 0)
+					{
+						r.enemySetHealthZero();
+						//enemydied();
+					}
+					else {
+						cout << "\n\n\t\t\t\tNOW ITS THE GOBLIN'S TURN TO ATTACK\n\n";
+
+						int x = 1;
+						switch (x)
+						{
+						case 1:
+							r.clubattack(s);
+							break;
+
+						}
+
+					}
+
+
+				} while (((r.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
+				this->validChoice = true;
+				break;
+
+			default:
+				if (cin.fail())//checker for anything other than an integer
+				{
+					cin.clear();//clears input
+					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+					//line so the storage reference has no memory
+					cout << "wrong input" << endl;
+				}
+			}
+		}
+
+		if (s.gethealth() <= 0)
+		{
+			restart(s);
+			s.sethealth(200);
+			validChoice = false;
+		
+		}
+
+		if (r.gethealth() <= 0)
+		{
+			cout << "congratulations warrior you defeted "<< r.getname() << endl;
+			cout << "you gain 2 xp\n";
+			s.incexp(2);
+			s.levelup();
+			//displayinv(s,i);
+			
+		}
+		
+
+         getplaying();
+		
+		}
+
+void Game::leftpathStoryContd(character s, Inventory i)
+{
+
 }
  
 //-------------------------------------------------------------------------

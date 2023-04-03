@@ -15,6 +15,11 @@ void enemy::setname(string x)
 {
 	name = x;
 }
+
+string enemy::getname()
+{
+return name;
+}
 void enemy::attackcharacter(character& x, double b)
 //called through from enemytype 
 //dialogue needed

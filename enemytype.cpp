@@ -59,9 +59,9 @@ troll::~troll()
 {
 
 }
-void troll::clubattack()
+void troll::clubattack(character s)
 {
-	character s;
+	
 	attackcharacter(s, this->club_attack);
 }
 void troll::trollparry(troll& s, character c)
@@ -77,10 +77,10 @@ void troll::trollparry(troll& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.clubattack();
+			s.clubattack(s);
 			break;
 		default:
-			s.clubattack();
+			s.clubattack(s);
 			break;
 		}
 
