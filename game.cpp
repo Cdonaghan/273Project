@@ -142,6 +142,35 @@ cout << "\n\nEnter characters name: ";
 		 
 }*/
 
+void Game::continueToNext(character s, Inventory i)
+{
+	 string choice = {""};
+	   validChoice = false;
+	   cout << "would you like to continue?\n";
+	   cout << "note -- if not you will be asked to restart\n";
+	   cout << "1. Continue?\n" <<  "2. Restart?\n";
+       cin >> choice;
+	   while (validChoice == false)
+	   {
+		if (choice == "1")
+		{
+			leftPathStory(s,i);
+			validChoice = true;
+		} else if (choice == "2")
+		{
+
+			restart(s);
+			walkthrough();
+			validChoice = true;
+		}
+		else 
+		{
+          choiceRemove(choice);
+		}
+
+	   }
+}
+
 
 //----------------------------------------------------------------------
 
@@ -756,7 +785,7 @@ void Game::leftpath(character s, Inventory i)
 	   cout << "\n\nBOOM\n\n";
 	   
 
-	   string choice = {""};
+	   /*string choice = {""};
 	   validChoice = false;
 	   cout << "would you like to continue?\n";
 	   cout << "note -- if not you will be asked to restart\n";
@@ -780,10 +809,14 @@ void Game::leftpath(character s, Inventory i)
           choiceRemove(choice);
 		}
 
-	   }
+	   }*/
+	   continueToNext(s,i);
 	    getplaying();}
 
 
+
+//---------------------------------------------
+//Troll fight
 void Game::leftPathStory(character s, Inventory i)
 {
 cout << "\nYou awake from the dream only to a massive meteor strike about 5 miles south\n";
@@ -807,6 +840,7 @@ string choice = {""};
 		{
 
 			leftpathStoryContd(s,i);
+			getplaying();
 			validChoice = true;
 		}
 		else 
@@ -954,19 +988,33 @@ string choice = {""};
 			s.levelup();
 			//displayinv(s,i);
 			
+			
 		}
-		
+		cout << "\nYou search the supermarket for food but cannot find any\n";
+		cout << "\nOn the till desk you find two dark purple liquids in a goblet-like containers and another scroll\n";
+		cout << "\nThe scroll Reads\n";
+		cout << "\nFOR ANY SURVIVOR\n";
+		cout << "\nI assume you have defeated any monsters on your path to collecting this scroll, even the troll guarding these items\n";
+		cout << "\nYour path still beckons ahead, take these two healing potions for any battles along the way\n";
+		cout << "\ngood luck survivor, the escape pod is waiting...\n";
+
+	     leftpathStoryContd(s,i);
 
          getplaying();
 		
 		}
 
+		//--------------------------------
+		//Mutant fight
+
 void Game::leftpathStoryContd(character s, Inventory i)
 {
+	cout << "\nYou walk on past the supermarket towards the hill\n";
 
 }
  
 //-------------------------------------------------------------------------
+//right path
 
 void Game::rightPath(character s, Inventory i)
 {

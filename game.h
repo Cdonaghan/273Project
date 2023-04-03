@@ -13,6 +13,7 @@ public:
 	virtual ~Game();
 	void walkthrough();
 	bool getplaying();
+	void continueToNext(character s, Inventory i);
 	bool playerdies();
 	bool enemydied();
 	void getUserName(character s, string name);
