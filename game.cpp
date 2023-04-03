@@ -68,8 +68,13 @@ string choice {""};
 
 void Game::choiceRemove(string x)
 { 
-	cout << "wrong input try again" << endl;
-	x.clear();
+	 cin.fail();//checker for anything other than an integer
+					//clears input
+					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+					//line so the storage reference has no memory
+
+					cout << "wrong input  -- please type the correct name for your weapon of choice -- " << x << endl;
+					x.clear();
 }
 
 
@@ -144,14 +149,16 @@ cout << "\n\nEnter characters name: ";
 
 void Game::continueToNext(character s, Inventory i)
 {
-	 string choice = {""};
+	 
 	   validChoice = false;
 	   cout << "would you like to continue?\n";
 	   cout << "note -- if not you will be asked to restart\n";
 	   cout << "1. Continue?\n" <<  "2. Restart?\n";
-       cin >> choice;
+       
 	   while (validChoice == false)
 	   {
+		string choice = {""};
+		cin >> choice;
 		if (choice == "1")
 		{
 			//leftPathStory(s,i);
@@ -471,7 +478,7 @@ void Game::walkthrough()
 			}
 
 			break;
-            //string choice2; 
+            /*//string choice2; 
 			cin >> choice2;
 			if (choice2 == "sword")  //insatciate name like goblin sword
 			{
@@ -491,7 +498,7 @@ void Game::walkthrough()
 			else
 			{
 				choiceRemove(choice2);
-			}
+			}*/
 			
 			
 
@@ -827,18 +834,23 @@ cout << "\nYou spot it and make your way towards it.\n";
 cout << "\nSword and Dagger in hand, you make your way along the rubble surface of Io. Observing what looked like man made structure as you walk past\n";
 cout << "\nOne in particular. Has the resemblance of a supermarket. You feel hungry. Do you enter?\n";
 
-string choice = {""};
+
 	   validChoice = false;
 	   cout << "1. Enter the Supermarket\n" <<  "2. Continue\n";
-       cin >> choice;
+       
 	   while (validChoice == false)
 	   {
-		if (choice == "1")
+		string choice3 = {" "};
+		cin >> choice3;
+		if (choice3 == "1")
 		{
 			
+			
 			validChoice = true;
-		} else if (choice == "2")
+		} else if (choice3 == "2")
 		{
+			
+			 
 
 			leftpathStoryContd(s,i);
 			getplaying();
@@ -846,7 +858,8 @@ string choice = {""};
 		}
 		else 
 		{
-          choiceRemove(choice);
+          
+					choiceRemove(choice3);
 		}
 	
 	   }
@@ -856,17 +869,19 @@ string choice = {""};
 	  cout << "\nIt is holstering a club. Ready to charge at you.\n";
 	  cout << "\nwhat do you do\n";
 
-       choice = {""};
+      
 	   validChoice = false;
 	   cout << "1. Fight the troll?\n" <<  "2. Take your chances and run\n";
-       cin >> choice;
+       
 	   while (validChoice == false)
 	   {
-		if (choice == "1")
+		string choice4 = {""};
+		cin >> choice4;
+		if (choice4 == "1")
 		{
 			
 			validChoice = true;
-		} else if (choice == "2")
+		} else if (choice4 == "2")
 		{
             cout << "You dodge the Troll and jump out the smashed window and flee from the supermarket, towards the hill\n";
 			leftpathStoryContd(s,i);
@@ -874,7 +889,7 @@ string choice = {""};
 		}
 		else 
 		{
-          choiceRemove(choice);
+          choiceRemove(choice4);
 		}
 
 	   }
@@ -1019,26 +1034,28 @@ void Game::leftpathStoryContd(character s, Inventory i)
 	cout << "\nIt is alot closer now, You can see a massive fence surrounding the hill\n";
 	cout << "\nThere appears to be no way around it and you have to enter through the gates\n";
 	cout << "\nwhat do you do?\n";
-	cout << "\n1. Enter through the gates\n 2. Look for another way\n";
+	cout << "\n1. Enter through the gates\n2. Look for another way\n";
 	
-	string choice {""};
+	
 	validChoice = false;
 	
 	while (validChoice == false)
 	{
-		if (choice == "1")
+		string choice5 {""};
+		cin >> choice5;
+		if (choice5 == "1")
 		{
          leftpathMutantFight(s,i);
 		 getplaying();
 		 validChoice = true;
 		}
-		else if (choice == "2")
+		else if (choice5 == "2")
 		{
           validChoice = true;
 		}
 		else 
 		{
-			choiceRemove(choice);
+			choiceRemove(choice5);
 		}
 	}
 
