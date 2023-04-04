@@ -1223,13 +1223,167 @@ continueToNext(s,i);
 cout << "\n'You have come to challenge me to this hill!!' Screams The entity\n";
 cout << "\n As you get closer the entity resembles a big mutant with 4 arms!\n";
 cout << "\nWhat is your name warrior!\n";
-cout << "\nAHH YES " << s.getname() << "\nWHAT A FITTING NAME FOR A WARRIOR I AM EXCITED\n";
-cout << "\nIT IS TIME FOR " << s.getname() << "TO FIGHT TO THE DEATHN\n";
+cout << "\nAHH YES " << s.getname() << "\n\nWHAT A FITTING NAME FOR A WARRIOR I AM EXCITED\n";
+cout << "\nIT IS TIME FOR " << s.getname() << " TO FIGHT TO THE DEATHN\n";
 cout << "\nAND DIE GRACEFULLY AT THE HANDS OF THE FOUR-ARMED MUTANT!\n";
 
-healUp(s);
+while (s.getHealPotNum() > 0)
+{
+	healUp(s);
+	s.checkHealingPots(s);
+}
 
 //------------------------------------------
+//FIGHT TIME
+
+mutant z;
+
+validChoice = false;
+cout << "\ndo you attack or let him devour you?\n";
+cout << "\n1. Attack\n2. Die\n";
+
+while (validChoice == false)
+{
+string choice7;
+cin >> choice7;
+if (choice7 == "1")
+{
+
+while (this->validChoice == false) {
+			z.setname("AZERATH THE MIGHTY MUTANT");
+
+			cout << "1. Attack" << endl;
+
+			//cout << "Select '1' \n\n";
+			
+			cin >> choice;
+
+
+			switch (choice)
+			{
+			case 1:
+				//cout << "You challenge him and he squares up \n";
+				cout << "Enemies stats: \n\n";
+				z.enemytostring();
+				cout << "Here are your select battle moves \n\n";
+
+				do
+				{
+
+					int ans;
+					cout << "\n1.Sword attack\n";
+					cout << " Select to choose your fate: " << "\n\n";
+					cin >> ans;
+					switch (ans)
+					{
+					case 1:
+						s.attackenemy(z);
+						break;
+						
+						case 2:
+						s.daggerAttack(z);
+
+					default:
+					{
+
+						if (cin.fail())//checker for anything other than an integer
+						{
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+
+						break;
+					}
+
+					}
+
+					//enemy attack
+					if (z.gethealth() <= 0)
+					{
+						z.enemySetHealthZero();
+						//enemydied();
+					}
+					else {
+						cout << "\n\n\t\t\t\tNOW ITS AZERATHS TURN TO ATTACK\n\n";
+
+						int x = rand() % 2 + 1;
+						switch (x)
+						{
+						case 1:
+							z.acid(s);
+							
+							break;
+
+							case 2:
+							z.smash(s);
+							break;
+
+							
+
+						} 
+
+					}
+
+
+				} while (((z.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
+				this->validChoice = true;
+				break;
+
+			default:
+				if (cin.fail())//checker for anything other than an integer
+				{
+					cin.clear();//clears input
+					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+					//line so the storage reference has no memory
+					cout << "wrong input" << endl;
+				}
+			}
+		
+
+		if (s.gethealth() <= 0)
+		{
+			restart(s);
+			s.sethealth(200);
+			validChoice = false;
+		
+		}
+
+		if (z.gethealth() <= 0)
+		{
+			cout << "congratulations warrior you defeated Azerath!!!\n" << endl;
+			cout << "you gain 30 xp\n";
+			cout << "\nhe also has 4 healing pots for you to take on your journey up the hill.\n";
+			s.incHealingPot(s,4);
+			s.incexp(30);
+			s.levelup(s);
+			s.levelup(s);
+			//displayinv(s,i);
+			break;
+		}
+		validChoice = true; //to break the second loop
+		
+	}
+validChoice = true; //to break the first loop
+}
+else if (choice7 == "2")
+{
+cout << "the mutant catches you and kills you" << endl;
+restart(s);
+leftpathStoryContd(s,i);
+//validChoice = true;
+} else 
+{
+choiceRemove(choice7);
+}
+}
+
 
 getplaying();
 }

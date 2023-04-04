@@ -32,7 +32,7 @@ public:
     void healingpot();
     void checkhealth();
     double maxihealth();
-    void decreasehealth(double x);
+    void decreasehealth(character & s, double x);
 
 	//battle methods
 	void attackenemy(character& x);
@@ -59,7 +59,7 @@ public:
 
 void checkHealingPots(character& s);
 void incHealingPot(character& s, int x);
-void getHealPotNum();
+int getHealPotNum();
 
 
 

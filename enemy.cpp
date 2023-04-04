@@ -24,7 +24,7 @@ void enemy::attackcharacter(character& x, double b)
 //called through from enemytype 
 //dialogue needed
 {
-	x.decreasehealth(b);
+	x.decreasehealth(x, b);
 }
 void enemy::enemytostring()
 {

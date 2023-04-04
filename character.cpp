@@ -116,7 +116,7 @@ double character::maxihealth()
 {
 	return maxhealth;
 }
-void character::decreasehealth(double x)
+void character::decreasehealth(character&s, double x)
 {
 	health -= x;
 	checkhealth();
@@ -202,7 +202,7 @@ void character::checkHealingPots(character& s)
 
 	}else 
 	{
-		s.healingpot();
+		//s.healingpot();
 		healingPotNum --;
 	}
 }
@@ -212,9 +212,10 @@ void character::incHealingPot(character &s, int x)
 healingPotNum += x;
 }
 
-void character::getHealPotNum()
+int character::getHealPotNum()
 {
-	cout << "\nnumber of healing pots = " << healingPotNum << endl;
+	//cout << "\nnumber of healing pots = " << healingPotNum << endl;
+	return healingPotNum;
 	
 }
 

@@ -102,14 +102,16 @@ mutant::~mutant()
 {
 
 }
-void mutant::smash()
+void mutant::smash(character s)
 {
-	character s;
+	
+	cout << "smash attack\n";
 	attackcharacter(s, this->smashattack);
 }
-void mutant::acid()
+void mutant::acid(character s)
 {
-	character s;
+	
+	cout << "acid attack\n";
 	attackcharacter(s, this->acidattack);
 }
 
@@ -126,10 +128,10 @@ void mutant::mutantparry(mutant& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.smash();
+			s.smash(s);
 			break;
 		case 2:
-			s.acid();
+			s.acid(s);
 			break;
 		}
 
