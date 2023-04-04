@@ -26,8 +26,9 @@ public:
 	void leftpathStoryContd(character s, Inventory i);
 	void leftpathMutantFight(character s, Inventory i);
 	void choiceRemove(string x);
-	void restart(character s);
-	void storylineSelect(character s, Inventory i);
+    void healUp(character s);
+    void restart(character s);
+    void storylineSelect(character s, Inventory i);
 
 	
 

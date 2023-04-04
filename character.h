@@ -24,11 +24,12 @@ public:
 	double getexp();
 	void setexp(double x);
 	void incexp(int x);
-	void levelup();
+	void levelup(character &s);
 
 	double gethealth();
 	void sethealth(double x);
-	void healingpot();
+    void getexpnext();
+    void healingpot();
     void checkhealth();
     double maxihealth();
     void decreasehealth(double x);
@@ -56,6 +57,10 @@ public:
 //string setsword(string x); 
 //void getsword();
 
+void checkHealingPots(character& s);
+void incHealingPot(character& s, int x);
+void getHealPotNum();
+
 
 
 protected:
@@ -71,6 +76,7 @@ protected:
 	double healingpotion;
 	double daggerattack;
 	double deflect = 80;
+	int healingPotNum;
 	/*string sword = { "Sword" };
 	string bow = { "Bow" };
 	string wand = { "Wand" };

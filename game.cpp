@@ -41,11 +41,11 @@ while (validChoice == false)
 string choice {""};
 
 	cout << "would you like to restart the fight?" << endl;
-	cout << "\n yes \n" << "\n no \n" << endl;
+	cout << "\nyes \n" << "\nno \n" << endl;
     cin >> choice;
 	if (choice == "yes")
 	{
-		cout << "Going Back <------" << endl;
+		cout << "\nGoing Back <------" << endl;
 		
 		validChoice = true;
 	} else if (choice == "no")
@@ -73,9 +73,36 @@ void Game::choiceRemove(string x)
 					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 					//line so the storage reference has no memory
 
-					cout << "wrong input  -- please type the correct name for your weapon of choice -- " << x << endl;
+					cout << "wrong input  -- please type the correct input -- " << x << endl;
 					x.clear();
 }
+
+void Game::healUp(character s)
+{
+cout << "\n\nWould you like to heal up?\nYes \nNo \n";
+
+validChoice = false;
+while (validChoice == false)
+{
+	string choice = {""};
+	cin >> choice;
+
+	if (choice == "yes")
+	{
+		s.healingpot();
+		validChoice = true;
+
+	}
+	else if (choice == "no")
+	{
+		validChoice = true;
+	}
+	else {choiceRemove(choice);}
+
+}
+}
+
+
 
 
 void Game::displayinv(character s, Inventory i)
@@ -151,7 +178,7 @@ void Game::continueToNext(character s, Inventory i)
 {
 	 
 	   validChoice = false;
-	   cout << "would you like to continue?\n";
+	   cout << "\nwould you like to continue?\n";
 	   cout << "note -- if not you will be asked to restart\n";
 	   cout << "1. Continue?\n" <<  "2. Restart?\n";
        
@@ -190,7 +217,7 @@ void Game::walkthrough()
 	string names;
 	Inventory i; //inventory declaration
 	
-    cout << "enter your name" << endl;
+    cout << "\nEnter your name below" << endl;
 	cin >> names;
 	s.setname(names);
 
@@ -427,7 +454,7 @@ void Game::walkthrough()
 			cout << "congratulations warrior you defeted the goblin\n" << endl;
 			cout << "you gain 1 xp from defeating the goblin, this will allow you to level up" << endl;
 			s.incexp(1);
-			s.levelup();
+			s.levelup(s);
 
 
 		}
@@ -550,10 +577,10 @@ void Game::beginning(character s, Inventory i)
 		cout << "left\n" << "right\n" << endl;
 
 		validChoice = false;
-		string userChoice = { " " };
+		
 		while (validChoice == false)
 		{
-
+            string userChoice = { " " };
 			cin >> userChoice;
 
 			if (userChoice == "left")
@@ -584,18 +611,12 @@ void Game::beginning(character s, Inventory i)
 			this->validChoice = true;
 			
 		}else{
-			cout <<"wrong input please try again" << endl;
-			cin.fail();//checker for anything other than an integer
-				//clears input
-				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
-				//line so the storage reference has no memory
-
-				cout << "wrong input  -- please type the correct name for your weapon of choice -- " << endl;
-				userChoice.clear();
+			choiceRemove(userChoice);
 			}
 		}
+		}
 		getplaying();
-}
+
 }
 
 
@@ -765,7 +786,7 @@ void Game::leftpath(character s, Inventory i)
 			cout << "congratulations warrior you defeted the goblin\n" << endl;
 			cout << "you gain 1 xp from defeating the goblin\n";
 			s.incexp(1);
-			s.levelup();
+			s.levelup(s);
 			//displayinv(s,i);
 			break;
 		}
@@ -791,32 +812,6 @@ void Game::leftpath(character s, Inventory i)
        cout << "\nHer laugh is so loud and prominent. It is the last thing you hear before a big crash\n";
 	   cout << "\n\nBOOM\n\n";
 	   
-
-	   /*string choice = {""};
-	   validChoice = false;
-	   cout << "would you like to continue?\n";
-	   cout << "note -- if not you will be asked to restart\n";
-	   cout << "1. Continue?\n" <<  "2. Restart?\n";
-       cin >> choice;
-	   while (validChoice == false)
-	   {
-		if (choice == "1")
-		{
-			leftPathStory(s,i);
-			validChoice = true;
-		} else if (choice == "2")
-		{
-
-			restart(s);
-			walkthrough();
-			validChoice = true;
-		}
-		else 
-		{
-          choiceRemove(choice);
-		}
-
-	   }*/
 	   continueToNext(s,i);
 	   leftPathStory(s,i);
 	    getplaying();}
@@ -959,7 +954,7 @@ cout << "\nOne in particular. Has the resemblance of a supermarket. You feel hun
 						//enemydied();
 					}
 					else {
-						cout << "\n\n\t\t\t\tNOW ITS THE GOBLIN'S TURN TO ATTACK\n\n";
+						cout << "\n\n\t\t\t\tNOW ITS THE TROLL'S TURN TO ATTACK\n\n";
 
 						int x = 1;
 						switch (x)
@@ -1000,8 +995,8 @@ cout << "\nOne in particular. Has the resemblance of a supermarket. You feel hun
 		{
 			cout << "congratulations warrior you defeted "<< r.getname() << endl;
 			cout << "you gain 2 xp\n";
-			s.incexp(2);
-			s.levelup();
+			s.incexp(10);
+			s.levelup(s);
 			//displayinv(s,i);
 			
 			
@@ -1013,6 +1008,10 @@ cout << "\nOne in particular. Has the resemblance of a supermarket. You feel hun
 		cout << "\nI assume you have defeated any monsters on your path to collecting this scroll, even the troll guarding these items\n";
 		cout << "\nYour path still beckons ahead, take these two healing potions for any battles along the way\n";
 		cout << "\ngood luck survivor, the escape pod is waiting...\n";
+
+		s.incHealingPot(s, 2);
+
+		s.getHealPotNum();
 		
 		 continueToNext(s,i);
 
@@ -1175,8 +1174,10 @@ while (this->validChoice == false) {
 		{
 			cout << "congratulations warrior you defeted the goblin\n" << endl;
 			cout << "you gain 1 xp from defeating the goblin\n";
+			cout << "\nhe also has a healing pot\n";
+			s.incHealingPot(s,1);
 			s.incexp(1);
-			s.levelup();
+			s.levelup(s);
 			//displayinv(s,i);
 			break;
 		}
@@ -1201,10 +1202,35 @@ continueToNext(s,i);
 leftpathMutantFight(s,i);
 getplaying();
 }
+
+
+//continuing the left path
+
 void Game::leftpathMutantFight(character s, Inventory i)
 {
-cout << "welcome to the mutant fight\n";
+
 displayinv(s,i);
+cout << "\nYou enter through the gates\n";
+cout << "\nThe gates slam shut behind you, between you and the base of the hill there is 100 yards, in the distance you see a massive creature\n";
+cout << "\nProbably about 10 feet tall and 8 feet wide\n";
+cout << "\nThe entity from a distance shouts\n";
+cout << "\n\nWHO DARES ENTER MY CHAMBER OF DEATH\n\n";
+cout << "\nYou cowar in fear, Then remember your daughter and how important it is you need to see her\n";
+cout << "\nYou continue forward, holstering your sword and getting ready to fight to the death\n";
+
+continueToNext(s,i);
+
+cout << "\n'You have come to challenge me to this hill!!' Screams The entity\n";
+cout << "\n As you get closer the entity resembles a big mutant with 4 arms!\n";
+cout << "\nWhat is your name warrior!\n";
+cout << "\nAHH YES " << s.getname() << "\nWHAT A FITTING NAME FOR A WARRIOR I AM EXCITED\n";
+cout << "\nIT IS TIME FOR " << s.getname() << "TO FIGHT TO THE DEATHN\n";
+cout << "\nAND DIE GRACEFULLY AT THE HANDS OF THE FOUR-ARMED MUTANT!\n";
+
+healUp(s);
+
+//------------------------------------------
+
 getplaying();
 }
  
@@ -1337,11 +1363,10 @@ void Game::rightPath(character s, Inventory i)
 			}
 			if (e.gethealth() <= 0)
 			{
-				cout << "congratulations warrior you defeted the goblin\n" << endl;
+				cout << "congratulations warrior you defeated the goblin\n" << endl;
 				cout << "you gain 1 xp from defeating the goblin\n";
-				s.incexp(1);
-				s.levelup();
-
+				s.incexp(7);
+				s.levelup(s);
 			}
 		}
 		continueToNext(s,i);
@@ -1372,25 +1397,6 @@ void Game::rightPath(character s, Inventory i)
 		getplaying();
 }
 
-
-
-
-/*
-		else if (userchoice2 == "2")
-		{
-			cout << "\nYou rescue the hostage but he is seriously bleeding out and doesnt have a lot of time left.\nHis name is 'Igor' and he escaped his ship using the escape pod as the ship got taken down by a dragon.\n Before passing away he says that beyond the forrest is the wreckage with a more escape pods from where I can escape.";
-		}
-		else
-		{
-			if (cin.fail())//checker for anything other than an integer
-			{
-				cin.clear();//clears input
-				cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
-				//line so the storage reference has no memory
-				cout << "wrong input" << endl;
-			}
-
-		}*/
 
 		getplaying();
 	}

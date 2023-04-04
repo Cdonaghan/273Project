@@ -62,7 +62,7 @@ void character::tostring(character s)
 	cout << "\t\t\t\t\t\tName: " << s.name << endl;
 	cout << "\t\t\t\t\t\tLevel: " << s.level << endl;
 	cout << "\t\t\t\t\t\tExperience points: " << s.exp << endl;
-	cout << "\t\t\t\t\t\tExperience points needed for next level up: " << this->expnext << endl;
+	cout << "\t\t\t\t\t\tExperience points needed for next level up: " << s.expnext << endl;
 	cout << "\t\t\t\t\t\tHealth: " << s.health << endl << endl;
 	cout << "\t\t\t\t\t\tBattle stats:\n";
 	cout << "\t\t\t\t\t\tSword damage: " << s.sworddamage << endl;
@@ -70,19 +70,24 @@ void character::tostring(character s)
 		" using this potion will hurt you in the process" << endl;
 	cout << "\t\t\t\t\t\tAttack spell damage: " << s.attackspell << endl;
 	cout << "\t\t\t\t\t\tHealing potion: " << s.healingpotion << " per potion" << endl;
+	cout << "\t\t\t\t\t\tyou have " << s.healingPotNum << " healing pot(s)" <<endl;
 }
-void character::levelup()
+void character::levelup(character & s)
 //if loop to see throughout game if exp>expnext
 //for next level up once level inc
 {
 	if (exp >= expnext)
 	{
-		this->exp -= this->expnext;
+		cout << "\nCongratulations, you have just levelled up\n";
 		level++;
-		expnext = pow(level, 3) + 1;
+		s.exp -= s.expnext;
+		s.expnext = pow(level, 2) + 1;
+		s.sworddamage += 10;
+		s.explosionspell += 15;
+		s.attackspell += 25;
+		
 		//for level 1 to show how levelling works to the audience
 
-		cout << "\nCongratulations, you have just levelled up\n";
 
 
 	} else 
@@ -101,6 +106,10 @@ void character::sethealth(double x)
 {
 	health = x;
 }
+void character::getexpnext()
+	{
+cout << expnext;
+	}
 
 //max health param
 double character::maxihealth()
@@ -184,4 +193,29 @@ void character::checkhealth()
 health = 0;
 	}
 }
+
+void character::checkHealingPots(character& s)
+{
+	if (healingPotNum <= 0)
+	{
+		cout << "\nyou cannot use any healing pots as you dont have any\n";
+
+	}else 
+	{
+		s.healingpot();
+		healingPotNum --;
+	}
+}
+
+void character::incHealingPot(character &s, int x)
+{
+healingPotNum += x;
+}
+
+void character::getHealPotNum()
+{
+	cout << "\nnumber of healing pots = " << healingPotNum << endl;
+	
+}
+
 
