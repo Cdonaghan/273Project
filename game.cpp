@@ -163,11 +163,70 @@ validChoice = true;
 	else if (choice == "1"){beginning(s,i);
 		validChoice = true;
 	}
-	else if (choice == "2"){leftpath(s,i);
-	validChoice = true;}
-	else if (choice == "3"){rightPath(s,i);
-	validChoice = true;}
-	else {
+	else if (choice == "2"){
+
+        bool validchoice2 = false;
+		while (validchoice2 == false)
+		{
+		cout << "\nwhich part?\n0.Start of left path\n1.Supermarket\n2.The hill gates\n3.The dragon fight\n" << endl;
+		string choice2 {""};
+		cin >> choice2;
+		 if (choice2 == "0")
+		 {
+			leftpath(s,i);
+		 }
+		
+		else if (choice2 == "1")
+		{
+			leftpathStoryContd(s,i);
+			validchoice2 = true;
+		} else if (choice2 == "2")
+		{
+			leftpathMutantFight(s,i);
+			validchoice2 = true;
+		} else if (choice2 == "3")
+		{
+			//comment in function for dragon fight
+			validchoice2 = true;
+		}
+		else 
+		{
+			choiceRemove(choice2);
+		}
+
+		}
+		validChoice = true;
+	}
+		else if (choice == "3")
+		{
+bool validchoice3 = false;
+while(validchoice3 == false)
+{
+	cout << "\nwhich part?\n0.Beginning of right path\n1.Dream\n2.East path\n3.West Path\n" << endl; // build for more functions for right path
+	string choice4{""};
+	cin >> choice4;
+	if (choice4 == "0")
+	{
+		rightPath(s,i);
+		validchoice3 = true;
+	} else if (choice4 == "1") {
+rightPathStory(s,i);
+validchoice3 = true;
+	} else if (choice == "2")
+	{
+		eastpath(s,i);
+		validchoice3 = true;
+	} else if (choice4 == "3")
+	{
+		westpath(s,i);
+		validchoice3 = true;
+	} else
+	{
+		choiceRemove(choice4);
+	}
+
+}
+  }else {
 		
 	 choiceRemove(choice);
 	}
@@ -1371,6 +1430,7 @@ while (this->validChoice == false) {
 			cout << "\nhe also has 4 healing pots for you to take on your journey up the hill.\n";
 			s.incHealingPot(s,4);
 			s.incexp(30);
+			s.levelup(s);
 			s.levelup(s);
 			s.levelup(s);
 			//displayinv(s,i);
