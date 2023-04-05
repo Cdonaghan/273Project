@@ -178,7 +178,7 @@ validChoice = true;
 		
 		else if (choice2 == "1")
 		{
-			leftpathStoryContd(s,i);
+			leftPathStory(s,i);
 			validchoice2 = true;
 		} else if (choice2 == "2")
 		{
@@ -186,6 +186,7 @@ validChoice = true;
 			validchoice2 = true;
 		} else if (choice2 == "3")
 		{
+			leftpathDragonFight(s,i);
 			//comment in function for dragon fight
 			validchoice2 = true;
 		}
@@ -1295,11 +1296,9 @@ cout << "\nAHH YES " << s.getname() << "\n\nWHAT A FITTING NAME FOR A WARRIOR I 
 cout << "\nIT IS TIME FOR " << s.getname() << " TO FIGHT TO THE DEATHN\n";
 cout << "\nAND DIE GRACEFULLY AT THE HANDS OF THE FOUR-ARMED MUTANT!\n";
 
-while (s.getHealPotNum() > 0)
-{
+
 	healUp(s);
-	s.checkHealingPots(s);
-}
+	
 
 //------------------------------------------
 //FIGHT TIME
@@ -1339,7 +1338,7 @@ while (this->validChoice == false) {
 				{
 
 					int ans;
-					cout << "\n1.Sword attack\n";
+					cout << "\n1.Sword attack\n2.Dagger attack\n3.Healing pot\n";
 					cout << " Select to choose your fate: " << "\n\n";
 					cin >> ans;
 					switch (ans)
@@ -1350,6 +1349,12 @@ while (this->validChoice == false) {
 						
 						case 2:
 						s.daggerAttack(z);
+						break;
+
+						case 3:
+						s.healingpot();
+						s.checkHealingPots(s);
+						break;
 
 					default:
 					{
@@ -1419,6 +1424,7 @@ while (this->validChoice == false) {
 		{
 			restart(s);
 			s.sethealth(200);
+			leftpathMutantFight(s,i);
 			validChoice = false;
 		
 		}
@@ -1445,7 +1451,7 @@ else if (choice7 == "2")
 {
 cout << "the mutant catches you and kills you" << endl;
 restart(s);
-leftpathStoryContd(s,i);
+leftpathMutantFight(s,i);
 //validChoice = true;
 } else 
 {
@@ -1453,10 +1459,56 @@ choiceRemove(choice7);
 }
 }
 
-
+leftpathDragonFight(s,i);
 getplaying();
 }
  
+
+void Game::leftpathDragonFight(character s, Inventory i)
+{
+
+cout << "\n\nCONTINUING ON\n";
+cout << "\nYou walk away from the lifeless body of azerath and begin your journey tpo the top of the hill\n";
+cout << "\non your journey you notice a shack halfway up the hill\n";
+cout << "\nit is getting dark so you enter the shack for shelter for the night\n";
+cout << "\nyou open the crooked door making a loud screech as you enter, holding your sword in defense incase anything happens.\n";
+cout << "\nthe shack has a mouldy and damp smell to it as you look around\n";
+cout << "\nyou notice a desk and a bed. on top of the desk contains a scroll\n";
+continueToNext(s,i);
+
+cout << "\nthe scroll reads...\n";
+cout << "\nCongratulations warrior, you have gone through Azerath the mighty mutant\n";
+cout << "\nThe path does not end here\n";
+cout << "\nYou are halfway up the hill. Further up this hill you will find the entrance to a dragons lair\n";
+cout << "\nThe dragon is named Leviathan. It is incredibly powerful created by god himself. There is no possible way to defeat it\n";
+cout << "\nInstead you must make peace with the dragon. Show him your indomitable courage and challenge him\n";
+cout << "\nThis path is a difficult one \n";
+cout << "\nThis is the last scroll you will come across. Goodbye and good riddance warrior!\n";
+
+
+cout << "\nyou walk over and lie down on the bed, eyes shut and unconscious before your head hit the damp mattress\n";
+cout << "\n\nDARKNESS\n\n";
+
+cout << "\nyou awake to the sunlight shining through the small cracks in the shack\n";
+cout << "\ntoday is the day your return to your daughter\n";
+cout << "\nbefore you exit the shack you notice a healpot alot bigger than the others\n";
+cout << "\nyou have a look in your inventory to find a place to store it\n";
+displayinv(s,i);
+
+
+getplaying();
+}
+
+
+
+
+
+
+
+
+
+
+
 //-------------------------------------------------------------------------
 void Game::rightPath(character s, Inventory i) { mutant p; goblin e;
 

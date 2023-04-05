@@ -41,8 +41,8 @@ public:
 	~mutant();
 
 	//assign more attacks
-	void smash(character s);
-	void acid(character s);
+	void smash(character& s);
+	void acid(character& s);
 	void mutantparry(mutant& s, character c);
 protected:
 	double smashattack;

@@ -11,7 +11,7 @@ character::character()
 	//algorithm to level up and so that exp increases per level up
 	this->expnext = pow(level, 3) + 1;
 	this->health = 200;
-	this->maxhealth = 20000;
+	this->maxhealth = 200;
 	this->sworddamage = 50;
 	this->explosionspell = 100;
 	this->attackspell = 25;
@@ -64,7 +64,8 @@ void character::tostring(character s)
 	cout << "\t\t\t\t\t\tLevel: " << s.level << endl;
 	cout << "\t\t\t\t\t\tExperience points: " << s.exp << endl;
 	cout << "\t\t\t\t\t\tExperience points needed for next level up: " << s.expnext << endl;
-	cout << "\t\t\t\t\t\tHealth: " << s.health << endl << endl;
+	cout << "\t\t\t\t\t\tHealth: " << s.health << endl;
+	cout << "\t\t\t\t\t\tMax Health: " << s.maxhealth << endl << endl;
 	cout << "\t\t\t\t\t\tBattle stats:\n";
 	cout << "\t\t\t\t\t\tSword damage: " << s.sworddamage << endl;
 	cout << "\t\t\t\t\t\tExplosion spell damage: " << s.explosionspell <<
@@ -81,9 +82,11 @@ void character::levelup(character & s)
 	{
 		cout << "\nCongratulations, you have just levelled up\n";
 		level++;
+		s.health = s.health + 100;
+		s.maxhealth += 150;
 		s.exp -= s.expnext;
 		s.expnext = pow(level, 2) + 1;
-		s.sworddamage += 10;
+		s.sworddamage += 20;
 		s.explosionspell += 15;
 		s.attackspell += 25;
 		
@@ -119,7 +122,7 @@ double character::maxihealth()
 }
 void character::decreasehealth(character&s, double x)
 {
-	health -= x;
+	s.health = s.health - x;
 	checkhealth();
 	cout << "\t\t\OUCH\t\t\tYour health is: " << health << endl;
 }
@@ -177,7 +180,12 @@ void character::daggerAttack(character& bad)
 //fix this to every enemy type
 void character::healingpot()
 {
-	health += this->healingpotion;
+
+	if (healingPotNum > 0)
+	{
+
+	
+	health += healingpotion;
 	cout << "\t\t\t\t\t\tYour health is: " << health << endl << endl;
 
 
@@ -185,6 +193,10 @@ void character::healingpot()
 	{
 		health = maxhealth;
 		cout << "\t\t\t\t\t\tYour health is " << maxhealth << endl;;
+	}
+	} else 
+	{
+		cout << "\nyour have no heal pots\n";
 	}
 }
 

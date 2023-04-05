@@ -95,24 +95,24 @@ mutant::mutant()
 	this->level = 5;
 	this->health = 500;
 	this->smashattack = 15;
-	this->acidattack = 45;
+	this->acidattack = 25;
 	this->mutantdeflect = 25;
 }
 mutant::~mutant()
 {
 
 }
-void mutant::smash(character s)
+void mutant::smash(character& s)
 {
 	
 	cout << "smash attack\n";
-	attackcharacter(s, this->smashattack);
+	attackcharacter(s, smashattack);
 }
-void mutant::acid(character s)
+void mutant::acid(character& s)
 {
 	
 	cout << "acid attack\n";
-	attackcharacter(s, this->acidattack);
+	attackcharacter(s, acidattack);
 }
 
 void mutant::mutantparry(mutant& s, character c)
