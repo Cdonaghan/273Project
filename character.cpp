@@ -260,4 +260,7 @@ void character::dragonattack(character& x)
 }
 
 
-
+void character::setmaxhealth(character& s)
+{
+	s.health = s.maxhealth;
+}

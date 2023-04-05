@@ -65,7 +65,8 @@ int getHealPotNum();
 void aerondightattack(character& x);
 
 void dragonattack(character& x);
-//void checkhealth();	
+void setmaxhealth(character &s);
+// void checkhealth();
 void disphealth();
 
 protected:

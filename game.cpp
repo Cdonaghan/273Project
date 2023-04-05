@@ -1495,6 +1495,13 @@ cout << "\nbefore you exit the shack you notice a healpot alot bigger than the o
 cout << "\nyou have a look in your inventory to find a place to store it\n";
 displayinv(s,i);
 
+cout << "\nit is way too big. you must drink it\n";
+cout << "\nyou now have your health back to max\n";
+s.setmaxhealth(s);
+
+s.gethealth();
+
+
 
 getplaying();
 }
