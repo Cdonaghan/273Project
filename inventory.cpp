@@ -46,6 +46,24 @@ string Inventory::getdagger()
 {
     return dagger;
 }
+void Inventory::setdragonsword(string x)
+{
+    x = this->aerondight;
+}
+string Inventory::getdragonsword()
+{
+    return aerondight;
+}
+
+void Inventory::setscroll(string x)
+{
+    x = this->scroll;
+}
+string Inventory::getscroll()
+{
+    return scroll;
+}
+
 
 
 vector<character> items;

@@ -29,6 +29,10 @@ public:
 	void restart(character s);
 	void storylineSelect(character s, Inventory i);
 
+
+	void rightPath(character s, Inventory i);
+	void eastpath(character s, Inventory i);
+	void westpath(character s, Inventory i);
 	
 
 private:

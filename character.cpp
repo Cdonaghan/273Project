@@ -10,11 +10,12 @@ character::character()
 	this->exp = 1;
 	//algorithm to level up and so that exp increases per level up
 	this->expnext = pow(level, 3) + 1;
-	this->health = 200;
+	this->health = 300;
 	this->maxhealth = 20000;
 	this->sworddamage = 50;
 	this->explosionspell = 100;
 	this->attackspell = 25;
+	this->dragonattack=80
 	this->healingpotion = 25;
 	this->daggerattack = 15;
 
@@ -122,6 +123,26 @@ void character::attackenemy(character& x)
 					//enemydied();
 				}
 	cout << "\t\t\t\t\YOU HIT HIM!!\tEnemy health is: " << x.health << endl;
+}
+void character::aerondightattack(character& x)
+{
+	x.health -= this->dragonsword;
+	if (x.health <= 0)
+	{
+		x.health = 0;
+		//enemydied();
+	}
+	cout << "\t\t\t\t\YOU HIT HIM!!\tEnemy health is: " << x.health << endl;
+}
+void character::dragonattack(character& x)
+{
+	x.health -= this->dragonsword;
+	if (x.health <= 0)
+	{
+		x.health = 0;
+		//enemydied();
+	}
+	cout << "\t\t\t\t\YOU HIT IT !!\tDRAGONS health is: " << x.health << endl;
 }
 //explosion spell
 void character::explosion(character& bad)

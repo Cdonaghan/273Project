@@ -22,7 +22,14 @@ public:
 	void setWeapon(string x);
 
 	//potions
-
+	void Inventory::setwand(string x)
+	{
+		x = this->wand;
+	}
+	string Inventory::getwand()
+	{
+		return wand;
+	}
 	string getPotion();
 	void setPotion(string x);
 
@@ -35,6 +42,17 @@ public:
 	void setdagger(string x);
 	string getdagger();
 
+	void setdragonsword(string x);
+	string getdragonsword();
+
+	void setscroll(string x);
+	string getscroll();
+
+	void setwand(string x);
+	string getwand();
+
+
+
 protected:
 	string sword = { "Sword" };
 	string bow = { "Bow" };
@@ -42,6 +60,7 @@ protected:
 	string potion = { "Potion" };
 	string dagger = { "Dagger" };
 	string Weapon;
+	string aerondight = { "aerondight" };
 
 };
 

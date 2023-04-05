@@ -35,6 +35,9 @@ public:
 
 	//battle methods
 	void attackenemy(character& x);
+	void aerondightattack(character& x);
+	void dragonattack(character& x);
+
 
 
 
@@ -66,6 +69,7 @@ protected:
 	double health;
 	double maxhealth;
 	double sworddamage;
+	double dragonsword;
 	double explosionspell;
 	double attackspell;
 	double healingpotion;
