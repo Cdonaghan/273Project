@@ -806,6 +806,7 @@ void Game::eastpath(character s, Inventory i)
 									//end game
 									string end{ "" };
 									cout << "\nYou have finished the game do you wish to see the end credits.\n1. Yes\n2. No the game was rubbish\n\n ";
+									cin >> end;
 									if (end == "1")
 									{
 										endgamecredits();
@@ -934,6 +935,7 @@ void Game::eastpath(character s, Inventory i)
 								cout << "The display system reads\n\t\t\t\t\t\Not enough gas to reach this destination\n\nIn rage you start hitting the monitor, the trolls reach you location and start beating the pod with their clubs.\n\nThe glass breaks but you manage to whisper something before a troll pulls you out the pod and starts beating you\n\n\t\t\t\t\t\I'm so sorry Daisy, I love you'\n\n\n";
 								string end2{ "" };
 								cout << "You have finished the game do you wish to see the end credits.\n1. Yes\n2. No the game was rubbish\n\n ";
+								cin >> end2;
 								if (end2 == "1")
 								{
 									endgamecredits();
@@ -1133,6 +1135,7 @@ void Game::eastpath(character s, Inventory i)
 							//end game
 							string end{ "" };
 							cout << "You have finished the game do you wish to see the end credits.\n1. Yes\n2. No the game was rubbish\n\n ";
+							cin >> end;
 							if (end == "1")
 							{
 								endgamecredits();
@@ -1370,6 +1373,7 @@ void Game::westpath(character s, Inventory i)
 						//end game
 						string end{ "" };
 						cout << "You have finished the game do you wish to see the end credits.\n1. Yes\n2. No the game was rubbish\n\n ";
+						cin >> end;
 						if (end == "1")
 						{
 							endgamecredits();
