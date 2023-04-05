@@ -61,7 +61,12 @@ void checkHealingPots(character& s);
 void incHealingPot(character& s, int x);
 int getHealPotNum();
 
+//void attackenemy(character& x);
+void aerondightattack(character& x);
 
+void dragonattack(character& x);
+//void checkhealth();	
+void disphealth();
 
 protected:
 	string name;
@@ -69,6 +74,7 @@ protected:
 	double exp;
 	double expnext;
 	double health;
+	double dragonsword;
 	double maxhealth;
 	double sworddamage;
 	double explosionspell;

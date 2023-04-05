@@ -154,14 +154,14 @@ dragon::~dragon()
 {
 
 }
-void dragon::fireattack()
+void dragon::fireattack(character& s)
 {
-	character s;
+	
 	attackcharacter(s, this->fire_attck);
 }
-void dragon::tailattack()
+void dragon::tailattack(character& s)
 {
-	character s;
+	
 	attackcharacter(s, this->tail_attck);
 }
 
@@ -178,10 +178,10 @@ void dragon::dragonparry(dragon& s, character c)
 		switch (x)
 		{
 		case 1:
-			s.fireattack();
+			s.fireattack(s);
 			break;
 		case 2:
-			s.tailattack();
+			s.tailattack(s);
 			break;
 		}
 	}

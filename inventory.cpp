@@ -74,6 +74,22 @@ void Inventory::display(character s) {
 
 }
 
+void Inventory::setdragonsword(string x)
+{
+	x = this->aerondight;
+}
+string Inventory::getdragonsword()
+{
+	return aerondight;
+}
+void Inventory::setwand(string x)
+{
+	x = this->wand;
+}
+string Inventory::getwand()
+{
+	return wand;
+}
 
 
 

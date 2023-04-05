@@ -17,6 +17,7 @@ character::character()
 	this->attackspell = 25;
 	this->healingpotion = 25;
 	this->daggerattack = 15;
+	this->dragonsword = 80;
 
 }
 //destructor
@@ -218,5 +219,33 @@ int character::getHealPotNum()
 	return healingPotNum;
 	
 }
+
+
+void character::disphealth()
+{
+	cout << "You're health is: " << this->health << endl << endl;
+}
+
+void character::aerondightattack(character& x)
+{
+	x.health -= this->dragonsword;
+	if (x.health <= 0)
+	{
+		x.health = 0;
+		//enemydied();
+	}
+	cout << "\t\t\t\t\YOU HIT HIM!!\tEnemy health is: " << x.health << endl;
+}
+void character::dragonattack(character& x)
+{
+	x.health -= this->dragonsword;
+	if (x.health <= 0)
+	{
+		x.health = 0;
+		//enemydied();
+	}
+	cout << "\t\t\t\t\YOU HIT IT !!\tDRAGONS health is: " << x.health << endl;
+}
+
 
 

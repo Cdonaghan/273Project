@@ -57,8 +57,8 @@ public:
 	~dragon();
 
 	//assign more attacks
-	void fireattack();
-	void tailattack();
+	void fireattack(character &s);
+	void tailattack(character &s);
 	void dragonparry(dragon& s, character c);
 
 protected:

@@ -16,7 +16,8 @@ public:
 	void continueToNext(character s, Inventory i);
 	bool playerdies();
 	bool enemydied();
-	void getUserName(character s, string name);
+	void endgamecredits();
+	//void getUserName(character s, string name);
 	void displayinv(character s, Inventory i);
 	//void walkthrough(character s, Inventory i, string start, string name);
 	void leftpath(character s, Inventory i);
@@ -27,8 +28,10 @@ public:
 	void leftpathMutantFight(character s, Inventory i);
 	void choiceRemove(string x);
     void healUp(character s);
-    void restart(character s);
+	void rightPathStory(character s, Inventory i);    void restart(character s);
     void storylineSelect(character s, Inventory i);
+	void eastpath(character s, Inventory i);
+	void westpath(character s, Inventory i);
 
 	
 

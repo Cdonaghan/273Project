@@ -34,6 +34,12 @@ public:
 
 	void setdagger(string x);
 	string getdagger();
+	void setwand(string x);
+string getwand();
+void setdragonsword(string x);
+string getdragonsword();
+
+
 
 protected:
 	string sword = { "Sword" };
@@ -42,6 +48,7 @@ protected:
 	string potion = { "Potion" };
 	string dagger = { "Dagger" };
 	string Weapon;
+	string aerondight = { "aerondight" };
 
 };
 
