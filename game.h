@@ -28,6 +28,7 @@ public:
 	void leftpathMutantFight(character s, Inventory i);
 	void leftpathDragonLore(character s, Inventory i);
 	void leftpathDragonFight(character s, Inventory i);
+	void leftpathFinalLore();
 	void choiceRemove(string x);
     void healUp(character s);
 	void rightPathStory(character s, Inventory i);    void restart(character s);

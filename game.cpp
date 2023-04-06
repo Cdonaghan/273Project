@@ -1536,17 +1536,187 @@ void Game::leftpathDragonFight(character s, Inventory i)
 {
 	cout << "\nA loud scream is heard in the distancen\n";
 	cout << "\nWHO DARES ENTER THE LAIR OF HELL?\n";
-	cout <<"\nYou seem suspiscious. The leviathan fortold in the scroll was supposed to be tamed and befriended\n";
+	cout <<" \nYou seem suspiscious. The leviathan fortold in the scroll was supposed to be tamed and befriended\n";
 	cout << "\nHow are you meant to do that!!!????\n";
 	cout << "\nYou make your way down the spiral staircase into a massive cave\n";
-	cout << "\nThe dragon like creature comes flying in. Unlike anything you had seen before it was gargantuous\n";
+	cout << "\nBefore you get a chance to look around a dragon like creature comes flying in. Unlike anything you had seen before it was gargantuous\n";
+	cout << "\nYou dodge the attack. Roll over to see a big pillar and on top is a weird looking glass box with a wand inside of it\n";
+	cout << "\nYou smash the glass and take the wand. You feel a pulsing sensation through your body\n";
+	cout << "\nThe sign on the pillar says...\n";
+	cout << "\nTo those who dare challenge The Predecessor to hell. May god be with you and offer you this wand for your virtue\n";
+	i.addItem(i.getwand());
+	cout << "\nIt is time to Fight!!\n";
+
+	dragon f;
+
+	this->validChoice = false;
+		
+		while (this->validChoice == false) {
+			f.setname("The Predecessor");
+
+			cout << "Press 1 to attack" << endl;
+			cin >> choice;
+
+
+			switch (choice)
+			{
+			case 1:
+				cout << "You challenge him and he squares up \n";
+				cout << "Enemies stats: \n\n";
+				f.setname("The Predecessor");
+				f.enemytostring();
+				cout << "Here are your select battle moves \n\n";
+
+				do
+				{
+
+					int ans;
+					cout << "\n1.Sword attack\n2.Explosion attack\n3.Attack Spell\n4.Healing Potion\n5.Parry\n\n";
+					cout << " Select to choose your fate: " << "\n\n";
+					cin >> ans;
+					switch (ans)
+					{
+					case 1:
+						s.attackenemy(f);
+						break;
+					case 2:
+						s.explosion(f);
+						break;
+					case 3:
+						s.attackspelll(f);
+						break;
+					case 4:
+						s.healingpot();
+						s.checkHealingPots(s);
+						break;
+					case 5:
+						f.dragonparry(f, s);
+						break;
+					default:
+					{
+
+						if (cin.fail())//checker for anything other than an integer
+						{
+							cin.clear();//clears input
+							cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+							//line so the storage reference has no memory
+							cout << "wrong input" << endl;
+							;
+						}
+						else {
+							cout << "wrong input " << endl;
+							;
+						}
+
+						break;
+					}
+
+					}
+
+					//enemy attack
+					if (f.gethealth() <= 0)
+					{
+						f.enemySetHealthZero();
+						//enemydied();
+					}
+					else {
+						cout << "\n\n\t\t\t\tNOW ITS THE ENEMIES TURN TO ATTACK\n\n";
+
+						int x = rand() % (2 - 1 + 1) + 1;
+						switch (x)
+						{
+						case 1:
+							f.fireattack(s);
+							break;
+						case 2:
+							f.tailattack(s);
+							break;
+						
+						}
+
+					}
+
+
+				} while (((f.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
+				this->validChoice = true;
+				break;
+
+
+			case 2:
+
+				cout << "you let you and your fam die " << endl;
+				abort();
+				break;
+
+
+
+			default:
+
+
+				if (cin.fail())//checker for anything other than an integer
+				{
+					cin.clear();//clears input
+					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
+					//line so the storage reference has no memory
+					cout << "wrong input" << endl;
+				}
+			}
+		}
+
+		if (s.gethealth() <= 0)
+		{
+
+			playerdies();
+			restart(s);
+			leftpathDragonFight(s,i);
+			//break;
+		}
+
+		if (f.gethealth() <= 0)
+		{
+			cout << "congratulations warrior you defeted " << f.getname() << endl;
+			cout << "you gain 500 xp" << endl;
+			s.incexp(500);
+			s.levelup(s);
+
+
+		}
+
+		cout << "\n\n A great sigh of relief hits upon you as you finally completed the task. Although it is not over yet\n";
+		cout << "\nYou must find the escape pod\n";
+		cout << "\nYou head up the stairs to the trapdoor\n";
+		cout << "\nWith a loud slam you bang open the trapdoor. A big Rocketship lies at the top of the hill\n";
+		cout << "\nYou enter the rocketship and turn it on\n";
+		cout << "\nwould you like to leave?\n";
+		 
+		 validChoice = false;
+		 while (validChoice == false)
+		 {
+			string choice {""};
+			cin >> choice;
+			if (choice == "yes")
+			{
+			 leftpathFinalLore();
+			 validChoice = true;
+			} else if (choice == "no")
+			{
+				restart(s);
+				leftpathDragonFight(s,i);
+				validChoice = true;
+			} else {choiceRemove(choice);}
+
+		 }
+
 	
 }
 
+void Game::leftpathFinalLore()
+{
+	cout << "\nLiftoff in \n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n and boom";
+    cout << "\nCongratulations warrior, You look up into the night sky, appreciating the colour spectrum it is giving you as you fly away\n";
+	endgamecredits();
 
-
-
-
+}
 
 
 
