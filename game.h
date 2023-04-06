@@ -26,6 +26,7 @@ public:
 	void leftPathStory(character s, Inventory i);
 	void leftpathStoryContd(character s, Inventory i);
 	void leftpathMutantFight(character s, Inventory i);
+	void leftpathDragonLore(character s, Inventory i);
 	void leftpathDragonFight(character s, Inventory i);
 	void choiceRemove(string x);
     void healUp(character s);

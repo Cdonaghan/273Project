@@ -177,16 +177,27 @@ validChoice = true;
 		 }
 		
 		else if (choice2 == "1")
-		{
+		{   s.incexp(10);
+		    s.levelup(s);
+			s.levelup(s);
+			s.levelup(s);
 			leftPathStory(s,i);
 			validchoice2 = true;
 		} else if (choice2 == "2")
 		{
+			s.incexp(20);
+		    s.levelup(s);
+			s.levelup(s);
+			s.levelup(s);
 			leftpathMutantFight(s,i);
 			validchoice2 = true;
 		} else if (choice2 == "3")
 		{
-			leftpathDragonFight(s,i);
+			s.incexp(30);
+		    s.levelup(s);
+			s.levelup(s);
+			s.levelup(s);
+			leftpathDragonLore(s,i);
 			//comment in function for dragon fight
 			validchoice2 = true;
 		}
@@ -1459,12 +1470,12 @@ choiceRemove(choice7);
 }
 }
 
-leftpathDragonFight(s,i);
+leftpathDragonLore(s,i);
 getplaying();
 }
  
 
-void Game::leftpathDragonFight(character s, Inventory i)
+void Game::leftpathDragonLore(character s, Inventory i)
 {
 
 cout << "\n\nCONTINUING ON\n";
@@ -1492,15 +1503,28 @@ cout << "\n\nDARKNESS\n\n";
 cout << "\nyou awake to the sunlight shining through the small cracks in the shack\n";
 cout << "\ntoday is the day your return to your daughter\n";
 cout << "\nbefore you exit the shack you notice a healpot alot bigger than the others\n";
-cout << "\nyou have a look in your inventory to find a place to store it\n";
-displayinv(s,i);
-
-cout << "\nit is way too big. you must drink it\n";
+cout << "\nit is way too big to store. You must drink it\n";
 cout << "\nyou now have your health back to max\n";
 s.setmaxhealth(s);
 
-s.gethealth();
+displayinv(s,i);
 
+
+cout << "\nleaving the shack with full health you decide it is time to end this story once and for all\n";
+cout << "\nyou push forward up the hill, legs aching with every step\n";
+cout << "\nInvisioning your daughter, she is the only person that matters right now\n";
+cout << "\nyou push through the final steps, the oxygen concentration levels are slim up here\n";
+cout << "\nA massive flat platform lies at the entrance, with a trapdoor in the middle\n";
+cout << "\nas the scroll mentioned the dragons lair. You enter through the trapdoor in hopes of finding the lair\n";
+cout << "\nThere is smome thing odd about all of this as you never noticed an escape pod\n";
+cout << "\nThe trapdoor opens, as you enter it shuts with a clank, it sounds too heavy to make a quick escape\n";
+cout << "\nBelow is a perfectly architectured spiral staircase with small writing on every step, The writing was ineligible\n";
+cout << "\n\nThe only way is down.\n\n";
+
+
+
+continueToNext(s, i);
+leftpathDragonFight(s,i);
 
 
 
@@ -1508,7 +1532,16 @@ s.gethealth();
 getplaying();
 }
 
-
+void Game::leftpathDragonFight(character s, Inventory i)
+{
+	cout << "\nA loud scream is heard in the distancen\n";
+	cout << "\nWHO DARES ENTER THE LAIR OF HELL?\n";
+	cout <<"\nYou seem suspiscious. The leviathan fortold in the scroll was supposed to be tamed and befriended\n";
+	cout << "\nHow are you meant to do that!!!????\n";
+	cout << "\nYou make your way down the spiral staircase into a massive cave\n";
+	cout << "\nThe dragon like creature comes flying in. Unlike anything you had seen before it was gargantuous\n";
+	
+}
 
 
 
