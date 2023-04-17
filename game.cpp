@@ -37,17 +37,17 @@ cout << "\t\t\t\t\t\tKEEP AN EYE OUT FOR PART 2\n\n\n";
 getplaying();
 }
 
-void type_text(const std::string& text)
+void type_text(const string& text)
 {
 	// loop through each character in the text
-	for (std::size_t i = 0; i < text.size(); ++i)
+	for (int i = 0; i < text.size(); i++)
 	{
 		// output one character
 		// flush to make sure the output is not delayed
-		std::cout << text[i] << std::flush;
+		cout << text[i] << flush; //flushes the output sequence
 		
-		// sleep 60 milliseconds
-		usleep(60000); // use Sleep on windows
+		// wait 80 milliseconds till next letter
+		usleep(80000); // use Sleep on windows (for Santiago)
 	}
 }
 
@@ -56,9 +56,8 @@ bool Game::playerdies(character s)
 	cout << endl;
 	type_text ( "you are dead, you will now need to restart");
 	cout << endl;
-	restart(s);
-	//return this->dead = true;
-	//abort();
+	return this->dead = true;
+	abort();
 }
 
 void Game::restart(character s)
@@ -76,9 +75,10 @@ string choice {""};
 		cout << "\nGoing Back <------" << endl;
 		
 		validChoice = true;
+
 	} else if (choice == "no")
 	{
-		cout << playerdies(s);
+		
 		abort();
 	} else {
 		cin.fail();//checker for anything other than an integer
@@ -137,7 +137,7 @@ void Game::displayinv(character s, Inventory i)
 {
 	validChoice = false;
 	while (validChoice == false) {
-		cout << "type (inv) to view inventory, you may only use this when allowed " << endl; //not sure just preview atm
+		cout << "type 'inv' to view inventory, you may only use this when allowed " << endl; //not sure just preview atm
 		string invChoice{ "" };
 		cin >> invChoice;
 		if (invChoice == "inv")
@@ -355,23 +355,25 @@ void Game::walkthrough()
 			cout << "\t\t\t\t\t\t2: Storyline
 			"*/
 			cout << "\t\t\t\t\t\tChoice: ";
+		    string choice;
 			cin >> choice;
 
-			switch (choice)
+			
+			if (choice == "0")
 			{
-			case 0:
 				cout << "come again!" << endl;
 				abort();
-
-			case 1:
-
+			}
+			else if (choice == "1")
+			{
 
 				this->validChoice = true;
 				break;
-
-				case 2:
-
+			}
+			else if (choice == "2")
+			{
 				storylineSelect(s,i);
+			}
 
 				//display functions for certain storypoints here
 				//done in an if statement with an input checker
@@ -381,15 +383,18 @@ void Game::walkthrough()
 				//if(choice == "Left path")
 				//leftpath(s, i);
 
-			default:
-				if (cin.fail())//checker for anything other than an integer
+			else
+			{
+
+			
+				/*if (cin.fail())//checker for anything other than an integer
 				{
 					cin.clear();//clears input
 					cin.ignore(1000, '\n');//discards input to either 1000 characters or until a new 
 					//line so the storage reference has no memory
 					cout << "wrong input" << endl;
-				}
-				//choiceRemove(choice);
+				}*/
+				choiceRemove(choice);
 			}
 
 		}
@@ -758,8 +763,10 @@ void Game::leftpath(character s, Inventory i)
 			else if (userChoice == "2") {
 				cout << "You are detected by the goblin, he catches you as you run away and eats you" << endl;
 				playerdies(s);
-				restart(s); // already aborts code
+				restart(s);
+				leftpath(s,i);
 				//validChoice = true;
+			
 
 			}
 			else {
