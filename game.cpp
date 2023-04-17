@@ -673,7 +673,7 @@ void Game::beginning(character s, Inventory i)
         cout << "\nAs you bring your head out the moondust, you notice that there are unrecognised beings being detected on your organism radar" << endl;
 		cout << "\nyou look down at your watch to check if it is intact" <<endl;
 		cout << "\nwatch display Location - [IO], TIME UNKNOWN" << endl;;
-		cout << "\nyou go to check your bag\n\n\n\n\n" << endl;
+		cout << "\nyou go to check your bag\n\n" << endl;
 		s.setlevel(1);
 
 		displayinv(s, i);
@@ -690,20 +690,6 @@ void Game::beginning(character s, Inventory i)
             string userChoice = { " " };
 			cin >> userChoice;
 
-			if (userChoice == "left")
-			{
-				cout << "you have chosen the left path" << endl;
-				this->validChoice = true;
-				leftpath(s, i);
-			}
-			else if (userChoice == "right") {
-				cout << "you have chosen the right path" << endl;
-				this->validChoice = true;
-				rightPath(s, i);
-			}
-			else {
-				cout << "wrong input please try again" << endl;
-				cin.fail();//checker for anything other than an integer
 		if (userChoice == "left")
 		{
 			cout << "you have chosen the left path" << endl;
@@ -722,9 +708,9 @@ void Game::beginning(character s, Inventory i)
 			}
 		}
 		}
-		getplaying();
+		//getplaying();
 
-}
+
 
 
 
@@ -762,7 +748,6 @@ void Game::leftpath(character s, Inventory i)
 			}
 			else if (userChoice == "2") {
 				cout << "You are detected by the goblin, he catches you as you run away and eats you" << endl;
-				playerdies(s);
 				restart(s);
 				leftpath(s,i);
 				//validChoice = true;
