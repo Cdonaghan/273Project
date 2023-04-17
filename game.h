@@ -14,7 +14,7 @@ public:
 	void walkthrough();
 	bool getplaying();
 	void continueToNext(character s, Inventory i);
-	bool playerdies();
+	bool playerdies(character s);
 	bool enemydied();
 	void endgamecredits();
 	//void getUserName(character s, string name);

@@ -4,6 +4,8 @@
 #include "enemytype.h"
 #include<string>
 #include<iostream>
+#include <unistd.h>
+
 
 using namespace std;
 
@@ -25,12 +27,7 @@ bool Game::getplaying()
 }
 bool Game::enemydied() { return true; }
 
-bool Game::playerdies()
-{
-	cout << "you are dead, you will now need to restart" << endl;
-	return this->dead = true;
-	abort();
-}
+
 
 void Game::endgamecredits() { cout << "\n\n\n\n\n\n\n\n273 project: Text Based RPG Game" << "\n\n" << "created by Daniel Conaghan and Santiago Rivett Barragan" << "\n\n\n\n\n"; cout << "\n\n\n\t\t\t\t\t\t50-50 equal contribution in this project\n\n\n\n";
 
@@ -40,7 +37,29 @@ cout << "\t\t\t\t\t\tKEEP AN EYE OUT FOR PART 2\n\n\n";
 getplaying();
 }
 
+void type_text(const std::string& text)
+{
+	// loop through each character in the text
+	for (std::size_t i = 0; i < text.size(); ++i)
+	{
+		// output one character
+		// flush to make sure the output is not delayed
+		std::cout << text[i] << std::flush;
+		
+		// sleep 60 milliseconds
+		usleep(60000); // use Sleep on windows
+	}
+}
 
+bool Game::playerdies(character s)
+{
+	cout << endl;
+	type_text ( "you are dead, you will now need to restart");
+	cout << endl;
+	restart(s);
+	//return this->dead = true;
+	//abort();
+}
 
 void Game::restart(character s)
 {
@@ -59,7 +78,7 @@ string choice {""};
 		validChoice = true;
 	} else if (choice == "no")
 	{
-		cout << playerdies();
+		cout << playerdies(s);
 		abort();
 	} else {
 		cin.fail();//checker for anything other than an integer
@@ -258,7 +277,9 @@ void Game::continueToNext(character s, Inventory i)
 {
 	 
 	   validChoice = false;
-	   cout << "\nwould you like to continue?\n";
+	   cout << endl;
+	   type_text("would you like to continue?");
+	   cout << "\n";
 	   cout << "note -- if not you will be asked to restart\n";
 	   cout << "1. Continue?\n" <<  "2. Restart?\n";
        
@@ -297,7 +318,8 @@ void Game::walkthrough()
 	string names;
 	Inventory i; //inventory declaration
 	
-    cout << "\nEnter your name below" << endl;
+    type_text("Enter your name below");
+	cout << endl;
 	cin >> names;
 	s.setname(names);
 
@@ -402,7 +424,7 @@ void Game::walkthrough()
 		cout << "Here are your starting stats: \n\n";
 		s.tostring(s);
 		this->validChoice = false;
-		cout << "Along your travels you see a fat goblin and he wants to take your family" << endl;
+		cout << "\n\n\nAlong your travels you see a fat goblin and he wants to take your family" << endl;
 		cout << "What do you do?\n\n";
 		while (this->validChoice == false) {
 			e.setname("Hagrid");
@@ -411,7 +433,6 @@ void Game::walkthrough()
 			cout << "2. Give him your wife\n\n";
 			cout << "Select '1' or '2'\n\n";
 			cin >> choice;
-
 
 			switch (choice)
 			{
@@ -524,7 +545,8 @@ void Game::walkthrough()
 		if (s.gethealth() <= 0)
 		{
 
-			playerdies();
+			playerdies(s);
+			walkthrough();
 			abort();
 			//break;
 		}
@@ -735,7 +757,7 @@ void Game::leftpath(character s, Inventory i)
 			}
 			else if (userChoice == "2") {
 				cout << "You are detected by the goblin, he catches you as you run away and eats you" << endl;
-				playerdies();
+				playerdies(s);
 				restart(s); // already aborts code
 				//validChoice = true;
 
@@ -1666,7 +1688,7 @@ void Game::leftpathDragonFight(character s, Inventory i)
 		if (s.gethealth() <= 0)
 		{
 
-			playerdies();
+			playerdies(s);
 			restart(s);
 			leftpathDragonFight(s,i);
 			//break;
@@ -1764,7 +1786,7 @@ while ((this->playing == true) && (this->dead == false))
 		else if (userChoice1 == "2")
 		{
 			cout << "\nYou panic and start screaming, the troll spots you instantly and lets out a horrible roar.\n\nIt starts running to you and kills you with a deadly blow.\n\n";
-			playerdies();
+			playerdies(s);
 			//validChoice = true;
 		}
 		else
@@ -1914,7 +1936,7 @@ while ((this->playing == true) && (this->dead == false))
 		{
 			cout << "You run back into the escape pod and slam the door shut behind you. As you slam the door the sound echoes through the escape pod,\n\nthe goblin holding the human hostage pounces on your back and pierces you through the chest with his sword, killing you\n\n";
 			validChoice = false;
-			playerdies();
+			playerdies(s);
 			abort();
 		}
 		else if (userchoice2323 == 2)
@@ -1984,7 +2006,7 @@ while ((this->playing == true) && (this->dead == false))
 			this->validChoice = true;
 			if (s.gethealth() <= 0)
 			{
-				playerdies();
+				playerdies(s);
 				restart(s);
 			}
 			if (p.gethealth() <= 0)
@@ -2114,7 +2136,7 @@ while ((this->playing == true) && (this->dead == false))
 		else if (yesorno == "2")
 		{
 			cout << "\n\n'I cannot believe you are this selfish' he screams.\n\nHe continues shouting at you and you both start fighting until you both suddenly hear a loud roar.\n\n The dragon enters the cave and burns you all\n";
-			playerdies();
+			playerdies(s);
 			abort();
 		}
 		else
@@ -2303,7 +2325,7 @@ while ((this->playing == true) && (this->dead == false))
 
 			if (s.gethealth() <= 0)
 			{
-				playerdies();
+				playerdies(s);
 				restart(s);
 			}
 			if (t.gethealth() <= 0)
@@ -2311,7 +2333,7 @@ while ((this->playing == true) && (this->dead == false))
 				cout << "\n\nThe troll falls backwards with a massive BANG.\n\n";
 				cout << "You gain 15xp from this battle\n\n";
 				cout << "The bang has alerted a herd of goblins all of which are running straight towards you.\n\nYou run as fast as you can but a bow hits you right in the leg, you fall over and look backwards.\n\nJust as you turn around you a bow hits you in the face.\n\n";
-				playerdies();
+				playerdies(s);
 			}
 
 
@@ -2408,7 +2430,7 @@ while ((this->playing == true) && (this->dead == false))
 
 		if (s.gethealth() <= 0)
 		{
-			playerdies();
+			playerdies(s);
 		}
 		if (m.gethealth() <= 0)
 		{
@@ -2443,7 +2465,7 @@ while ((this->playing == true) && (this->dead == false))
 					if (dec4 == "1")
 					{
 						cout << "You hide under a desk frightned. The voice bellows again\n\n'YOU COWARD, FINE ILL JUST KILL YOU NOW THEN'\n\nThe Dragon spits fire into the entrance of the ship and incinerates you\n\n";
-						playerdies();
+						playerdies(s);
 
 					}
 					else if (dec4 == "2")
@@ -2456,7 +2478,7 @@ while ((this->playing == true) && (this->dead == false))
 						if (dec5 == "1")
 						{
 							cout << "\n\nYou start flapping you arms like a little girl and run away.\n\n The dragon flaps its wings hovering in the air and plunges towards you\n\nThe dragon dives and hits you with its tail squishing you like an ant\n\n";
-							playerdies();
+							playerdies(s);
 						}
 						else if (dec5 == "2")
 						{
@@ -2525,7 +2547,7 @@ while ((this->playing == true) && (this->dead == false))
 							//this->validChoice=true;
 							if (s.gethealth() <= 0)
 							{
-								playerdies();
+								playerdies(s);
 							}
 							if (d.gethealth() <= 0)
 							{
@@ -2573,7 +2595,7 @@ while ((this->playing == true) && (this->dead == false))
 					if (dec6 == "1")
 					{
 						cout << "\n\nYou start flapping you arms like a little girl and run away.\n\n The dragon flaps its wings hovering in the air and plunges towards you.\n\nThe dragon incinerates you were you stand\n\n";
-						playerdies();
+						playerdies(s);
 					}
 
 					else if (dec6 == "2")
@@ -2643,7 +2665,7 @@ while ((this->playing == true) && (this->dead == false))
 						//this->validChoice = true;
 						if (s.gethealth() <= 0)
 						{
-							playerdies();
+							playerdies(s);
 						}
 						if (d.gethealth() <= 0)
 						{
@@ -2742,7 +2764,7 @@ while ((this->playing == true) && (this->dead == false))
 				} while (((t.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
 				if (s.gethealth() <= 0)
 				{
-					playerdies();
+					playerdies(s);
 				}
 				if (t.gethealth() <= 0)
 				{
@@ -2819,7 +2841,7 @@ while ((this->playing == true) && (this->dead == false))
 
 					if (s.gethealth() <= 0)
 					{
-						playerdies();
+						playerdies(s);
 					}
 					if (d.gethealth() <= 0)
 					{
@@ -2918,12 +2940,12 @@ while ((this->playing == true) && (this->dead == false))
 		} while (((t.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
 		if (s.gethealth() <= 0)
 		{
-			playerdies();
+			playerdies(s);
 		}
 		if (t.gethealth() <= 0)
 		{
 			cout << "\n\nAs you stand over the trolls dead body. The roar and the thud of the body hitting the ground had alerted both\n\nthe mutant from before as well as King Druk. The mutant jumps on your back and bites your neck, at the same time King Druk scortches\n\nyou with his fire breath.";
-			playerdies();
+			playerdies(s);
 		}
 
 
@@ -2969,7 +2991,7 @@ while ((this->playing == true) && (this->dead == false))
 			if (west3 == "1")
 			{
 				cout << "You make a run for the escape pod.\n\nYou can hear the dragon move and laugh it says\n\n'OH WE LOVE A RUNNER. IT MAKES THE KILL SO MUCH MORE EXCITING!'\n\nYou enter the escape pod and quickly select the planet Jupiter. The escape pod is flung upwards and you can feel the thursters powering you into the sky.\n\n'I've done it I've escaped'\n\nyou say with a sigh of releif and you sit down.\n\nBANG\n\n'YOU DIDNT LEAVE WITHOUT SAYING GOOD BYE' the dragon screams\n\nThe dragon starts biting the escape pod and you are squished\n\n";
-				playerdies();
+				playerdies(s);
 			}
 			else if (west3 == "2")
 			{
@@ -3039,7 +3061,7 @@ while ((this->playing == true) && (this->dead == false))
 				//this->validChoice=true;
 				if (s.gethealth() <= 0)
 				{
-					playerdies();
+					playerdies(s);
 				}
 				if (d.gethealth() <= 0)
 				{
@@ -3123,12 +3145,12 @@ while ((this->playing == true) && (this->dead == false))
 			} while (((t.gethealth() > 0) && (s.gethealth() > 0)) || (enemydied() == false));
 			if (s.gethealth() <= 0)
 			{
-				playerdies();
+				playerdies(s);
 			}
 			if (t.gethealth() <= 0)
 			{
 				cout << "\n\nAs you stand over the trolls dead body. The roar and the thud of the body hitting the ground has alerted the three trolls that were walking away. They all charge at you and you try to run away, you start running away from the trolls and find yourself at the edge of a cliff. You look down and there is a massive drop, theres no way you can surive this if you jumped. You stand still thinking about what you are going to do but the trolls have finally caught up to you. The three trolls pick you up and pull your limbs apart in a gruesome manner. \n\n ";
-				playerdies();
+				playerdies(s);
 			}
 		}
 		else
@@ -3143,7 +3165,7 @@ while ((this->playing == true) && (this->dead == false))
 	{
 		cout << "\n\nYou decide to walk your own seperate path to avoid any trouble.\n\nYou continue to stay vigilant just in case there are some unexpected visitors along the way. You continue to walk in this direction until you reach the end of the forrest .You haven't eaten and drank for days, you are extremely dehydrated.\n'Maybe I just went the wrong way' you mumbled to yourself\n";
 		cout << "It's getting late now you find shelter and sleep until the morning.\n\n'Well,Well,Well look what we have found here boys'\n\nYou wake up and sit up instantly you are cornered by a group of goblins. You try to run away but one of the goblins launches an arrow at your leg, you fall to the ground and start screaming in pain. \n\nA goblin jumps on you pinning you down with a dagger in his hand.\n\n'Shhhhh no need to scream it'll all be over very soon'\n\nThe goblins slits your throat.";
-		playerdies();
+		playerdies(s);
 	}
 	else
 	{
